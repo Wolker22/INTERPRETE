@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Archivo de código fuente table/init.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7cea70ad8000b4ba25606f1df9c7574a.html">table</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">init.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="init_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="init_8hpp.html">init.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="table_8hpp.html">table.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Constantes</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="numericConstant_8hpp.html">numericConstant.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="logicalConstant_8hpp.html">logicalConstant.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// Palabras clave</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="keyword_8hpp.html">keyword.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// Funciones</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="builtinParameter0_8hpp.html">builtinParameter0.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="builtinParameter1_8hpp.html">builtinParameter1.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="builtinParameter2_8hpp.html">builtinParameter2.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// Tokens del parser</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;../parser/interpreter.tab.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="init_8cpp.html#ae7bf5ad90e29870521071cd69cd00f37">   27</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="init_8cpp.html#ae7bf5ad90e29870521071cd69cd00f37">init</a>(<a class="code hl_class" href="classlp_1_1Table.html">lp::Table</a> &amp;t)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// Constantes numéricas</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_class" href="classlp_1_1NumericConstant.html">lp::NumericConstant</a> *n;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">for</span> (i = 0; numericConstant[i].name.compare(<span class="stringliteral">&quot;&quot;</span>) != 0; i++)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                n = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1NumericConstant.html">lp::NumericConstant</a>(numericConstant[i].name,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                                                                        CONSTANT,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                                                                        TYPE_NUMBER,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                                                                        numericConstant[i].value);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        t.<a class="code hl_function" href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">installSymbol</a>(n);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// Constantes lógicas</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_class" href="classlp_1_1LogicalConstant.html">lp::LogicalConstant</a> *l;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">for</span> (i = 0; logicalConstant[i].name.compare(<span class="stringliteral">&quot;&quot;</span>) != 0; i++)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                l = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1LogicalConstant.html">lp::LogicalConstant</a>(logicalConstant[i].name,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                                                                        CONSTANT,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                                                                        TYPE_BOOL,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                                                                        logicalConstant[i].value);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        t.<a class="code hl_function" href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">installSymbol</a>(l);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>       <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>       <span class="comment">// Palabras clave</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="classlp_1_1Keyword.html">lp::Keyword</a> *k;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (i = 0; keyword[i].name.compare(<span class="stringliteral">&quot;&quot;</span>) != 0; i++)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        k = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1Keyword.html">lp::Keyword</a>(keyword[i].name,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                            keyword[i].token);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        t.<a class="code hl_function" href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">installSymbol</a>(k);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Funciones predefinidas con 1 parámetro</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classlp_1_1BuiltinParameter1.html">lp::BuiltinParameter1</a> *f1;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">for</span> (i = 0; function_1[i].name.compare(<span class="stringliteral">&quot;&quot;</span>) != 0; i++)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        f1 = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1BuiltinParameter1.html">lp::BuiltinParameter1</a>(function_1[i].name,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                       BUILTIN,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                                       1,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                                       function_1[i].function);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        t.<a class="code hl_function" href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">installSymbol</a>(f1);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// Funciones predefinidas con 0 parámetros</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_class" href="classlp_1_1BuiltinParameter0.html">lp::BuiltinParameter0</a> *f0;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">for</span> (i = 0; function_0[i].name.compare(<span class="stringliteral">&quot;&quot;</span>) != 0; i++)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        f0 = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1BuiltinParameter0.html">lp::BuiltinParameter0</a>(function_0[i].name,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                                       BUILTIN,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                                       0,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                                       function_0[i].function);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        t.<a class="code hl_function" href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">installSymbol</a>(f0);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// Funciones predefinidas con 2 parámetros</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_class" href="classlp_1_1BuiltinParameter2.html">lp::BuiltinParameter2</a> *f2;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">for</span> (i = 0; function_2[i].name.compare(<span class="stringliteral">&quot;&quot;</span>) != 0; i++)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        f2 = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1BuiltinParameter2.html">lp::BuiltinParameter2</a>(function_2[i].name,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                                       BUILTIN,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                                       2,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                                       function_2[i].function);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        t.<a class="code hl_function" href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">installSymbol</a>(f2);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="comment">//-----------------------------------</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="comment">// Funciones predefinidas string con 1 parámetro (sin uso)</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+</div>
+<div class="ttc" id="abuiltinParameter0_8hpp_html"><div class="ttname"><a href="builtinParameter0_8hpp.html">builtinParameter0.hpp</a></div><div class="ttdoc">Declaración de la clase BuiltinParameter0.</div></div>
+<div class="ttc" id="abuiltinParameter1_8hpp_html"><div class="ttname"><a href="builtinParameter1_8hpp.html">builtinParameter1.hpp</a></div><div class="ttdoc">Declaración de la clase BuiltinParameter1.</div></div>
+<div class="ttc" id="abuiltinParameter2_8hpp_html"><div class="ttname"><a href="builtinParameter2_8hpp.html">builtinParameter2.hpp</a></div><div class="ttdoc">Declaración de la clase BuiltinParameter2.</div></div>
+<div class="ttc" id="aclasslp_1_1BuiltinParameter0_html"><div class="ttname"><a href="classlp_1_1BuiltinParameter0.html">lp::BuiltinParameter0</a></div><div class="ttdoc">Clase que representa una función predefinida sin parámetros.</div><div class="ttdef"><b>Definition</b> <a href="builtinParameter0_8hpp_source.html#l00028">builtinParameter0.hpp:29</a></div></div>
+<div class="ttc" id="aclasslp_1_1BuiltinParameter1_html"><div class="ttname"><a href="classlp_1_1BuiltinParameter1.html">lp::BuiltinParameter1</a></div><div class="ttdoc">Representa una función predefinida con un único parámetro.</div><div class="ttdef"><b>Definition</b> <a href="builtinParameter1_8hpp_source.html#l00028">builtinParameter1.hpp:29</a></div></div>
+<div class="ttc" id="aclasslp_1_1BuiltinParameter2_html"><div class="ttname"><a href="classlp_1_1BuiltinParameter2.html">lp::BuiltinParameter2</a></div><div class="ttdoc">Representa una función predefinida con dos parámetros.</div><div class="ttdef"><b>Definition</b> <a href="builtinParameter2_8hpp_source.html#l00028">builtinParameter2.hpp:29</a></div></div>
+<div class="ttc" id="aclasslp_1_1Keyword_html"><div class="ttname"><a href="classlp_1_1Keyword.html">lp::Keyword</a></div><div class="ttdoc">Clase que representa una palabra clave del lenguaje.</div><div class="ttdef"><b>Definition</b> <a href="keyword_8hpp_source.html#l00025">keyword.hpp:26</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalConstant_html"><div class="ttname"><a href="classlp_1_1LogicalConstant.html">lp::LogicalConstant</a></div><div class="ttdoc">Definition of atributes and methods of LogicalConstant class.</div><div class="ttdef"><b>Definition</b> <a href="logicalConstant_8hpp_source.html#l00028">logicalConstant.hpp:29</a></div></div>
+<div class="ttc" id="aclasslp_1_1NumericConstant_html"><div class="ttname"><a href="classlp_1_1NumericConstant.html">lp::NumericConstant</a></div><div class="ttdoc">Representa una constante numérica.</div><div class="ttdef"><b>Definition</b> <a href="numericConstant_8hpp_source.html#l00025">numericConstant.hpp:26</a></div></div>
+<div class="ttc" id="aclasslp_1_1Table_html"><div class="ttname"><a href="classlp_1_1Table.html">lp::Table</a></div><div class="ttdoc">Clase que representa una tabla de símbolos.</div><div class="ttdef"><b>Definition</b> <a href="table_8hpp_source.html#l00021">table.hpp:22</a></div></div>
+<div class="ttc" id="aclasslp_1_1Table_html_aef4ef0061f49bf9bba06e6570d40e979"><div class="ttname"><a href="classlp_1_1Table.html#aef4ef0061f49bf9bba06e6570d40e979">lp::Table::installSymbol</a></div><div class="ttdeci">void installSymbol(Symbol *s)</div><div class="ttdoc">Inserta un nuevo símbolo en la tabla (debe no existir previamente)</div><div class="ttdef"><b>Definition</b> <a href="table_8cpp_source.html#l00029">table.cpp:29</a></div></div>
+<div class="ttc" id="ainit_8cpp_html_ae7bf5ad90e29870521071cd69cd00f37"><div class="ttname"><a href="init_8cpp.html#ae7bf5ad90e29870521071cd69cd00f37">init</a></div><div class="ttdeci">void init(lp::Table &amp;t)</div><div class="ttdoc">Inicializa la tabla de símbolos con constantes, palabras clave y funciones predefinidas.</div><div class="ttdef"><b>Definition</b> <a href="init_8cpp_source.html#l00027">init.cpp:27</a></div></div>
+<div class="ttc" id="ainit_8hpp_html"><div class="ttname"><a href="init_8hpp.html">init.hpp</a></div><div class="ttdoc">Prototipo de la función de inicialización de la tabla de símbolos.</div></div>
+<div class="ttc" id="akeyword_8hpp_html"><div class="ttname"><a href="keyword_8hpp.html">keyword.hpp</a></div><div class="ttdoc">Declaración de la clase Keyword.</div></div>
+<div class="ttc" id="alogicalConstant_8hpp_html"><div class="ttname"><a href="logicalConstant_8hpp.html">logicalConstant.hpp</a></div><div class="ttdoc">Declaration of LogicalConstant class.</div></div>
+<div class="ttc" id="anumericConstant_8hpp_html"><div class="ttname"><a href="numericConstant_8hpp.html">numericConstant.hpp</a></div><div class="ttdoc">Declaración de la clase NumericConstant.</div></div>
+<div class="ttc" id="atable_8hpp_html"><div class="ttname"><a href="table_8hpp.html">table.hpp</a></div><div class="ttdoc">Declaración de la clase Table.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

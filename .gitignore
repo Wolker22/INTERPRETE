@@ -1,0 +1,11 @@
+# Build artifacts
+*.o
+interpreter.exe
+parser/interpreter.tab.c
+parser/interpreter.tab.h
+parser/lex.yy.c
+parser/interpreter.gv
+parser/*.o
+ast/*.o
+error/*.o
+table/*.o

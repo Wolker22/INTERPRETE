@@ -1,0 +1,13 @@
+<map id="lp::Constant" name="lp::Constant">
+<area shape="rect" id="Node000001" title="Clase abstracta que representa una constante del lenguaje." alt="" coords="243,584,470,828"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1LogicalConstant.html" title="Definition of atributes and methods of LogicalConstant class." alt="" coords="5,876,220,1467"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="257,841,235,877,222,900,218,898,230,875,252,838"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1NumericConstant.html" title="Representa una constante numérica." alt="" coords="245,1035,469,1308"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="359,842,359,1035,354,1035,354,842"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1StringConstant.html" title="Clase que representa constantes de tipo cadena." alt="" coords="493,1027,698,1315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="461,838,483,875,520,950,551,1026,546,1028,515,952,478,877,457,841"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="258,237,455,536"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="359,550,359,584,354,584,354,550"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="249,5,465,189"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,203,359,237,354,237,354,203"/>
+</map>

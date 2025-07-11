@@ -1,0 +1,9 @@
+<map id="lp::LogicalConstant::setValue" name="lp::LogicalConstant::setValue">
+<area shape="rect" id="Node000001" title="This functions modifies the value of the LogicalConstant." alt="" coords="200,69,347,109"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1LogicalConstant.html#a5d8007faed96ade98b5af89880f1660c" title="Copy constructor." alt="" coords="5,5,152,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,67,139,48,141,43,199,62"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1LogicalConstant.html#adcd8e5dba5f11a152a41615dbd05fff2" title="Constructor with arguments with default values." alt="" coords="5,69,152,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,92,152,92,152,87,186,87"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1LogicalConstant.html#a33e4366d483dd34528b84869a90ff242" title="Assignment Operator." alt="" coords="5,133,152,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,116,141,136,139,131,198,111"/>
+</map>

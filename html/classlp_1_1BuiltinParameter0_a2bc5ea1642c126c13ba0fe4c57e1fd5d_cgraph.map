@@ -1,0 +1,19 @@
+<map id="lp::BuiltinParameter0::BuiltinParameter0" name="lp::BuiltinParameter0::BuiltinParameter0">
+<area shape="rect" id="Node000001" title="Constructor de copia: clona los atributos de otra función predefinida." alt="" coords="5,191,164,231"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1BuiltinParameter0.html#a6335cd9d0e3b6f4b320499754ff4e2e8" title="Devuelve la función asociada." alt="" coords="231,5,390,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,189,140,124,173,87,210,55,220,49,223,54,214,59,176,91,144,127,99,192"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="231,70,390,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,188,149,146,179,123,211,104,227,97,229,102,213,109,182,128,153,150,107,192"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1Builtin.html#a9506e057d9727dd9c94c43aa4d51a2e2" title="Devuelve el número de parámetros." alt="" coords="212,119,409,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="126,188,211,153,237,146,238,151,213,159,128,193"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="232,169,389,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="164,198,218,191,218,196,164,203"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1BuiltinParameter0.html#a02869804b64ee2086415a5e04a0aba88" title="Asigna una nueva función." alt="" coords="231,219,390,259"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="164,218,218,225,217,230,164,223"/>
+<area shape="rect" id="Node000007" href="$classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="231,283,390,309"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="124,228,213,268,241,277,239,282,211,273,122,233"/>
+<area shape="rect" id="Node000008" href="$classlp_1_1Builtin.html#a8d1a8a2c908913bfe8face179f9c1792" title="Modifica el número de parámetros." alt="" coords="213,333,409,358"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="105,229,152,274,181,298,213,318,231,326,229,331,211,322,178,302,148,278,102,233"/>
+<area shape="rect" id="Node000009" href="$classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="233,382,389,407"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="98,229,142,298,175,335,213,367,227,374,224,379,211,372,171,339,138,301,94,232"/>
+</map>

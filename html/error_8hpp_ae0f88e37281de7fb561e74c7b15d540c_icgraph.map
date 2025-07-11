@@ -1,0 +1,13 @@
+<map id="errcheck" name="errcheck">
+<area shape="rect" id="Node000001" title="Control EDOM or ERANGE errors." alt="" coords="115,104,193,129"/>
+<area shape="rect" id="Node000002" href="$mathFunction_8cpp.html#aaa5ab3c65b9641f75f6d58a780d1a624" title="Calcula la arcotangente del cociente x/y." alt="" coords="6,5,66,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,97,65,44,52,33,55,29,68,40,130,93"/>
+<area shape="rect" id="Node000003" href="$mathFunction_8cpp.html#ab778ae483c09efc88fe80ee315634247" title="Calcula la exponencial de un número real." alt="" coords="13,55,59,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,101,59,79,61,74,111,96"/>
+<area shape="rect" id="Node000004" href="$mathFunction_8cpp.html#ab190405c8d2ef86c06c2a76c8919a5ec" title="Calcula el logaritmo neperiano de un número real." alt="" coords="13,104,59,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,119,59,119,59,114,101,114"/>
+<area shape="rect" id="Node000005" href="$mathFunction_8cpp.html#a6f34bf0aa6b49d312f200d73282f235d" title="Calcula el logaritmo decimal de un número real." alt="" coords="5,153,67,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="112,137,68,156,66,151,110,132"/>
+<area shape="rect" id="Node000006" href="$mathFunction_8cpp.html#a0df8e683452b4bc3bf2bac39300b78fb" title="Calcula la raíz cuadrada de un número real." alt="" coords="12,203,60,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="129,140,54,204,51,200,126,136"/>
+</map>

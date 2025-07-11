@@ -1,0 +1,7 @@
+<map id="errcheck" name="errcheck">
+<area shape="rect" id="Node000001" title="Control EDOM or ERANGE errors." alt="" coords="5,5,84,31"/>
+<area shape="rect" id="Node000002" href="$error_8cpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function." alt="" coords="132,5,215,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,15,118,15,118,21,84,21"/>
+<area shape="rect" id="Node000003" href="$error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages." alt="" coords="263,5,337,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,15,249,15,249,21,215,21"/>
+</map>

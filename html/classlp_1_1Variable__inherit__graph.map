@@ -1,0 +1,13 @@
+<map id="lp::Variable" name="lp::Variable">
+<area shape="rect" id="Node000001" title="Clase base para representar variables del lenguaje." alt="" coords="237,584,460,828"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1LogicalVariable.html" title="Representa una variable lógica (true o false)" alt="" coords="5,883,215,1157"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,840,216,885,212,881,246,837"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1NumericVariable.html" title="Representa una variable numérica." alt="" coords="239,883,458,1157"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="351,842,351,883,346,883,346,842"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1StringVariable.html" title="Representa una variable de tipo string." alt="" coords="483,876,684,1164"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="450,838,485,883,480,887,446,841"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="250,237,447,536"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="351,550,351,584,346,584,346,550"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="241,5,457,189"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,203,351,237,346,237,346,203"/>
+</map>

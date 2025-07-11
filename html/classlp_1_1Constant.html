@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Referencia de la clase lp::Constant</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacelp.html">lp</a></li><li class="navelem"><a class="el" href="classlp_1_1Constant.html">Constant</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pro-attribs">Atributos protegidos</a> &#124;
+<a href="classlp_1_1Constant-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase lp::Constant</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Clase abstracta que representa una constante del lenguaje.  
+ <a href="classlp_1_1Constant.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="constant_8hpp_source.html">constant.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de lp::Constant</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant__inherit__graph.png" border="0" usemap="#alp_1_1Constant_inherit__map" alt="Inheritance graph"/></div>
+<map name="alp_1_1Constant_inherit__map" id="alp_1_1Constant_inherit__map">
+<area shape="rect" title="Clase abstracta que representa una constante del lenguaje." alt="" coords="243,584,470,828"/>
+<area shape="rect" href="classlp_1_1LogicalConstant.html" title="Definition of atributes and methods of LogicalConstant class." alt="" coords="5,876,220,1467"/>
+<area shape="poly" title=" " alt="" coords="257,841,235,877,222,900,218,898,230,875,252,838"/>
+<area shape="rect" href="classlp_1_1NumericConstant.html" title="Representa una constante numérica." alt="" coords="245,1035,469,1308"/>
+<area shape="poly" title=" " alt="" coords="359,842,359,1035,354,1035,354,842"/>
+<area shape="rect" href="classlp_1_1StringConstant.html" title="Clase que representa constantes de tipo cadena." alt="" coords="493,1027,698,1315"/>
+<area shape="poly" title=" " alt="" coords="461,838,483,875,520,950,551,1026,546,1028,515,952,478,877,457,841"/>
+<area shape="rect" href="classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="258,237,455,536"/>
+<area shape="poly" title=" " alt="" coords="359,550,359,584,354,584,354,550"/>
+<area shape="rect" href="classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="249,5,465,189"/>
+<area shape="poly" title=" " alt="" coords="359,203,359,237,354,237,354,203"/>
+</map>
+</div>
+<div class="dynheader">
+Diagrama de colaboración de lp::Constant:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant__coll__graph.png" border="0" usemap="#alp_1_1Constant_coll__map" alt="Collaboration graph"/></div>
+<map name="alp_1_1Constant_coll__map" id="alp_1_1Constant_coll__map">
+<area shape="rect" title="Clase abstracta que representa una constante del lenguaje." alt="" coords="5,584,232,828"/>
+<area shape="rect" href="classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="20,237,217,536"/>
+<area shape="poly" title=" " alt="" coords="121,550,121,584,116,584,116,550"/>
+<area shape="rect" href="classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="11,5,227,189"/>
+<area shape="poly" title=" " alt="" coords="121,203,121,237,116,237,116,203"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:aa0669fa18e449b9654c89c1117978ea1" id="r_aa0669fa18e449b9654c89c1117978ea1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#aa0669fa18e449b9654c89c1117978ea1">Constant</a> (std::string name=&quot;&quot;, int token=0, int type=0)</td></tr>
+<tr class="memdesc:aa0669fa18e449b9654c89c1117978ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor con valores por defecto.  <br /></td></tr>
+<tr class="separator:aa0669fa18e449b9654c89c1117978ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436b350e2b814b4e4123b6a0b4285870" id="r_a436b350e2b814b4e4123b6a0b4285870"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#a436b350e2b814b4e4123b6a0b4285870">Constant</a> (const <a class="el" href="classlp_1_1Constant.html">Constant</a> &amp;c)</td></tr>
+<tr class="memdesc:a436b350e2b814b4e4123b6a0b4285870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de copia.  <br /></td></tr>
+<tr class="separator:a436b350e2b814b4e4123b6a0b4285870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1382b5b5f2fd2f376f22b6ce4447f06d" id="r_a1382b5b5f2fd2f376f22b6ce4447f06d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#a1382b5b5f2fd2f376f22b6ce4447f06d">getType</a> () const</td></tr>
+<tr class="memdesc:a1382b5b5f2fd2f376f22b6ce4447f06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el tipo de la constante.  <br /></td></tr>
+<tr class="separator:a1382b5b5f2fd2f376f22b6ce4447f06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab5c37db14db1d870c4c7ec0f6c99960" id="r_aab5c37db14db1d870c4c7ec0f6c99960"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#aab5c37db14db1d870c4c7ec0f6c99960">setType</a> (int type)</td></tr>
+<tr class="memdesc:aab5c37db14db1d870c4c7ec0f6c99960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el tipo de la constante.  <br /></td></tr>
+<tr class="separator:aab5c37db14db1d870c4c7ec0f6c99960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ca418b0e60f1d710c28ff580aa8bbe" id="r_a84ca418b0e60f1d710c28ff580aa8bbe"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classlp_1_1Constant.html">Constant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#a84ca418b0e60f1d710c28ff580aa8bbe">operator=</a> (const <a class="el" href="classlp_1_1Constant.html">Constant</a> &amp;c)</td></tr>
+<tr class="memdesc:a84ca418b0e60f1d710c28ff580aa8bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de asignación (virtual)  <br /></td></tr>
+<tr class="separator:a84ca418b0e60f1d710c28ff580aa8bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cbd157795050db17fb872d6b8bf1870" id="r_a4cbd157795050db17fb872d6b8bf1870"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#a4cbd157795050db17fb872d6b8bf1870">write</a> () const</td></tr>
+<tr class="memdesc:a4cbd157795050db17fb872d6b8bf1870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe los atributos de la constante por salida estándar.  <br /></td></tr>
+<tr class="separator:a4cbd157795050db17fb872d6b8bf1870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9df1bea0d8765adc168e6c997d7c771" id="r_af9df1bea0d8765adc168e6c997d7c771"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#af9df1bea0d8765adc168e6c997d7c771">read</a> ()</td></tr>
+<tr class="memdesc:af9df1bea0d8765adc168e6c997d7c771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee los atributos de la constante desde entrada estándar.  <br /></td></tr>
+<tr class="separator:af9df1bea0d8765adc168e6c997d7c771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classlp_1_1Symbol"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlp_1_1Symbol')"><img src="closed.png" alt="-"/>&#160;Métodos públicos heredados de <a class="el" href="classlp_1_1Symbol.html">lp::Symbol</a></td></tr>
+<tr class="memitem:a9fc1b887b9fe5b65a60d8583a9361cb5 inherit pub_methods_classlp_1_1Symbol" id="r_a9fc1b887b9fe5b65a60d8583a9361cb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a9fc1b887b9fe5b65a60d8583a9361cb5">Symbol</a> (std::string name=&quot;&quot;, int token=0)</td></tr>
+<tr class="memdesc:a9fc1b887b9fe5b65a60d8583a9361cb5 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor con valores por defecto.  <br /></td></tr>
+<tr class="separator:a9fc1b887b9fe5b65a60d8583a9361cb5 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50bb7af644e6365b66cff23d1eb3cfb2 inherit pub_methods_classlp_1_1Symbol" id="r_a50bb7af644e6365b66cff23d1eb3cfb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a50bb7af644e6365b66cff23d1eb3cfb2">Symbol</a> (const <a class="el" href="classlp_1_1Symbol.html">Symbol</a> &amp;s)</td></tr>
+<tr class="memdesc:a50bb7af644e6365b66cff23d1eb3cfb2 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de copia.  <br /></td></tr>
+<tr class="separator:a50bb7af644e6365b66cff23d1eb3cfb2 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16f1249563d7b6e26203383c7f912ec inherit pub_methods_classlp_1_1Symbol" id="r_aa16f1249563d7b6e26203383c7f912ec"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a> () const</td></tr>
+<tr class="memdesc:aa16f1249563d7b6e26203383c7f912ec inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el nombre del símbolo.  <br /></td></tr>
+<tr class="separator:aa16f1249563d7b6e26203383c7f912ec inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3863314f7ff898f11837f4b0e474199b inherit pub_methods_classlp_1_1Symbol" id="r_a3863314f7ff898f11837f4b0e474199b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b">getToken</a> () const</td></tr>
+<tr class="memdesc:a3863314f7ff898f11837f4b0e474199b inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el token asociado al símbolo.  <br /></td></tr>
+<tr class="separator:a3863314f7ff898f11837f4b0e474199b inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2573736a4fff8aafbc038e9741bed6 inherit pub_methods_classlp_1_1Symbol" id="r_afa2573736a4fff8aafbc038e9741bed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6">setName</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:afa2573736a4fff8aafbc038e9741bed6 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el nombre del símbolo.  <br /></td></tr>
+<tr class="separator:afa2573736a4fff8aafbc038e9741bed6 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5643444e0b8b0f19fdee8b962369730 inherit pub_methods_classlp_1_1Symbol" id="r_af5643444e0b8b0f19fdee8b962369730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730">setToken</a> (int token)</td></tr>
+<tr class="memdesc:af5643444e0b8b0f19fdee8b962369730 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el token del símbolo.  <br /></td></tr>
+<tr class="separator:af5643444e0b8b0f19fdee8b962369730 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a326c840e438dfe05331abe5f9eb9eed5 inherit pub_methods_classlp_1_1Symbol" id="r_a326c840e438dfe05331abe5f9eb9eed5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a326c840e438dfe05331abe5f9eb9eed5">operator==</a> (const <a class="el" href="classlp_1_1Symbol.html">Symbol</a> &amp;s) const</td></tr>
+<tr class="memdesc:a326c840e438dfe05331abe5f9eb9eed5 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de igualdad: compara por nombre.  <br /></td></tr>
+<tr class="separator:a326c840e438dfe05331abe5f9eb9eed5 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50302aa26589cc24fe652e706ffeb49d inherit pub_methods_classlp_1_1Symbol" id="r_a50302aa26589cc24fe652e706ffeb49d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a50302aa26589cc24fe652e706ffeb49d">operator&lt;</a> (const <a class="el" href="classlp_1_1Symbol.html">Symbol</a> &amp;s) const</td></tr>
+<tr class="memdesc:a50302aa26589cc24fe652e706ffeb49d inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador menor: ordena por nombre (orden lexicográfico)  <br /></td></tr>
+<tr class="separator:a50302aa26589cc24fe652e706ffeb49d inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Atributos protegidos</h2></td></tr>
+<tr class="memitem:aba79e5bad7b43b71f26ac6cdef5b6296" id="r_aba79e5bad7b43b71f26ac6cdef5b6296"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Constant.html#aba79e5bad7b43b71f26ac6cdef5b6296">_type</a></td></tr>
+<tr class="memdesc:aba79e5bad7b43b71f26ac6cdef5b6296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de la constante: NUMERICVAR, STRINGVAR, etc.  <br /></td></tr>
+<tr class="separator:aba79e5bad7b43b71f26ac6cdef5b6296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classlp_1_1Symbol"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classlp_1_1Symbol')"><img src="closed.png" alt="-"/>&#160;Atributos protegidos heredados de <a class="el" href="classlp_1_1Symbol.html">lp::Symbol</a></td></tr>
+<tr class="memitem:a1c4e8ad981e265649e067607ae1cd4ac inherit pro_attribs_classlp_1_1Symbol" id="r_a1c4e8ad981e265649e067607ae1cd4ac"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a1c4e8ad981e265649e067607ae1cd4ac">_name</a></td></tr>
+<tr class="memdesc:a1c4e8ad981e265649e067607ae1cd4ac inherit pro_attribs_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre del símbolo.  <br /></td></tr>
+<tr class="separator:a1c4e8ad981e265649e067607ae1cd4ac inherit pro_attribs_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1256421f0ff4d09cea3a51a52b04e932 inherit pro_attribs_classlp_1_1Symbol" id="r_a1256421f0ff4d09cea3a51a52b04e932"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a1256421f0ff4d09cea3a51a52b04e932">_token</a></td></tr>
+<tr class="memdesc:a1256421f0ff4d09cea3a51a52b04e932 inherit pro_attribs_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Token asociado al símbolo.  <br /></td></tr>
+<tr class="separator:a1256421f0ff4d09cea3a51a52b04e932 inherit pro_attribs_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Clase abstracta que representa una constante del lenguaje. </p>
+<dl class="section note"><dt>Nota</dt><dd>Hereda públicamente de la clase <a class="el" href="classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token.">Symbol</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8hpp_source.html#l00025">25</a> del archivo <a class="el" href="constant_8hpp_source.html">constant.hpp</a>.</p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="aa0669fa18e449b9654c89c1117978ea1" name="aa0669fa18e449b9654c89c1117978ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0669fa18e449b9654c89c1117978ea1">&#9670;&#160;</a></span>Constant() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lp::Constant::Constant </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>token</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor con valores por defecto. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8hpp_source.html#l00033">33</a> del archivo <a class="el" href="constant_8hpp_source.html">constant.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant_aa0669fa18e449b9654c89c1117978ea1_cgraph.png" border="0" usemap="#aclasslp_1_1Constant_aa0669fa18e449b9654c89c1117978ea1_cgraph" alt=""/></div>
+<map name="aclasslp_1_1Constant_aa0669fa18e449b9654c89c1117978ea1_cgraph" id="aclasslp_1_1Constant_aa0669fa18e449b9654c89c1117978ea1_cgraph">
+<area shape="rect" title="Constructor con valores por defecto." alt="" coords="5,5,172,31"/>
+<area shape="rect" href="classlp_1_1Constant.html#aab5c37db14db1d870c4c7ec0f6c99960" title="Modifica el tipo de la constante." alt="" coords="220,5,379,31"/>
+<area shape="poly" title=" " alt="" coords="172,15,206,15,206,21,172,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a436b350e2b814b4e4123b6a0b4285870" name="a436b350e2b814b4e4123b6a0b4285870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436b350e2b814b4e4123b6a0b4285870">&#9670;&#160;</a></span>Constant() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lp::Constant::Constant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlp_1_1Constant.html">Constant</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor de copia. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8hpp_source.html#l00040">40</a> del archivo <a class="el" href="constant_8hpp_source.html">constant.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant_a436b350e2b814b4e4123b6a0b4285870_cgraph.png" border="0" usemap="#aclasslp_1_1Constant_a436b350e2b814b4e4123b6a0b4285870_cgraph" alt=""/></div>
+<map name="aclasslp_1_1Constant_a436b350e2b814b4e4123b6a0b4285870_cgraph" id="aclasslp_1_1Constant_a436b350e2b814b4e4123b6a0b4285870_cgraph">
+<area shape="rect" title="Constructor de copia." alt="" coords="5,129,172,155"/>
+<area shape="rect" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="220,5,379,31"/>
+<area shape="poly" title=" " alt="" coords="102,127,151,85,184,61,219,40,233,33,236,38,221,44,187,65,154,89,105,131"/>
+<area shape="rect" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="221,55,378,80"/>
+<area shape="poly" title=" " alt="" coords="120,127,219,89,241,82,242,87,221,94,122,132"/>
+<area shape="rect" href="classlp_1_1Constant.html#a1382b5b5f2fd2f376f22b6ce4447f06d" title="Devuelve el tipo de la constante." alt="" coords="220,104,379,129"/>
+<area shape="poly" title=" " alt="" coords="172,129,206,125,207,130,173,135"/>
+<area shape="rect" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="220,153,379,179"/>
+<area shape="poly" title=" " alt="" coords="173,149,207,153,206,158,172,154"/>
+<area shape="rect" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="221,203,377,228"/>
+<area shape="poly" title=" " alt="" coords="124,152,221,187,246,196,244,201,219,193,123,157"/>
+<area shape="rect" href="classlp_1_1Constant.html#aab5c37db14db1d870c4c7ec0f6c99960" title="Modifica el tipo de la constante." alt="" coords="220,252,379,277"/>
+<area shape="poly" title=" " alt="" coords="105,153,155,194,221,237,239,245,237,250,219,242,151,198,102,157"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a1382b5b5f2fd2f376f22b6ce4447f06d" name="a1382b5b5f2fd2f376f22b6ce4447f06d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1382b5b5f2fd2f376f22b6ce4447f06d">&#9670;&#160;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lp::Constant::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Devuelve el tipo de la constante. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8hpp_source.html#l00048">48</a> del archivo <a class="el" href="constant_8hpp_source.html">constant.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant_a1382b5b5f2fd2f376f22b6ce4447f06d_icgraph.png" border="0" usemap="#aclasslp_1_1Constant_a1382b5b5f2fd2f376f22b6ce4447f06d_icgraph" alt=""/></div>
+<map name="aclasslp_1_1Constant_a1382b5b5f2fd2f376f22b6ce4447f06d_icgraph" id="aclasslp_1_1Constant_a1382b5b5f2fd2f376f22b6ce4447f06d_icgraph">
+<area shape="rect" title="Devuelve el tipo de la constante." alt="" coords="247,176,405,201"/>
+<area shape="rect" href="classlp_1_1Constant.html#a436b350e2b814b4e4123b6a0b4285870" title="Constructor de copia." alt="" coords="19,5,185,31"/>
+<area shape="poly" title=" " alt="" coords="308,166,264,104,233,72,197,44,173,33,176,28,200,40,236,68,268,101,313,163"/>
+<area shape="rect" href="classlp_1_1ConstantNode.html#acbf00a80ac6f713bd95c9e019ac30edb" title="Type of the Constant." alt="" coords="5,55,199,80"/>
+<area shape="poly" title=" " alt="" coords="300,169,254,131,197,95,165,83,167,78,200,90,258,127,303,165"/>
+<area shape="rect" href="classlp_1_1LogicalConstant.html#a5d8007faed96ade98b5af89880f1660c" title="Copy constructor." alt="" coords="29,105,175,145"/>
+<area shape="poly" title=" " alt="" coords="266,175,172,147,174,142,268,169"/>
+<area shape="rect" href="classlp_1_1NumericConstant.html#aabf8e6a04f084e6753006dd24029cbdc" title="Constructor de copia." alt="" coords="25,169,179,209"/>
+<area shape="poly" title=" " alt="" coords="233,191,180,191,180,186,233,186"/>
+<area shape="rect" href="classlp_1_1Constant.html#a84ca418b0e60f1d710c28ff580aa8bbe" title="Operador de asignación (virtual)" alt="" coords="15,233,189,259"/>
+<area shape="poly" title=" " alt="" coords="263,207,153,236,152,231,262,202"/>
+<area shape="rect" href="classlp_1_1LogicalConstant.html#a33e4366d483dd34528b84869a90ff242" title="Assignment Operator." alt="" coords="29,283,175,323"/>
+<area shape="poly" title=" " alt="" coords="298,212,253,242,200,272,169,286,167,281,197,268,250,238,295,207"/>
+<area shape="rect" href="classlp_1_1NumericConstant.html#a8f699d2cd438832ea00a529186c07f7d" title="Operador de asignación." alt="" coords="25,347,179,387"/>
+<area shape="poly" title=" " alt="" coords="312,215,267,276,236,309,200,338,178,349,176,345,197,333,232,305,263,272,308,212"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a84ca418b0e60f1d710c28ff580aa8bbe" name="a84ca418b0e60f1d710c28ff580aa8bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ca418b0e60f1d710c28ff580aa8bbe">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlp_1_1Constant.html">lp::Constant</a> &amp; lp::Constant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlp_1_1Constant.html">Constant</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operador de asignación (virtual) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8cpp_source.html#l00010">10</a> del archivo <a class="el" href="constant_8cpp_source.html">constant.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant_a84ca418b0e60f1d710c28ff580aa8bbe_cgraph.png" border="0" usemap="#aclasslp_1_1Constant_a84ca418b0e60f1d710c28ff580aa8bbe_cgraph" alt=""/></div>
+<map name="aclasslp_1_1Constant_a84ca418b0e60f1d710c28ff580aa8bbe_cgraph" id="aclasslp_1_1Constant_a84ca418b0e60f1d710c28ff580aa8bbe_cgraph">
+<area shape="rect" title="Operador de asignación (virtual)" alt="" coords="5,129,180,155"/>
+<area shape="rect" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="228,5,387,31"/>
+<area shape="poly" title=" " alt="" coords="106,127,157,85,191,61,227,40,242,33,244,38,229,44,194,65,160,89,109,131"/>
+<area shape="rect" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="229,55,386,80"/>
+<area shape="poly" title=" " alt="" coords="125,127,227,89,249,82,251,87,229,94,127,132"/>
+<area shape="rect" href="classlp_1_1Constant.html#a1382b5b5f2fd2f376f22b6ce4447f06d" title="Devuelve el tipo de la constante." alt="" coords="228,104,387,129"/>
+<area shape="poly" title=" " alt="" coords="180,129,214,125,214,130,181,134"/>
+<area shape="rect" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="228,153,387,179"/>
+<area shape="poly" title=" " alt="" coords="181,149,214,153,214,158,180,154"/>
+<area shape="rect" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="229,203,385,228"/>
+<area shape="poly" title=" " alt="" coords="129,152,229,187,254,196,252,201,227,193,128,157"/>
+<area shape="rect" href="classlp_1_1Constant.html#aab5c37db14db1d870c4c7ec0f6c99960" title="Modifica el tipo de la constante." alt="" coords="228,252,387,277"/>
+<area shape="poly" title=" " alt="" coords="110,153,161,193,229,237,247,245,245,250,227,242,158,198,107,157"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af9df1bea0d8765adc168e6c997d7c771" name="af9df1bea0d8765adc168e6c997d7c771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9df1bea0d8765adc168e6c997d7c771">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lp::Constant::read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lee los atributos de la constante desde entrada estándar. </p>
+
+<p>Reimplementado en <a class="el" href="classlp_1_1LogicalConstant.html#a7e174fec332d642f5fa8f2c26d9a9ab5">lp::LogicalConstant</a>, <a class="el" href="classlp_1_1NumericConstant.html#a2f145f9f0c4a0bff80d22869b2c2de57">lp::NumericConstant</a> y <a class="el" href="classlp_1_1StringConstant.html#ac814efed90ca8b4bcacc5c53876185c6">lp::StringConstant</a>.</p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8cpp_source.html#l00028">28</a> del archivo <a class="el" href="constant_8cpp_source.html">constant.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aab5c37db14db1d870c4c7ec0f6c99960" name="aab5c37db14db1d870c4c7ec0f6c99960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab5c37db14db1d870c4c7ec0f6c99960">&#9670;&#160;</a></span>setType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lp::Constant::setType </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modifica el tipo de la constante. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8hpp_source.html#l00054">54</a> del archivo <a class="el" href="constant_8hpp_source.html">constant.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1Constant_aab5c37db14db1d870c4c7ec0f6c99960_icgraph.png" border="0" usemap="#aclasslp_1_1Constant_aab5c37db14db1d870c4c7ec0f6c99960_icgraph" alt=""/></div>
+<map name="aclasslp_1_1Constant_aab5c37db14db1d870c4c7ec0f6c99960_icgraph" id="aclasslp_1_1Constant_aab5c37db14db1d870c4c7ec0f6c99960_icgraph">
+<area shape="rect" title="Modifica el tipo de la constante." alt="" coords="228,176,387,201"/>
+<area shape="rect" href="classlp_1_1Constant.html#a436b350e2b814b4e4123b6a0b4285870" title="Constructor de copia." alt="" coords="9,5,176,31"/>
+<area shape="poly" title=" " alt="" coords="289,166,245,104,214,72,179,44,155,33,158,28,181,40,217,68,249,101,294,163"/>
+<area shape="rect" href="classlp_1_1Constant.html#aa0669fa18e449b9654c89c1117978ea1" title="Constructor con valores por defecto." alt="" coords="9,55,176,80"/>
+<area shape="poly" title=" " alt="" coords="281,169,236,131,179,95,147,83,149,78,181,90,239,127,285,165"/>
+<area shape="rect" href="classlp_1_1LogicalConstant.html#a5d8007faed96ade98b5af89880f1660c" title="Copy constructor." alt="" coords="19,105,166,145"/>
+<area shape="poly" title=" " alt="" coords="250,174,160,147,161,142,251,169"/>
+<area shape="rect" href="classlp_1_1NumericConstant.html#aabf8e6a04f084e6753006dd24029cbdc" title="Constructor de copia." alt="" coords="15,169,170,209"/>
+<area shape="poly" title=" " alt="" coords="214,191,170,191,170,186,214,186"/>
+<area shape="rect" href="classlp_1_1Constant.html#a84ca418b0e60f1d710c28ff580aa8bbe" title="Operador de asignación (virtual)" alt="" coords="5,233,180,259"/>
+<area shape="poly" title=" " alt="" coords="246,208,142,236,140,231,245,202"/>
+<area shape="rect" href="classlp_1_1LogicalConstant.html#a33e4366d483dd34528b84869a90ff242" title="Assignment Operator." alt="" coords="19,283,166,323"/>
+<area shape="poly" title=" " alt="" coords="279,212,234,242,181,272,152,286,150,281,179,268,231,237,276,207"/>
+<area shape="rect" href="classlp_1_1NumericConstant.html#a8f699d2cd438832ea00a529186c07f7d" title="Operador de asignación." alt="" coords="15,347,170,387"/>
+<area shape="poly" title=" " alt="" coords="293,215,248,275,217,308,182,338,161,349,158,345,178,333,213,305,244,272,289,211"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4cbd157795050db17fb872d6b8bf1870" name="a4cbd157795050db17fb872d6b8bf1870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cbd157795050db17fb872d6b8bf1870">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lp::Constant::write </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Escribe los atributos de la constante por salida estándar. </p>
+
+<p>Reimplementado en <a class="el" href="classlp_1_1LogicalConstant.html#a29c85855c10a8a536eaa01c2feedc8de">lp::LogicalConstant</a>, <a class="el" href="classlp_1_1NumericConstant.html#a70ace8aaeddd60f620a4f304ec7298b3">lp::NumericConstant</a> y <a class="el" href="classlp_1_1StringConstant.html#af47749eaeb69bf9f5972cb5b9b1dedd9">lp::StringConstant</a>.</p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8cpp_source.html#l00043">43</a> del archivo <a class="el" href="constant_8cpp_source.html">constant.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de datos miembro</h2>
+<a id="aba79e5bad7b43b71f26ac6cdef5b6296" name="aba79e5bad7b43b71f26ac6cdef5b6296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba79e5bad7b43b71f26ac6cdef5b6296">&#9670;&#160;</a></span>_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lp::Constant::_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tipo de la constante: NUMERICVAR, STRINGVAR, etc. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="constant_8hpp_source.html#l00028">28</a> del archivo <a class="el" href="constant_8hpp_source.html">constant.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li>table/<a class="el" href="constant_8hpp_source.html">constant.hpp</a></li>
+<li>table/<a class="el" href="constant_8cpp_source.html">constant.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

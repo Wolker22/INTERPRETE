@@ -1,0 +1,17 @@
+<map id="lp::Constant::setType" name="lp::Constant::setType">
+<area shape="rect" id="Node000001" title="Modifica el tipo de la constante." alt="" coords="228,176,387,201"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Constant.html#a436b350e2b814b4e4123b6a0b4285870" title="Constructor de copia." alt="" coords="9,5,176,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="289,166,245,104,214,72,179,44,155,33,158,28,181,40,217,68,249,101,294,163"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Constant.html#aa0669fa18e449b9654c89c1117978ea1" title="Constructor con valores por defecto." alt="" coords="9,55,176,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="281,169,236,131,179,95,147,83,149,78,181,90,239,127,285,165"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1LogicalConstant.html#a5d8007faed96ade98b5af89880f1660c" title="Copy constructor." alt="" coords="19,105,166,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,174,160,147,161,142,251,169"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1NumericConstant.html#aabf8e6a04f084e6753006dd24029cbdc" title="Constructor de copia." alt="" coords="15,169,170,209"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="214,191,170,191,170,186,214,186"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1Constant.html#a84ca418b0e60f1d710c28ff580aa8bbe" title="Operador de asignación (virtual)" alt="" coords="5,233,180,259"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="246,208,142,236,140,231,245,202"/>
+<area shape="rect" id="Node000007" href="$classlp_1_1LogicalConstant.html#a33e4366d483dd34528b84869a90ff242" title="Assignment Operator." alt="" coords="19,283,166,323"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="279,212,234,242,181,272,152,286,150,281,179,268,231,237,276,207"/>
+<area shape="rect" id="Node000008" href="$classlp_1_1NumericConstant.html#a8f699d2cd438832ea00a529186c07f7d" title="Operador de asignación." alt="" coords="15,347,170,387"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="293,215,248,275,217,308,182,338,161,349,158,345,178,333,213,305,244,272,289,211"/>
+</map>

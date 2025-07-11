@@ -1,0 +1,9 @@
+<map id="lp::StringVariable" name="lp::StringVariable">
+<area shape="rect" id="Node000001" title="Representa una variable de tipo string." alt="" coords="16,876,217,1164"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Variable.html" title="Clase base para representar variables del lenguaje." alt="" coords="5,584,228,828"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,842,119,876,114,876,114,842"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="18,237,215,536"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,550,119,584,114,584,114,550"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="9,5,225,189"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="119,203,119,237,114,237,114,203"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="lp::StringConstant" name="lp::StringConstant">
+<area shape="rect" id="Node000001" title="Clase que representa constantes de tipo cadena." alt="" coords="16,876,221,1164"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Constant.html" title="Clase abstracta que representa una constante del lenguaje." alt="" coords="5,584,232,828"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,842,121,876,116,876,116,842"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="20,237,217,536"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,550,121,584,116,584,116,550"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="11,5,227,189"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="121,203,121,237,116,237,116,203"/>
+</map>

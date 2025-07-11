@@ -1,0 +1,21 @@
+<map id="lp::Builtin::setNParameters" name="lp::Builtin::setNParameters">
+<area shape="rect" id="Node000001" title="Modifica el número de parámetros." alt="" coords="212,240,408,265"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Builtin.html#add5030bceab245028c7c2fc8a0fc2569" title="Constructor de copia." alt="" coords="17,5,152,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="295,228,276,187,247,138,209,87,162,44,142,33,145,28,166,40,213,84,251,135,280,185,300,226"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Builtin.html#acf270725d9402606d6b9ac7c88e6daa7" title="Constructor con valores por defecto." alt="" coords="17,55,152,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,230,239,163,203,126,163,95,137,82,139,78,165,90,206,122,243,159,295,227"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1BuiltinParameter0.html#a2bc5ea1642c126c13ba0fe4c57e1fd5d" title="Constructor de copia: clona los atributos de otra función predefinida." alt="" coords="5,105,164,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="279,234,226,197,163,159,138,147,140,142,165,154,229,193,282,229"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1BuiltinParameter1.html#aa3e57fae1b8fd55e010503da79c4b830" title="Constructor de copia: clona los atributos de otro BuiltinParameter1." alt="" coords="5,169,164,209"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="251,239,155,211,157,206,252,234"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1BuiltinParameter2.html#a9ee9d1a505222a1e13a461232cb8a5f7" title="Constructor de copia: clona los atributos de otro BuiltinParameter2." alt="" coords="5,233,164,273"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="198,255,164,255,164,250,198,250"/>
+<area shape="rect" id="Node000007" href="$classlp_1_1Builtin.html#a91b6cd29ba8d8c6f1d94e332e8f39ac2" title="Operador de asignación (virtual)" alt="" coords="5,297,164,323"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="247,271,136,300,135,295,246,266"/>
+<area shape="rect" id="Node000008" href="$classlp_1_1BuiltinParameter0.html#a18d34f288b38c14623e5d18c1809cc61" title="Operador de asignación." alt="" coords="5,347,164,387"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="277,275,165,336,136,350,134,345,163,332,275,270"/>
+<area shape="rect" id="Node000009" href="$classlp_1_1BuiltinParameter1.html#ac97b46d1136df45465c310114064298e" title="Operador de asignación." alt="" coords="5,411,164,451"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="293,278,239,338,204,372,165,402,144,414,141,409,163,397,201,368,236,335,289,274"/>
+<area shape="rect" id="Node000010" href="$classlp_1_1BuiltinParameter2.html#ad6a961bfe23c4f88dee3ab64a47b0205" title="Operador de asignación." alt="" coords="5,475,164,515"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="300,279,279,319,250,369,211,420,166,465,147,477,144,473,162,461,207,417,245,366,275,316,295,277"/>
+</map>

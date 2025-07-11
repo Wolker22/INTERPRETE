@@ -1,0 +1,9 @@
+<map id="lp::LogicalConstant::getValue" name="lp::LogicalConstant::getValue">
+<area shape="rect" id="Node000001" title="Public method that returns the value of the LogicalConstant." alt="" coords="281,55,428,95"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1ConstantNode.html#ae02e46760b4001acc4401c1061354c95" title="Evaluate the Constant as BOOL." alt="" coords="5,5,233,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,55,233,46,179,33,180,28,234,41,269,50"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1LogicalConstant.html#a5d8007faed96ade98b5af89880f1660c" title="Copy constructor." alt="" coords="46,55,193,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="268,78,193,78,193,73,268,73"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1LogicalConstant.html#a33e4366d483dd34528b84869a90ff242" title="Assignment Operator." alt="" coords="46,119,193,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="269,101,194,122,192,117,267,96"/>
+</map>

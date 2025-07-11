@@ -1,0 +1,9 @@
+<map id="lp::VariableNode::getType" name="lp::VariableNode::getType">
+<area shape="rect" id="Node000001" title="Type of the Variable." alt="" coords="5,31,193,56"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Table.html#a16bcb34d81a3180d1a29f8e6aacbb97b" title="Devuelve un puntero al símbolo con el nombre dado (debe existir)" alt="" coords="241,5,396,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,30,227,26,228,31,194,35"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6" title="Devuelve el tipo de la variable." alt="" coords="241,55,396,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="194,51,228,55,227,60,194,56"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Table.html#aa373e3d576e0e9accca108607fdfb187" title="Comprueba si existe un símbolo con el nombre dado." alt="" coords="444,5,620,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,15,430,15,430,21,396,21"/>
+</map>

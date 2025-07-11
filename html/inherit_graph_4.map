@@ -1,0 +1,35 @@
+<map id="Gráfico de jerarquía de clases" name="Gráfico de jerarquía de clases">
+<area shape="rect" id="Node000000" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="5,327,155,352"/>
+<area shape="rect" id="Node000001" href="$classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="203,327,293,352"/>
+<area shape="poly" id="edge51_Node000000_Node000001" title=" " alt="" coords="168,337,202,337,202,342,168,342"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Builtin.html" title="Clase abstracta que representa una función predefinida." alt="" coords="349,129,433,155"/>
+<area shape="poly" id="edge52_Node000001_Node000002" title=" " alt="" coords="264,314,379,153,383,156,269,317"/>
+<area shape="rect" id="Node000008" href="$classlp_1_1Constant.html" title="Clase abstracta que representa una constante del lenguaje." alt="" coords="341,301,441,327"/>
+<area shape="poly" id="edge58_Node000001_Node000008" title=" " alt="" coords="306,326,341,320,342,325,307,332"/>
+<area shape="rect" id="Node000012" href="$classlp_1_1Keyword.html" title="Clase que representa una palabra clave del lenguaje." alt="" coords="342,351,441,376"/>
+<area shape="poly" id="edge62_Node000001_Node000012" title=" " alt="" coords="307,347,342,352,341,358,306,352"/>
+<area shape="rect" id="Node000013" href="$classlp_1_1Variable.html" title="Clase base para representar variables del lenguaje." alt="" coords="344,424,439,449"/>
+<area shape="poly" id="edge63_Node000001_Node000013" title=" " alt="" coords="280,358,373,422,370,426,277,362"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1BuiltinParameter0.html" title="Clase que representa una función predefinida sin parámetros." alt="" coords="509,5,667,31"/>
+<area shape="poly" id="edge53_Node000002_Node000003" title=" " alt="" coords="407,116,441,77,464,57,488,40,514,28,516,33,491,44,467,61,445,81,411,120"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1BuiltinParameter1.html" title="Representa una función predefinida con un único parámetro." alt="" coords="509,55,667,80"/>
+<area shape="poly" id="edge54_Node000002_Node000004" title=" " alt="" coords="424,120,488,89,524,78,526,83,490,94,426,125"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1BuiltinParameter2.html" title="Representa una función predefinida con dos parámetros." alt="" coords="509,104,667,129"/>
+<area shape="poly" id="edge55_Node000002_Node000005" title=" " alt="" coords="446,132,508,124,509,130,447,138"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1BuiltinString1Parameter.html" title=" " alt="" coords="489,153,687,179"/>
+<area shape="poly" id="edge56_Node000002_Node000006" title=" " alt="" coords="447,146,490,151,489,157,446,151"/>
+<area shape="rect" id="Node000007" href="$classlp_1_1BuiltinString2Parameter.html" title=" " alt="" coords="489,203,687,228"/>
+<area shape="poly" id="edge57_Node000002_Node000007" title=" " alt="" coords="428,159,490,188,530,200,529,205,488,192,426,164"/>
+<area shape="rect" id="Node000009" href="$classlp_1_1LogicalConstant.html" title="Definition of atributes and methods of LogicalConstant class." alt="" coords="515,252,661,277"/>
+<area shape="poly" id="edge59_Node000008_Node000009" title=" " alt="" coords="453,295,489,286,534,275,535,280,490,291,455,300"/>
+<area shape="rect" id="Node000010" href="$classlp_1_1NumericConstant.html" title="Representa una constante numérica." alt="" coords="511,301,665,327"/>
+<area shape="poly" id="edge60_Node000008_Node000010" title=" " alt="" coords="455,311,511,311,511,317,455,317"/>
+<area shape="rect" id="Node000011" href="$classlp_1_1StringConstant.html" title="Clase que representa constantes de tipo cadena." alt="" coords="519,351,657,376"/>
+<area shape="poly" id="edge61_Node000008_Node000011" title=" " alt="" coords="455,327,537,348,536,353,454,332"/>
+<area shape="rect" id="Node000014" href="$classlp_1_1LogicalVariable.html" title="Representa una variable lógica (true o false)" alt="" coords="517,400,659,425"/>
+<area shape="poly" id="edge64_Node000013_Node000014" title=" " alt="" coords="452,427,517,419,517,424,453,432"/>
+<area shape="rect" id="Node000015" href="$classlp_1_1NumericVariable.html" title="Representa una variable numérica." alt="" coords="513,449,663,475"/>
+<area shape="poly" id="edge65_Node000013_Node000015" title=" " alt="" coords="453,442,513,450,512,455,452,447"/>
+<area shape="rect" id="Node000016" href="$classlp_1_1StringVariable.html" title="Representa una variable de tipo string." alt="" coords="521,499,655,524"/>
+<area shape="poly" id="edge66_Node000013_Node000016" title=" " alt="" coords="427,454,490,484,530,496,529,501,488,488,425,458"/>
+</map>

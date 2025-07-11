@@ -1,0 +1,9 @@
+<map id="Log" name="Log">
+<area shape="rect" id="Node000001" title="Calcula el logaritmo neperiano de un número real." alt="" coords="5,5,51,31"/>
+<area shape="rect" id="Node000002" href="$error_8cpp.html#ae0f88e37281de7fb561e74c7b15d540c" title="Control EDOM or ERANGE errors." alt="" coords="99,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,15,85,15,85,21,51,21"/>
+<area shape="rect" id="Node000003" href="$error_8cpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function." alt="" coords="225,5,308,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="177,15,211,15,211,21,177,21"/>
+<area shape="rect" id="Node000004" href="$error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages." alt="" coords="356,5,431,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="308,15,342,15,342,21,308,21"/>
+</map>

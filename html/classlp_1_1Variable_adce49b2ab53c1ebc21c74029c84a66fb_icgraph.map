@@ -1,0 +1,17 @@
+<map id="lp::Variable::setType" name="lp::Variable::setType">
+<area shape="rect" id="Node000001" title="Modifica el tipo de la variable." alt="" coords="223,205,376,230"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1LogicalVariable.html#a25f9592d793a0108429ecebe9992e252" title="Constructor de copia." alt="" coords="19,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,194,239,128,208,91,173,59,153,48,156,43,176,55,212,88,243,125,287,191"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1NumericVariable.html#a5953d58d4ae490c02faa434031aabd21" title="Constructor de copia." alt="" coords="15,69,165,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,197,228,160,173,124,149,112,151,107,176,119,231,156,276,193"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1LogicalVariable.html#a230efbbe1552bca3ed711567ca781a83" title="Operador de asignación." alt="" coords="19,133,161,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="243,203,155,176,157,171,244,198"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1NumericVariable.html#a546cea073e9d0ae12574c14bc54a61ad" title="Operador de asignación." alt="" coords="15,197,165,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="209,220,165,220,165,215,209,215"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1Variable.html#a641d170c0b2e5e623c196756f2e7e9e0" title="Operador de asignación." alt="" coords="5,262,175,287"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="240,236,138,265,136,259,238,231"/>
+<area shape="rect" id="Node000007" href="$classlp_1_1Variable.html#a50d01b9d45f6002f9f058117ff5f927e" title="Constructor de copia." alt="" coords="12,311,168,337"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="273,241,228,271,176,301,143,314,141,309,174,296,226,267,269,236"/>
+<area shape="rect" id="Node000008" href="$classlp_1_1Variable.html#a5c5ec18fff9a879ed0e4e24afcb3b310" title="Constructor con parámetros opcionales." alt="" coords="12,361,168,386"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="283,243,239,297,209,326,176,350,149,363,147,358,173,346,206,322,235,293,279,240"/>
+</map>

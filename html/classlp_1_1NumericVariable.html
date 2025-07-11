@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Referencia de la clase lp::NumericVariable</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacelp.html">lp</a></li><li class="navelem"><a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="#pri-attribs">Atributos privados</a> &#124;
+<a href="#friends">Amigas</a> &#124;
+<a href="classlp_1_1NumericVariable-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase lp::NumericVariable</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Representa una variable numérica.  
+ <a href="classlp_1_1NumericVariable.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de lp::NumericVariable</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable__inherit__graph.png" border="0" usemap="#alp_1_1NumericVariable_inherit__map" alt="Inheritance graph"/></div>
+<map name="alp_1_1NumericVariable_inherit__map" id="alp_1_1NumericVariable_inherit__map">
+<area shape="rect" title="Representa una variable numérica." alt="" coords="7,876,226,1149"/>
+<area shape="rect" href="classlp_1_1Variable.html" title="Clase base para representar variables del lenguaje." alt="" coords="5,584,228,828"/>
+<area shape="poly" title=" " alt="" coords="119,842,119,876,114,876,114,842"/>
+<area shape="rect" href="classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="18,237,215,536"/>
+<area shape="poly" title=" " alt="" coords="119,550,119,584,114,584,114,550"/>
+<area shape="rect" href="classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="9,5,225,189"/>
+<area shape="poly" title=" " alt="" coords="119,203,119,237,114,237,114,203"/>
+</map>
+</div>
+<div class="dynheader">
+Diagrama de colaboración de lp::NumericVariable:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable__coll__graph.png" border="0" usemap="#alp_1_1NumericVariable_coll__map" alt="Collaboration graph"/></div>
+<map name="alp_1_1NumericVariable_coll__map" id="alp_1_1NumericVariable_coll__map">
+<area shape="rect" title="Representa una variable numérica." alt="" coords="7,876,226,1149"/>
+<area shape="rect" href="classlp_1_1Variable.html" title="Clase base para representar variables del lenguaje." alt="" coords="5,584,228,828"/>
+<area shape="poly" title=" " alt="" coords="119,842,119,876,114,876,114,842"/>
+<area shape="rect" href="classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="18,237,215,536"/>
+<area shape="poly" title=" " alt="" coords="119,550,119,584,114,584,114,550"/>
+<area shape="rect" href="classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="9,5,225,189"/>
+<area shape="poly" title=" " alt="" coords="119,203,119,237,114,237,114,203"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a2ae1da3e54a8b8866676cbc40606c782" id="r_a2ae1da3e54a8b8866676cbc40606c782"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a2ae1da3e54a8b8866676cbc40606c782">NumericVariable</a> (std::string name=&quot;&quot;, int token=0, int type=0, double value=0.0)</td></tr>
+<tr class="memdesc:a2ae1da3e54a8b8866676cbc40606c782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor con valores por defecto.  <br /></td></tr>
+<tr class="separator:a2ae1da3e54a8b8866676cbc40606c782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5953d58d4ae490c02faa434031aabd21" id="r_a5953d58d4ae490c02faa434031aabd21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a5953d58d4ae490c02faa434031aabd21">NumericVariable</a> (const <a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> &amp;n)</td></tr>
+<tr class="memdesc:a5953d58d4ae490c02faa434031aabd21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de copia.  <br /></td></tr>
+<tr class="separator:a5953d58d4ae490c02faa434031aabd21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932d7736cadbb8fda2e6764cc43ea0d1" id="r_a932d7736cadbb8fda2e6764cc43ea0d1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a932d7736cadbb8fda2e6764cc43ea0d1">getValue</a> () const</td></tr>
+<tr class="memdesc:a932d7736cadbb8fda2e6764cc43ea0d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el valor numérico.  <br /></td></tr>
+<tr class="separator:a932d7736cadbb8fda2e6764cc43ea0d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a809e541134f207085b1ab27ce94b92" id="r_a9a809e541134f207085b1ab27ce94b92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a9a809e541134f207085b1ab27ce94b92">setValue</a> (const double &amp;value)</td></tr>
+<tr class="memdesc:a9a809e541134f207085b1ab27ce94b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establece el valor numérico.  <br /></td></tr>
+<tr class="separator:a9a809e541134f207085b1ab27ce94b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85293a0447c9cb9c8b0b8d2baa15e945" id="r_a85293a0447c9cb9c8b0b8d2baa15e945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a85293a0447c9cb9c8b0b8d2baa15e945">read</a> ()</td></tr>
+<tr class="memdesc:a85293a0447c9cb9c8b0b8d2baa15e945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee los atributos desde entrada estándar.  <br /></td></tr>
+<tr class="separator:a85293a0447c9cb9c8b0b8d2baa15e945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac205fc8999b6b09eba92e4be93383fe5" id="r_ac205fc8999b6b09eba92e4be93383fe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#ac205fc8999b6b09eba92e4be93383fe5">write</a> () const</td></tr>
+<tr class="memdesc:ac205fc8999b6b09eba92e4be93383fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe los atributos por salida estándar.  <br /></td></tr>
+<tr class="separator:ac205fc8999b6b09eba92e4be93383fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a546cea073e9d0ae12574c14bc54a61ad" id="r_a546cea073e9d0ae12574c14bc54a61ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a546cea073e9d0ae12574c14bc54a61ad">operator=</a> (const <a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> &amp;n)</td></tr>
+<tr class="memdesc:a546cea073e9d0ae12574c14bc54a61ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de asignación.  <br /></td></tr>
+<tr class="separator:a546cea073e9d0ae12574c14bc54a61ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classlp_1_1Variable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlp_1_1Variable')"><img src="closed.png" alt="-"/>&#160;Métodos públicos heredados de <a class="el" href="classlp_1_1Variable.html">lp::Variable</a></td></tr>
+<tr class="memitem:a5c5ec18fff9a879ed0e4e24afcb3b310 inherit pub_methods_classlp_1_1Variable" id="r_a5c5ec18fff9a879ed0e4e24afcb3b310"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Variable.html#a5c5ec18fff9a879ed0e4e24afcb3b310">Variable</a> (std::string name=&quot;&quot;, int token=0, int type=0)</td></tr>
+<tr class="memdesc:a5c5ec18fff9a879ed0e4e24afcb3b310 inherit pub_methods_classlp_1_1Variable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor con parámetros opcionales.  <br /></td></tr>
+<tr class="separator:a5c5ec18fff9a879ed0e4e24afcb3b310 inherit pub_methods_classlp_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50d01b9d45f6002f9f058117ff5f927e inherit pub_methods_classlp_1_1Variable" id="r_a50d01b9d45f6002f9f058117ff5f927e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Variable.html#a50d01b9d45f6002f9f058117ff5f927e">Variable</a> (const <a class="el" href="classlp_1_1Variable.html">Variable</a> &amp;s)</td></tr>
+<tr class="memdesc:a50d01b9d45f6002f9f058117ff5f927e inherit pub_methods_classlp_1_1Variable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de copia.  <br /></td></tr>
+<tr class="separator:a50d01b9d45f6002f9f058117ff5f927e inherit pub_methods_classlp_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d86f303894dbea8809fcb1b7be310a6 inherit pub_methods_classlp_1_1Variable" id="r_a4d86f303894dbea8809fcb1b7be310a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6">getType</a> () const</td></tr>
+<tr class="memdesc:a4d86f303894dbea8809fcb1b7be310a6 inherit pub_methods_classlp_1_1Variable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el tipo de la variable.  <br /></td></tr>
+<tr class="separator:a4d86f303894dbea8809fcb1b7be310a6 inherit pub_methods_classlp_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adce49b2ab53c1ebc21c74029c84a66fb inherit pub_methods_classlp_1_1Variable" id="r_adce49b2ab53c1ebc21c74029c84a66fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Variable.html#adce49b2ab53c1ebc21c74029c84a66fb">setType</a> (int type)</td></tr>
+<tr class="memdesc:adce49b2ab53c1ebc21c74029c84a66fb inherit pub_methods_classlp_1_1Variable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el tipo de la variable.  <br /></td></tr>
+<tr class="separator:adce49b2ab53c1ebc21c74029c84a66fb inherit pub_methods_classlp_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a641d170c0b2e5e623c196756f2e7e9e0 inherit pub_methods_classlp_1_1Variable" id="r_a641d170c0b2e5e623c196756f2e7e9e0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classlp_1_1Variable.html">Variable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Variable.html#a641d170c0b2e5e623c196756f2e7e9e0">operator=</a> (const <a class="el" href="classlp_1_1Variable.html">Variable</a> &amp;v)</td></tr>
+<tr class="memdesc:a641d170c0b2e5e623c196756f2e7e9e0 inherit pub_methods_classlp_1_1Variable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de asignación.  <br /></td></tr>
+<tr class="separator:a641d170c0b2e5e623c196756f2e7e9e0 inherit pub_methods_classlp_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classlp_1_1Symbol"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlp_1_1Symbol')"><img src="closed.png" alt="-"/>&#160;Métodos públicos heredados de <a class="el" href="classlp_1_1Symbol.html">lp::Symbol</a></td></tr>
+<tr class="memitem:a9fc1b887b9fe5b65a60d8583a9361cb5 inherit pub_methods_classlp_1_1Symbol" id="r_a9fc1b887b9fe5b65a60d8583a9361cb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a9fc1b887b9fe5b65a60d8583a9361cb5">Symbol</a> (std::string name=&quot;&quot;, int token=0)</td></tr>
+<tr class="memdesc:a9fc1b887b9fe5b65a60d8583a9361cb5 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor con valores por defecto.  <br /></td></tr>
+<tr class="separator:a9fc1b887b9fe5b65a60d8583a9361cb5 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50bb7af644e6365b66cff23d1eb3cfb2 inherit pub_methods_classlp_1_1Symbol" id="r_a50bb7af644e6365b66cff23d1eb3cfb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a50bb7af644e6365b66cff23d1eb3cfb2">Symbol</a> (const <a class="el" href="classlp_1_1Symbol.html">Symbol</a> &amp;s)</td></tr>
+<tr class="memdesc:a50bb7af644e6365b66cff23d1eb3cfb2 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de copia.  <br /></td></tr>
+<tr class="separator:a50bb7af644e6365b66cff23d1eb3cfb2 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16f1249563d7b6e26203383c7f912ec inherit pub_methods_classlp_1_1Symbol" id="r_aa16f1249563d7b6e26203383c7f912ec"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a> () const</td></tr>
+<tr class="memdesc:aa16f1249563d7b6e26203383c7f912ec inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el nombre del símbolo.  <br /></td></tr>
+<tr class="separator:aa16f1249563d7b6e26203383c7f912ec inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3863314f7ff898f11837f4b0e474199b inherit pub_methods_classlp_1_1Symbol" id="r_a3863314f7ff898f11837f4b0e474199b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b">getToken</a> () const</td></tr>
+<tr class="memdesc:a3863314f7ff898f11837f4b0e474199b inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el token asociado al símbolo.  <br /></td></tr>
+<tr class="separator:a3863314f7ff898f11837f4b0e474199b inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2573736a4fff8aafbc038e9741bed6 inherit pub_methods_classlp_1_1Symbol" id="r_afa2573736a4fff8aafbc038e9741bed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6">setName</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:afa2573736a4fff8aafbc038e9741bed6 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el nombre del símbolo.  <br /></td></tr>
+<tr class="separator:afa2573736a4fff8aafbc038e9741bed6 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5643444e0b8b0f19fdee8b962369730 inherit pub_methods_classlp_1_1Symbol" id="r_af5643444e0b8b0f19fdee8b962369730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730">setToken</a> (int token)</td></tr>
+<tr class="memdesc:af5643444e0b8b0f19fdee8b962369730 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el token del símbolo.  <br /></td></tr>
+<tr class="separator:af5643444e0b8b0f19fdee8b962369730 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a326c840e438dfe05331abe5f9eb9eed5 inherit pub_methods_classlp_1_1Symbol" id="r_a326c840e438dfe05331abe5f9eb9eed5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a326c840e438dfe05331abe5f9eb9eed5">operator==</a> (const <a class="el" href="classlp_1_1Symbol.html">Symbol</a> &amp;s) const</td></tr>
+<tr class="memdesc:a326c840e438dfe05331abe5f9eb9eed5 inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de igualdad: compara por nombre.  <br /></td></tr>
+<tr class="separator:a326c840e438dfe05331abe5f9eb9eed5 inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50302aa26589cc24fe652e706ffeb49d inherit pub_methods_classlp_1_1Symbol" id="r_a50302aa26589cc24fe652e706ffeb49d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a50302aa26589cc24fe652e706ffeb49d">operator&lt;</a> (const <a class="el" href="classlp_1_1Symbol.html">Symbol</a> &amp;s) const</td></tr>
+<tr class="memdesc:a50302aa26589cc24fe652e706ffeb49d inherit pub_methods_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador menor: ordena por nombre (orden lexicográfico)  <br /></td></tr>
+<tr class="separator:a50302aa26589cc24fe652e706ffeb49d inherit pub_methods_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:a165ee7b8dd4ff51a51ea3eed3541f72f" id="r_a165ee7b8dd4ff51a51ea3eed3541f72f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a165ee7b8dd4ff51a51ea3eed3541f72f">_value</a></td></tr>
+<tr class="memdesc:a165ee7b8dd4ff51a51ea3eed3541f72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor numérico de la variable.  <br /></td></tr>
+<tr class="separator:a165ee7b8dd4ff51a51ea3eed3541f72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Amigas</h2></td></tr>
+<tr class="memitem:a03fa05f4e6c565f8b9adb12680467936" id="r_a03fa05f4e6c565f8b9adb12680467936"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#a03fa05f4e6c565f8b9adb12680467936">operator&gt;&gt;</a> (std::istream &amp;i, <a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> &amp;n)</td></tr>
+<tr class="memdesc:a03fa05f4e6c565f8b9adb12680467936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de entrada desde flujo (friend)  <br /></td></tr>
+<tr class="separator:a03fa05f4e6c565f8b9adb12680467936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f6268d8bb14cea9799f95be1261a04" id="r_ae1f6268d8bb14cea9799f95be1261a04"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1NumericVariable.html#ae1f6268d8bb14cea9799f95be1261a04">operator&lt;&lt;</a> (std::ostream &amp;o, <a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> const &amp;n)</td></tr>
+<tr class="memdesc:ae1f6268d8bb14cea9799f95be1261a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de salida hacia flujo (friend)  <br /></td></tr>
+<tr class="separator:ae1f6268d8bb14cea9799f95be1261a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Otros miembros heredados</h2></td></tr>
+<tr class="inherit_header pro_attribs_classlp_1_1Variable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classlp_1_1Variable')"><img src="closed.png" alt="-"/>&#160;Atributos protegidos heredados de <a class="el" href="classlp_1_1Variable.html">lp::Variable</a></td></tr>
+<tr class="memitem:a9a6b5251c533519733814f53664af2e9 inherit pro_attribs_classlp_1_1Variable" id="r_a9a6b5251c533519733814f53664af2e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Variable.html#a9a6b5251c533519733814f53664af2e9">_type</a></td></tr>
+<tr class="memdesc:a9a6b5251c533519733814f53664af2e9 inherit pro_attribs_classlp_1_1Variable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de variable: UNDEFINED, NUMERICVAR, STRINGVAR, LOGICALVAR.  <br /></td></tr>
+<tr class="separator:a9a6b5251c533519733814f53664af2e9 inherit pro_attribs_classlp_1_1Variable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classlp_1_1Symbol"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classlp_1_1Symbol')"><img src="closed.png" alt="-"/>&#160;Atributos protegidos heredados de <a class="el" href="classlp_1_1Symbol.html">lp::Symbol</a></td></tr>
+<tr class="memitem:a1c4e8ad981e265649e067607ae1cd4ac inherit pro_attribs_classlp_1_1Symbol" id="r_a1c4e8ad981e265649e067607ae1cd4ac"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a1c4e8ad981e265649e067607ae1cd4ac">_name</a></td></tr>
+<tr class="memdesc:a1c4e8ad981e265649e067607ae1cd4ac inherit pro_attribs_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre del símbolo.  <br /></td></tr>
+<tr class="separator:a1c4e8ad981e265649e067607ae1cd4ac inherit pro_attribs_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1256421f0ff4d09cea3a51a52b04e932 inherit pro_attribs_classlp_1_1Symbol" id="r_a1256421f0ff4d09cea3a51a52b04e932"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlp_1_1Symbol.html#a1256421f0ff4d09cea3a51a52b04e932">_token</a></td></tr>
+<tr class="memdesc:a1256421f0ff4d09cea3a51a52b04e932 inherit pro_attribs_classlp_1_1Symbol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Token asociado al símbolo.  <br /></td></tr>
+<tr class="separator:a1256421f0ff4d09cea3a51a52b04e932 inherit pro_attribs_classlp_1_1Symbol"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Representa una variable numérica. </p>
+<dl class="section note"><dt>Nota</dt><dd>Hereda de la clase <a class="el" href="classlp_1_1Variable.html" title="Clase base para representar variables del lenguaje.">Variable</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8hpp_source.html#l00025">25</a> del archivo <a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>.</p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a2ae1da3e54a8b8866676cbc40606c782" name="a2ae1da3e54a8b8866676cbc40606c782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae1da3e54a8b8866676cbc40606c782">&#9670;&#160;</a></span>NumericVariable() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lp::NumericVariable::NumericVariable </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>token</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor con valores por defecto. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8hpp_source.html#l00033">33</a> del archivo <a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable_a2ae1da3e54a8b8866676cbc40606c782_cgraph.png" border="0" usemap="#aclasslp_1_1NumericVariable_a2ae1da3e54a8b8866676cbc40606c782_cgraph" alt=""/></div>
+<map name="aclasslp_1_1NumericVariable_a2ae1da3e54a8b8866676cbc40606c782_cgraph" id="aclasslp_1_1NumericVariable_a2ae1da3e54a8b8866676cbc40606c782_cgraph">
+<area shape="rect" title="Constructor con valores por defecto." alt="" coords="5,5,156,45"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a9a809e541134f207085b1ab27ce94b92" title="Establece el valor numérico." alt="" coords="204,5,355,45"/>
+<area shape="poly" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5953d58d4ae490c02faa434031aabd21" name="a5953d58d4ae490c02faa434031aabd21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5953d58d4ae490c02faa434031aabd21">&#9670;&#160;</a></span>NumericVariable() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lp::NumericVariable::NumericVariable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor de copia. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8hpp_source.html#l00040">40</a> del archivo <a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable_a5953d58d4ae490c02faa434031aabd21_cgraph.png" border="0" usemap="#aclasslp_1_1NumericVariable_a5953d58d4ae490c02faa434031aabd21_cgraph" alt=""/></div>
+<map name="aclasslp_1_1NumericVariable_a5953d58d4ae490c02faa434031aabd21_cgraph" id="aclasslp_1_1NumericVariable_a5953d58d4ae490c02faa434031aabd21_cgraph">
+<area shape="rect" title="Constructor de copia." alt="" coords="5,183,156,223"/>
+<area shape="rect" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="204,5,363,31"/>
+<area shape="poly" title=" " alt="" coords="90,182,132,112,164,73,202,40,212,34,215,39,206,44,168,77,136,116,94,185"/>
+<area shape="rect" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="205,55,362,80"/>
+<area shape="poly" title=" " alt="" coords="97,181,142,135,171,110,203,89,215,83,218,87,205,94,174,115,145,139,101,185"/>
+<area shape="rect" href="classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6" title="Devuelve el tipo de la variable." alt="" coords="206,104,361,129"/>
+<area shape="poly" title=" " alt="" coords="117,181,203,140,225,131,227,136,205,144,119,186"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a932d7736cadbb8fda2e6764cc43ea0d1" title="Devuelve el valor numérico." alt="" coords="208,154,359,194"/>
+<area shape="poly" title=" " alt="" coords="156,190,194,184,195,190,157,195"/>
+<area shape="rect" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="204,219,363,244"/>
+<area shape="poly" title=" " alt="" coords="157,211,191,216,190,221,156,216"/>
+<area shape="rect" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="205,268,361,293"/>
+<area shape="poly" title=" " alt="" coords="128,221,205,253,228,261,227,266,203,258,126,226"/>
+<area shape="rect" href="classlp_1_1Variable.html#adce49b2ab53c1ebc21c74029c84a66fb" title="Modifica el tipo de la variable." alt="" coords="207,317,360,343"/>
+<area shape="poly" title=" " alt="" coords="103,222,148,262,205,302,222,310,219,315,203,307,144,266,100,225"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a9a809e541134f207085b1ab27ce94b92" title="Establece el valor numérico." alt="" coords="208,367,359,407"/>
+<area shape="poly" title=" " alt="" coords="96,222,140,285,171,320,206,352,215,358,212,363,202,356,167,324,136,288,92,225"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a932d7736cadbb8fda2e6764cc43ea0d1" name="a932d7736cadbb8fda2e6764cc43ea0d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932d7736cadbb8fda2e6764cc43ea0d1">&#9670;&#160;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double lp::NumericVariable::getValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Devuelve el valor numérico. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8hpp_source.html#l00049">49</a> del archivo <a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable_a932d7736cadbb8fda2e6764cc43ea0d1_icgraph.png" border="0" usemap="#aclasslp_1_1NumericVariable_a932d7736cadbb8fda2e6764cc43ea0d1_icgraph" alt=""/></div>
+<map name="aclasslp_1_1NumericVariable_a932d7736cadbb8fda2e6764cc43ea0d1_icgraph" id="aclasslp_1_1NumericVariable_a932d7736cadbb8fda2e6764cc43ea0d1_icgraph">
+<area shape="rect" title="Devuelve el valor numérico." alt="" coords="248,165,399,205"/>
+<area shape="rect" href="classlp_1_1AssignmentStmt.html#a47da6a6ee03b0808aba85f4ebb08f6f0" title="Evaluate the AssignmentStmt." alt="" coords="27,5,178,45"/>
+<area shape="poly" title=" " alt="" coords="298,156,255,107,228,81,199,60,176,48,178,43,201,55,231,77,259,103,302,153"/>
+<area shape="rect" href="classlp_1_1VariableNode.html#abccf5eb4eebcc36e0053dd9c5a6296ae" title="Evaluate the Variable as NUMBER." alt="" coords="5,69,200,109"/>
+<area shape="poly" title=" " alt="" coords="274,161,199,124,168,112,170,107,201,119,277,156"/>
+<area shape="rect" href="classlp_1_1VariableNode.html#a6ad78a9004afc3130956a447d8c9eacf" title="Evaluate the expression as STRING." alt="" coords="5,133,200,173"/>
+<area shape="poly" title=" " alt="" coords="234,175,200,170,200,165,234,170"/>
+<area shape="rect" href="classlp_1_1StringVariableNode.html#a60138c8723741df1dfbbf3ef8c9143ba" title="Evaluate the expression as STRING." alt="" coords="19,197,186,237"/>
+<area shape="poly" title=" " alt="" coords="234,201,187,208,186,203,234,196"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a5953d58d4ae490c02faa434031aabd21" title="Constructor de copia." alt="" coords="27,261,178,301"/>
+<area shape="poly" title=" " alt="" coords="277,214,201,252,170,264,168,259,199,247,274,210"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a546cea073e9d0ae12574c14bc54a61ad" title="Operador de asignación." alt="" coords="27,325,178,365"/>
+<area shape="poly" title=" " alt="" coords="302,218,259,268,231,293,201,316,178,328,176,323,199,311,228,289,255,264,298,215"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a546cea073e9d0ae12574c14bc54a61ad" name="a546cea073e9d0ae12574c14bc54a61ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a546cea073e9d0ae12574c14bc54a61ad">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlp_1_1NumericVariable.html">lp::NumericVariable</a> &amp; lp::NumericVariable::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlp_1_1NumericVariable.html">NumericVariable</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Operador de asignación. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8cpp_source.html#l00010">10</a> del archivo <a class="el" href="numericVariable_8cpp_source.html">numericVariable.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable_a546cea073e9d0ae12574c14bc54a61ad_cgraph.png" border="0" usemap="#aclasslp_1_1NumericVariable_a546cea073e9d0ae12574c14bc54a61ad_cgraph" alt=""/></div>
+<map name="aclasslp_1_1NumericVariable_a546cea073e9d0ae12574c14bc54a61ad_cgraph" id="aclasslp_1_1NumericVariable_a546cea073e9d0ae12574c14bc54a61ad_cgraph">
+<area shape="rect" title="Operador de asignación." alt="" coords="5,183,156,223"/>
+<area shape="rect" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="204,5,363,31"/>
+<area shape="poly" title=" " alt="" coords="90,182,132,112,164,73,202,40,212,34,215,39,206,44,168,77,136,116,94,185"/>
+<area shape="rect" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="205,55,362,80"/>
+<area shape="poly" title=" " alt="" coords="97,181,142,135,171,110,203,89,215,83,218,87,205,94,174,115,145,139,101,185"/>
+<area shape="rect" href="classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6" title="Devuelve el tipo de la variable." alt="" coords="206,104,361,129"/>
+<area shape="poly" title=" " alt="" coords="117,181,203,140,225,131,227,136,205,144,119,186"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a932d7736cadbb8fda2e6764cc43ea0d1" title="Devuelve el valor numérico." alt="" coords="208,154,359,194"/>
+<area shape="poly" title=" " alt="" coords="156,190,194,184,195,190,157,195"/>
+<area shape="rect" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="204,219,363,244"/>
+<area shape="poly" title=" " alt="" coords="157,211,191,216,190,221,156,216"/>
+<area shape="rect" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="205,268,361,293"/>
+<area shape="poly" title=" " alt="" coords="128,221,205,253,228,261,227,266,203,258,126,226"/>
+<area shape="rect" href="classlp_1_1Variable.html#adce49b2ab53c1ebc21c74029c84a66fb" title="Modifica el tipo de la variable." alt="" coords="207,317,360,343"/>
+<area shape="poly" title=" " alt="" coords="103,222,148,262,205,302,222,310,219,315,203,307,144,266,100,225"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a9a809e541134f207085b1ab27ce94b92" title="Establece el valor numérico." alt="" coords="208,367,359,407"/>
+<area shape="poly" title=" " alt="" coords="96,222,140,285,171,320,206,352,215,358,212,363,202,356,167,324,136,288,92,225"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a85293a0447c9cb9c8b0b8d2baa15e945" name="a85293a0447c9cb9c8b0b8d2baa15e945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85293a0447c9cb9c8b0b8d2baa15e945">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lp::NumericVariable::read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lee los atributos desde entrada estándar. </p>
+
+<p>Reimplementado de <a class="el" href="classlp_1_1Variable.html#a48e0e1d4705bc9f81a7110d37aa19e73">lp::Variable</a>.</p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8cpp_source.html#l00024">24</a> del archivo <a class="el" href="numericVariable_8cpp_source.html">numericVariable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9a809e541134f207085b1ab27ce94b92" name="a9a809e541134f207085b1ab27ce94b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a809e541134f207085b1ab27ce94b92">&#9670;&#160;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lp::NumericVariable::setValue </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Establece el valor numérico. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8hpp_source.html#l00055">55</a> del archivo <a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classlp_1_1NumericVariable_a9a809e541134f207085b1ab27ce94b92_icgraph.png" border="0" usemap="#aclasslp_1_1NumericVariable_a9a809e541134f207085b1ab27ce94b92_icgraph" alt=""/></div>
+<map name="aclasslp_1_1NumericVariable_a9a809e541134f207085b1ab27ce94b92_icgraph" id="aclasslp_1_1NumericVariable_a9a809e541134f207085b1ab27ce94b92_icgraph">
+<area shape="rect" title="Establece el valor numérico." alt="" coords="224,141,375,181"/>
+<area shape="rect" href="classlp_1_1AssignmentStmt.html#a47da6a6ee03b0808aba85f4ebb08f6f0" title="Evaluate the AssignmentStmt." alt="" coords="15,5,166,45"/>
+<area shape="poly" title=" " alt="" coords="267,133,225,96,175,60,151,48,154,43,177,55,228,91,270,129"/>
+<area shape="rect" href="classlp_1_1ReadStmt.html#ad98669f25bb9d0c298b96c4eb07e2822" title="Evaluate the ReadStmt." alt="" coords="5,70,176,95"/>
+<area shape="poly" title=" " alt="" coords="243,138,175,109,140,98,142,93,177,104,245,133"/>
+<area shape="rect" href="classlp_1_1ForStmt.html#a012ddfa5d6df442b246a1b70ec9313a9" title="Evaluate the Statement." alt="" coords="11,119,170,145"/>
+<area shape="poly" title=" " alt="" coords="210,151,170,146,170,140,211,146"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a5953d58d4ae490c02faa434031aabd21" title="Constructor de copia." alt="" coords="15,169,166,209"/>
+<area shape="poly" title=" " alt="" coords="211,176,167,182,166,177,210,171"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a2ae1da3e54a8b8866676cbc40606c782" title="Constructor con valores por defecto." alt="" coords="15,233,166,273"/>
+<area shape="poly" title=" " alt="" coords="248,190,177,224,148,236,146,231,175,219,246,185"/>
+<area shape="rect" href="classlp_1_1NumericVariable.html#a546cea073e9d0ae12574c14bc54a61ad" title="Operador de asignación." alt="" coords="15,297,166,337"/>
+<area shape="poly" title=" " alt="" coords="276,194,233,241,177,288,155,300,153,295,175,283,229,238,272,190"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac205fc8999b6b09eba92e4be93383fe5" name="ac205fc8999b6b09eba92e4be93383fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac205fc8999b6b09eba92e4be93383fe5">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lp::NumericVariable::write </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Escribe los atributos por salida estándar. </p>
+
+<p>Reimplementado de <a class="el" href="classlp_1_1Variable.html#a27360cc808bd19b8f8afbd6b4f025d59">lp::Variable</a>.</p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8cpp_source.html#l00043">43</a> del archivo <a class="el" href="numericVariable_8cpp_source.html">numericVariable.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de símbolos amigos y relacionados</h2>
+<a id="ae1f6268d8bb14cea9799f95be1261a04" name="ae1f6268d8bb14cea9799f95be1261a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f6268d8bb14cea9799f95be1261a04">&#9670;&#160;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classlp_1_1NumericVariable.html">lp::NumericVariable</a> const &amp;&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operador de salida hacia flujo (friend) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8cpp_source.html#l00065">65</a> del archivo <a class="el" href="numericVariable_8cpp_source.html">numericVariable.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a03fa05f4e6c565f8b9adb12680467936" name="a03fa05f4e6c565f8b9adb12680467936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03fa05f4e6c565f8b9adb12680467936">&#9670;&#160;</a></span>operator&gt;&gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classlp_1_1NumericVariable.html">lp::NumericVariable</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operador de entrada desde flujo (friend) </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8cpp_source.html#l00054">54</a> del archivo <a class="el" href="numericVariable_8cpp_source.html">numericVariable.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de datos miembro</h2>
+<a id="a165ee7b8dd4ff51a51ea3eed3541f72f" name="a165ee7b8dd4ff51a51ea3eed3541f72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a165ee7b8dd4ff51a51ea3eed3541f72f">&#9670;&#160;</a></span>_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double lp::NumericVariable::_value</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Valor numérico de la variable. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="numericVariable_8hpp_source.html#l00028">28</a> del archivo <a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li>table/<a class="el" href="numericVariable_8hpp_source.html">numericVariable.hpp</a></li>
+<li>table/<a class="el" href="numericVariable_8cpp_source.html">numericVariable.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

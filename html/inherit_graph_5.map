@@ -1,0 +1,5 @@
+<map id="Gráfico de jerarquía de clases" name="Gráfico de jerarquía de clases">
+<area shape="rect" id="Node000000" href="$classlp_1_1TableInterface.html" title="Interfaz abstracta para una tabla de símbolos." alt="" coords="5,5,140,31"/>
+<area shape="rect" id="Node000001" href="$classlp_1_1Table.html" title="Clase que representa una tabla de símbolos." alt="" coords="188,5,264,31"/>
+<area shape="poly" id="edge67_Node000000_Node000001" title=" " alt="" coords="154,15,188,15,188,21,154,21"/>
+</map>

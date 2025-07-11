@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Referencia del archivo error/error.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4c52cb8b55b918be67d078d7a231760a.html">error</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo error.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Code of error recovery functions.  
+<a href="#details">Más...</a></p>
+
+<p><a href="error_8cpp_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a49cb0d9d8b1078240896a25b9e97c7a4" id="r_a49cb0d9d8b1078240896a25b9e97c7a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4">warning</a> (std::string errorMessage1, std::string errorMessage2)</td></tr>
+<tr class="memdesc:a49cb0d9d8b1078240896a25b9e97c7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the error messages.  <br /></td></tr>
+<tr class="separator:a49cb0d9d8b1078240896a25b9e97c7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac91f26a2ec0d893e1e75feb45404bd75" id="r_ac91f26a2ec0d893e1e75feb45404bd75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#ac91f26a2ec0d893e1e75feb45404bd75">yyerror</a> (std::string errorMessage)</td></tr>
+<tr class="memdesc:ac91f26a2ec0d893e1e75feb45404bd75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parser error recovery function.  <br /></td></tr>
+<tr class="separator:ac91f26a2ec0d893e1e75feb45404bd75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f829608a6770ad4998f226129e06850" id="r_a4f829608a6770ad4998f226129e06850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#a4f829608a6770ad4998f226129e06850">execerror</a> (std::string errorMessage1, std::string errorMessage2)</td></tr>
+<tr class="memdesc:a4f829608a6770ad4998f226129e06850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run time error recovery function.  <br /></td></tr>
+<tr class="separator:a4f829608a6770ad4998f226129e06850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dffb67e4667377e1ac3db92422225a2" id="r_a5dffb67e4667377e1ac3db92422225a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#a5dffb67e4667377e1ac3db92422225a2">fpecatch</a> (int signum)</td></tr>
+<tr class="memdesc:a5dffb67e4667377e1ac3db92422225a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run time error recovery function.  <br /></td></tr>
+<tr class="separator:a5dffb67e4667377e1ac3db92422225a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f88e37281de7fb561e74c7b15d540c" id="r_ae0f88e37281de7fb561e74c7b15d540c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#ae0f88e37281de7fb561e74c7b15d540c">errcheck</a> (double d, std::string s)</td></tr>
+<tr class="memdesc:ae0f88e37281de7fb561e74c7b15d540c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control EDOM or ERANGE errors.  <br /></td></tr>
+<tr class="separator:ae0f88e37281de7fb561e74c7b15d540c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a44bf2f6ee91a35522c07c779325d3ef0" id="r_a44bf2f6ee91a35522c07c779325d3ef0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#a44bf2f6ee91a35522c07c779325d3ef0">lineNumber</a></td></tr>
+<tr class="memdesc:a44bf2f6ee91a35522c07c779325d3ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">// Reference to line counter  <br /></td></tr>
+<tr class="separator:a44bf2f6ee91a35522c07c779325d3ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13f3991d45154aa44f37dc1a4703e97f" id="r_a13f3991d45154aa44f37dc1a4703e97f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#a13f3991d45154aa44f37dc1a4703e97f">progname</a></td></tr>
+<tr class="memdesc:a13f3991d45154aa44f37dc1a4703e97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to program name.  <br /></td></tr>
+<tr class="separator:a13f3991d45154aa44f37dc1a4703e97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9444a880c717f57ccbacc21c0ab8cb9" id="r_ab9444a880c717f57ccbacc21c0ab8cb9"><td class="memItemLeft" align="right" valign="top">jmp_buf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8cpp.html#ab9444a880c717f57ccbacc21c0ab8cb9">begin</a></td></tr>
+<tr class="memdesc:ab9444a880c717f57ccbacc21c0ab8cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for error recovery.  <br /></td></tr>
+<tr class="separator:ab9444a880c717f57ccbacc21c0ab8cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad65a8842cc674e3ddf69355898c0ecbf" id="r_ad65a8842cc674e3ddf69355898c0ecbf"><td class="memItemLeft" align="right" valign="top"><a id="ad65a8842cc674e3ddf69355898c0ecbf" name="ad65a8842cc674e3ddf69355898c0ecbf"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>errno</b></td></tr>
+<tr class="memdesc:ad65a8842cc674e3ddf69355898c0ecbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">ReferenceReference to the global variable that controls errors in the mathematical code. <br /></td></tr>
+<tr class="separator:ad65a8842cc674e3ddf69355898c0ecbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Code of error recovery functions. </p>
+
+<p class="definition">Definición en el archivo <a class="el" href="error_8cpp_source.html">error.cpp</a>.</p>
+</div><h2 class="groupheader">Documentación de funciones</h2>
+<a id="ae0f88e37281de7fb561e74c7b15d540c" name="ae0f88e37281de7fb561e74c7b15d540c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f88e37281de7fb561e74c7b15d540c">&#9670;&#160;</a></span>errcheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double errcheck </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Control EDOM or ERANGE errors. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>double </td></tr>
+    <tr><td class="paramname">s</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>If an EDOM or ERANGE error has occurred, an error message is displayed; otherwise it returns the value "d" </dd></dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="error_8hpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function.">execerror</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="error_8cpp_source.html#l00068">68</a> del archivo <a class="el" href="error_8cpp_source.html">error.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_ae0f88e37281de7fb561e74c7b15d540c_cgraph.png" border="0" usemap="#aerror_8cpp_ae0f88e37281de7fb561e74c7b15d540c_cgraph" alt=""/></div>
+<map name="aerror_8cpp_ae0f88e37281de7fb561e74c7b15d540c_cgraph" id="aerror_8cpp_ae0f88e37281de7fb561e74c7b15d540c_cgraph">
+<area shape="rect" title="Control EDOM or ERANGE errors." alt="" coords="5,5,84,31"/>
+<area shape="rect" href="error_8cpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function." alt="" coords="132,5,215,31"/>
+<area shape="poly" title=" " alt="" coords="84,15,118,15,118,21,84,21"/>
+<area shape="rect" href="error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages." alt="" coords="263,5,337,31"/>
+<area shape="poly" title=" " alt="" coords="215,15,249,15,249,21,215,21"/>
+</map>
+</div>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_ae0f88e37281de7fb561e74c7b15d540c_icgraph.png" border="0" usemap="#aerror_8cpp_ae0f88e37281de7fb561e74c7b15d540c_icgraph" alt=""/></div>
+<map name="aerror_8cpp_ae0f88e37281de7fb561e74c7b15d540c_icgraph" id="aerror_8cpp_ae0f88e37281de7fb561e74c7b15d540c_icgraph">
+<area shape="rect" title="Control EDOM or ERANGE errors." alt="" coords="115,104,193,129"/>
+<area shape="rect" href="mathFunction_8cpp.html#aaa5ab3c65b9641f75f6d58a780d1a624" title="Calcula la arcotangente del cociente x/y." alt="" coords="6,5,66,31"/>
+<area shape="poly" title=" " alt="" coords="126,97,65,44,52,33,55,29,68,40,130,93"/>
+<area shape="rect" href="mathFunction_8cpp.html#ab778ae483c09efc88fe80ee315634247" title="Calcula la exponencial de un número real." alt="" coords="13,55,59,80"/>
+<area shape="poly" title=" " alt="" coords="109,101,59,79,61,74,111,96"/>
+<area shape="rect" href="mathFunction_8cpp.html#ab190405c8d2ef86c06c2a76c8919a5ec" title="Calcula el logaritmo neperiano de un número real." alt="" coords="13,104,59,129"/>
+<area shape="poly" title=" " alt="" coords="101,119,59,119,59,114,101,114"/>
+<area shape="rect" href="mathFunction_8cpp.html#a6f34bf0aa6b49d312f200d73282f235d" title="Calcula el logaritmo decimal de un número real." alt="" coords="5,153,67,179"/>
+<area shape="poly" title=" " alt="" coords="112,137,68,156,66,151,110,132"/>
+<area shape="rect" href="mathFunction_8cpp.html#a0df8e683452b4bc3bf2bac39300b78fb" title="Calcula la raíz cuadrada de un número real." alt="" coords="12,203,60,228"/>
+<area shape="poly" title=" " alt="" coords="129,140,54,204,51,200,126,136"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4f829608a6770ad4998f226129e06850" name="a4f829608a6770ad4998f226129e06850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f829608a6770ad4998f226129e06850">&#9670;&#160;</a></span>execerror()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void execerror </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>errorMessage1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>errorMessage2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run time error recovery function. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorMessage1</td><td>first error message </td></tr>
+    <tr><td class="paramname">errorMessage2</td><td>second error message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="error_8hpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages.">warning</a>, longjmp </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="error_8cpp_source.html#l00053">53</a> del archivo <a class="el" href="error_8cpp_source.html">error.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_a4f829608a6770ad4998f226129e06850_cgraph.png" border="0" usemap="#aerror_8cpp_a4f829608a6770ad4998f226129e06850_cgraph" alt=""/></div>
+<map name="aerror_8cpp_a4f829608a6770ad4998f226129e06850_cgraph" id="aerror_8cpp_a4f829608a6770ad4998f226129e06850_cgraph">
+<area shape="rect" title="Run time error recovery function." alt="" coords="5,5,88,31"/>
+<area shape="rect" href="error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages." alt="" coords="136,5,211,31"/>
+<area shape="poly" title=" " alt="" coords="88,15,122,15,122,21,88,21"/>
+</map>
+</div>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_a4f829608a6770ad4998f226129e06850_icgraph.png" border="0" usemap="#aerror_8cpp_a4f829608a6770ad4998f226129e06850_icgraph" alt=""/></div>
+<map name="aerror_8cpp_a4f829608a6770ad4998f226129e06850_icgraph" id="aerror_8cpp_a4f829608a6770ad4998f226129e06850_icgraph">
+<area shape="rect" title="Run time error recovery function." alt="" coords="241,179,324,204"/>
+<area shape="rect" href="error_8cpp.html#ae0f88e37281de7fb561e74c7b15d540c" title="Control EDOM or ERANGE errors." alt="" coords="115,129,193,155"/>
+<area shape="poly" title=" " alt="" coords="235,176,187,157,189,152,237,171"/>
+<area shape="rect" href="error_8cpp.html#a5dffb67e4667377e1ac3db92422225a2" title="Run time error recovery function." alt="" coords="115,203,193,228"/>
+<area shape="poly" title=" " alt="" coords="228,204,194,211,193,205,227,199"/>
+<area shape="rect" href="mathFunction_8cpp.html#aaa5ab3c65b9641f75f6d58a780d1a624" title="Calcula la arcotangente del cociente x/y." alt="" coords="6,5,66,31"/>
+<area shape="poly" title=" " alt="" coords="132,120,65,44,52,33,56,29,69,40,136,117"/>
+<area shape="rect" href="mathFunction_8cpp.html#ab778ae483c09efc88fe80ee315634247" title="Calcula la exponencial de un número real." alt="" coords="13,55,59,80"/>
+<area shape="poly" title=" " alt="" coords="120,124,56,82,59,78,123,119"/>
+<area shape="rect" href="mathFunction_8cpp.html#ab190405c8d2ef86c06c2a76c8919a5ec" title="Calcula el logaritmo neperiano de un número real." alt="" coords="13,104,59,129"/>
+<area shape="poly" title=" " alt="" coords="100,133,59,124,60,119,102,128"/>
+<area shape="rect" href="mathFunction_8cpp.html#a6f34bf0aa6b49d312f200d73282f235d" title="Calcula el logaritmo decimal de un número real." alt="" coords="5,153,67,179"/>
+<area shape="poly" title=" " alt="" coords="101,155,67,162,66,157,100,150"/>
+<area shape="rect" href="mathFunction_8cpp.html#a0df8e683452b4bc3bf2bac39300b78fb" title="Calcula la raíz cuadrada de un número real." alt="" coords="12,203,60,228"/>
+<area shape="poly" title=" " alt="" coords="122,165,59,205,56,200,119,160"/>
+<area shape="rect" href="interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function." alt="" coords="9,252,63,277"/>
+<area shape="poly" title=" " alt="" coords="111,236,64,256,62,251,109,231"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5dffb67e4667377e1ac3db92422225a2" name="a5dffb67e4667377e1ac3db92422225a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dffb67e4667377e1ac3db92422225a2">&#9670;&#160;</a></span>fpecatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fpecatch </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run time error recovery function. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="error_8hpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages.">warning</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="error_8cpp_source.html#l00060">60</a> del archivo <a class="el" href="error_8cpp_source.html">error.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_a5dffb67e4667377e1ac3db92422225a2_cgraph.png" border="0" usemap="#aerror_8cpp_a5dffb67e4667377e1ac3db92422225a2_cgraph" alt=""/></div>
+<map name="aerror_8cpp_a5dffb67e4667377e1ac3db92422225a2_cgraph" id="aerror_8cpp_a5dffb67e4667377e1ac3db92422225a2_cgraph">
+<area shape="rect" title="Run time error recovery function." alt="" coords="5,5,84,31"/>
+<area shape="rect" href="error_8cpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function." alt="" coords="132,5,215,31"/>
+<area shape="poly" title=" " alt="" coords="84,15,118,15,118,21,84,21"/>
+<area shape="rect" href="error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages." alt="" coords="263,5,337,31"/>
+<area shape="poly" title=" " alt="" coords="215,15,249,15,249,21,215,21"/>
+</map>
+</div>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_a5dffb67e4667377e1ac3db92422225a2_icgraph.png" border="0" usemap="#aerror_8cpp_a5dffb67e4667377e1ac3db92422225a2_icgraph" alt=""/></div>
+<map name="aerror_8cpp_a5dffb67e4667377e1ac3db92422225a2_icgraph" id="aerror_8cpp_a5dffb67e4667377e1ac3db92422225a2_icgraph">
+<area shape="rect" title="Run time error recovery function." alt="" coords="108,5,187,31"/>
+<area shape="rect" href="interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function." alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a49cb0d9d8b1078240896a25b9e97c7a4" name="a49cb0d9d8b1078240896a25b9e97c7a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49cb0d9d8b1078240896a25b9e97c7a4">&#9670;&#160;</a></span>warning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void warning </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>errorMessage1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>errorMessage2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Show the error messages. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorMessage1</td><td>first error message </td></tr>
+    <tr><td class="paramname">errorMessage2</td><td>second error message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="error_8hpp.html#ac91f26a2ec0d893e1e75feb45404bd75" title="Parser error recovery function.">yyerror</a>, <a class="el" href="error_8hpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function.">execerror</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="error_8cpp_source.html#l00033">33</a> del archivo <a class="el" href="error_8cpp_source.html">error.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_a49cb0d9d8b1078240896a25b9e97c7a4_icgraph.png" border="0" usemap="#aerror_8cpp_a49cb0d9d8b1078240896a25b9e97c7a4_icgraph" alt=""/></div>
+<map name="aerror_8cpp_a49cb0d9d8b1078240896a25b9e97c7a4_icgraph" id="aerror_8cpp_a49cb0d9d8b1078240896a25b9e97c7a4_icgraph">
+<area shape="rect" title="Show the error messages." alt="" coords="523,966,597,991"/>
+<area shape="rect" href="classlp_1_1AssignmentStmt.html#a47da6a6ee03b0808aba85f4ebb08f6f0" title="Evaluate the AssignmentStmt." alt="" coords="283,5,433,45"/>
+<area shape="poly" title=" " alt="" coords="555,952,549,762,534,478,523,334,509,207,492,111,483,78,473,59,455,44,432,34,434,30,457,39,477,56,488,76,498,110,515,206,529,333,540,477,554,762,561,952"/>
+<area shape="rect" href="classlp_1_1PrintStmt.html#aea08bc4ec6c90f8cc7a4b31dddb6509e" title="Evaluate the PrintStmt." alt="" coords="274,70,442,95"/>
+<area shape="poly" title=" " alt="" coords="555,952,549,770,534,501,523,366,509,247,492,156,483,126,473,108,459,97,441,89,444,84,461,92,477,105,488,124,497,155,514,246,528,365,539,501,554,770,561,952"/>
+<area shape="rect" href="classlp_1_1VariableNode.html#a1f38fe9c2c54a82d8f5f62cc2317b16f" title="Evaluate the Variable as BOOL." alt="" coords="247,119,469,145"/>
+<area shape="poly" title=" " alt="" coords="555,952,548,780,532,527,521,399,507,287,491,203,482,175,473,158,459,147,463,143,477,154,487,172,496,201,513,287,526,399,538,526,553,779,560,952"/>
+<area shape="rect" href="classlp_1_1ConstantNode.html#ae02e46760b4001acc4401c1061354c95" title="Evaluate the Constant as BOOL." alt="" coords="244,169,472,194"/>
+<area shape="poly" title=" " alt="" coords="555,952,547,789,531,553,519,434,506,329,490,250,481,224,473,208,457,196,461,192,477,205,486,222,495,249,511,329,525,433,536,552,552,789,560,952"/>
+<area shape="rect" href="classlp_1_1GreaterThanNode.html#a365005b25cdbdad26576db1e16a6165d" title="Evaluate the GreaterThanNode." alt="" coords="279,219,437,259"/>
+<area shape="poly" title=" " alt="" coords="555,952,545,802,528,586,503,383,488,311,481,287,473,272,456,258,436,249,438,244,459,254,477,269,485,285,494,309,508,382,533,585,551,801,560,952"/>
+<area shape="rect" href="classlp_1_1GreaterOrEqualNode.html#a89b4f625d728003a36d65dbc2ea1a644" title="Evaluate the GreaterOrEqualNode." alt="" coords="270,283,446,323"/>
+<area shape="poly" title=" " alt="" coords="556,952,555,823,545,638,535,543,520,456,499,385,487,357,473,336,460,325,445,317,448,312,463,321,477,333,491,355,504,383,525,455,540,542,550,637,560,823,562,952"/>
+<area shape="rect" href="classlp_1_1LessThanNode.html#ae4bfbd967bdda2f9b8819093cf8ce43e" title="Evaluate the LessThanNode." alt="" coords="243,347,473,373"/>
+<area shape="poly" title=" " alt="" coords="556,952,554,831,543,661,533,574,518,495,498,431,486,406,473,387,457,375,461,371,477,383,491,403,503,429,523,494,538,574,549,661,559,831,561,952"/>
+<area shape="rect" href="classlp_1_1LessOrEqualNode.html#a798368a286759cba7d197da867c1aebc" title="Evaluate the LessOrEqualNode." alt="" coords="280,397,436,437"/>
+<area shape="poly" title=" " alt="" coords="555,952,551,843,538,693,527,617,513,547,495,490,473,451,456,437,435,428,437,423,459,433,477,448,500,488,518,545,533,616,543,692,556,843,561,952"/>
+<area shape="rect" href="classlp_1_1EqualNode.html#ad1554ddf61089ace9b1f734bf9682b2f" title="Evaluate the EqualNode." alt="" coords="255,462,461,487"/>
+<area shape="poly" title=" " alt="" coords="555,952,550,852,536,716,525,647,511,585,494,534,473,500,459,490,462,485,477,497,499,532,517,584,531,646,541,715,555,852,560,952"/>
+<area shape="rect" href="classlp_1_1NotEqualNode.html#a12834bfe7c0f06b9200e0f15d9ba994a" title="Evaluate the NotEqualNode." alt="" coords="243,511,473,537"/>
+<area shape="poly" title=" " alt="" coords="555,952,548,862,533,740,522,679,508,624,492,580,473,550,459,539,462,535,477,546,497,577,514,623,527,678,538,740,553,861,560,952"/>
+<area shape="rect" href="classlp_1_1AndNode.html#a777ea0c082355504cf1f124c00277643" title="Evaluate the AndNode." alt="" coords="261,561,455,586"/>
+<area shape="poly" title=" " alt="" coords="554,952,545,871,529,765,505,664,490,625,473,599,454,586,457,582,477,595,495,623,510,662,535,764,551,870,559,952"/>
+<area shape="rect" href="classlp_1_1OrNode.html#a8dc0eb24b38abf22a0f3003c5f311fc9" title="Evaluate the OrNode." alt="" coords="265,610,451,635"/>
+<area shape="poly" title=" " alt="" coords="553,953,543,881,526,790,502,703,488,670,473,649,450,634,453,629,477,645,493,668,507,702,531,788,548,880,558,952"/>
+<area shape="rect" href="classlp_1_1NotNode.html#aa7420ab6374b58f3bddd860b30aad1a1" title="Evaluate the NotNode." alt="" coords="261,659,455,685"/>
+<area shape="poly" title=" " alt="" coords="556,952,553,899,542,830,531,794,517,759,497,727,473,699,453,686,456,682,476,695,502,724,521,757,536,793,547,829,559,898,562,952"/>
+<area shape="rect" href="classlp_1_1VariableNode.html#abccf5eb4eebcc36e0053dd9c5a6296ae" title="Evaluate the Variable as NUMBER." alt="" coords="261,709,455,749"/>
+<area shape="poly" title=" " alt="" coords="553,953,546,911,532,860,508,808,492,784,473,763,454,750,457,746,476,759,496,781,513,805,537,858,551,910,559,952"/>
+<area shape="rect" href="classlp_1_1ConstantNode.html#a3f85e885bed686ae367e7062d77c10ae" title="Evaluate the Constant as NUMBER." alt="" coords="259,773,457,813"/>
+<area shape="poly" title=" " alt="" coords="549,954,522,890,501,856,473,827,455,816,457,811,476,823,505,853,527,887,554,952"/>
+<area shape="rect" href="classlp_1_1UnaryMinusNode.html#ae1f28be5be925e4908e3e37fb2b3dda9" title="Evaluate the expression." alt="" coords="281,837,435,877"/>
+<area shape="poly" title=" " alt="" coords="540,956,511,923,473,892,435,875,437,870,476,887,515,919,544,953"/>
+<area shape="rect" href="classlp_1_1UnaryPlusNode.html#a970618b525bed0958cdee8e51fea04b3" title="Evaluate the expression." alt="" coords="283,901,433,941"/>
+<area shape="poly" title=" " alt="" coords="509,966,474,956,432,944,433,939,475,951,510,961"/>
+<area shape="rect" href="classlp_1_1PlusNode.html#a74f7709dd851fe26daf4139bd5304a97" title="Evaluate the PlusNode." alt="" coords="248,966,468,991"/>
+<area shape="poly" title=" " alt="" coords="509,981,468,981,468,976,509,976"/>
+<area shape="rect" href="classlp_1_1MinusNode.html#aaf3ac141e08f882e19016c6eea048cc7" title="Evaluate the MinusNode." alt="" coords="242,1015,474,1041"/>
+<area shape="poly" title=" " alt="" coords="510,996,475,1005,421,1018,420,1013,474,1000,509,991"/>
+<area shape="rect" href="classlp_1_1MultiplicationNode.html#aa46e62f9d585cd4e7e4f8f7692acf293" title="Evaluate the MultiplicationNode." alt="" coords="275,1065,441,1105"/>
+<area shape="poly" title=" " alt="" coords="540,1003,511,1030,476,1054,442,1069,440,1064,473,1050,508,1026,536,999"/>
+<area shape="rect" href="classlp_1_1DivisionNode.html#a79cae31e5430e570c115ce9f4a5d5c77" title="Evaluate the DivisionNode." alt="" coords="261,1129,455,1169"/>
+<area shape="poly" title=" " alt="" coords="552,1006,524,1063,503,1094,476,1119,457,1131,454,1127,473,1115,499,1090,520,1060,547,1003"/>
+<area shape="rect" href="classlp_1_1ModuloNode.html#aea7137275919de6bb483d06b076cedd9" title="Evaluate the ModuloNode." alt="" coords="263,1193,453,1233"/>
+<area shape="poly" title=" " alt="" coords="558,1006,550,1045,535,1093,511,1141,495,1164,476,1183,454,1198,451,1194,473,1179,491,1160,506,1139,530,1091,544,1044,553,1005"/>
+<area shape="rect" href="classlp_1_1PowerNode.html#a7f6cf835095edcc7cf46f821a11c5006" title="Evaluate the PowerNode." alt="" coords="241,1258,475,1283"/>
+<area shape="poly" title=" " alt="" coords="561,1005,557,1057,545,1122,534,1156,520,1189,501,1220,476,1247,458,1260,455,1256,473,1243,496,1217,515,1187,529,1154,540,1121,552,1056,556,1005"/>
+<area shape="rect" href="classlp_1_1BuiltinFunctionNode__1.html#a61d21eff3e101119de1a5d7d18340eb2" title="Evaluate the BuiltinFunctionNode_1." alt="" coords="271,1308,445,1348"/>
+<area shape="poly" title=" " alt="" coords="562,1005,561,1065,550,1143,539,1184,524,1225,503,1263,476,1297,446,1317,444,1312,473,1293,499,1260,519,1222,534,1182,545,1142,555,1064,557,1005"/>
+<area shape="rect" href="classlp_1_1BuiltinFunctionNode__2.html#a1ca8378a5a33cd7afa3b7f3efdb1c186" title="Evaluate the BuiltinFunctionNode_2." alt="" coords="271,1372,445,1412"/>
+<area shape="poly" title=" " alt="" coords="559,1005,550,1086,534,1193,510,1294,494,1334,477,1362,462,1374,446,1382,443,1378,459,1369,473,1358,490,1332,505,1293,529,1192,545,1086,554,1005"/>
+<area shape="rect" href="classlp_1_1VariableNode.html#a6ad78a9004afc3130956a447d8c9eacf" title="Evaluate the expression as STRING." alt="" coords="261,1436,455,1476"/>
+<area shape="poly" title=" " alt="" coords="560,1005,553,1098,538,1224,527,1287,514,1345,497,1393,477,1426,457,1441,454,1437,473,1422,492,1391,508,1344,522,1286,533,1223,548,1098,555,1005"/>
+<area shape="rect" href="error_8cpp.html#a4f829608a6770ad4998f226129e06850" title="Run time error recovery function." alt="" coords="317,1501,399,1526"/>
+<area shape="poly" title=" " alt="" coords="561,1005,556,1111,543,1256,532,1329,518,1397,500,1452,477,1490,460,1503,440,1511,400,1518,399,1513,439,1506,457,1498,473,1486,495,1450,513,1395,527,1329,538,1255,551,1110,555,1005"/>
+<area shape="rect" href="classlp_1_1NumericUnaryOperatorNode.html#a79c5f568684c79b2ea17acc45c68fa79" title="Get the type of the child expression." alt="" coords="261,1551,455,1591"/>
+<area shape="poly" title=" " alt="" coords="561,1006,557,1120,545,1279,534,1360,520,1435,501,1496,490,1520,477,1539,456,1555,453,1551,473,1536,485,1518,496,1494,515,1434,529,1360,540,1278,552,1119,556,1005"/>
+<area shape="rect" href="classlp_1_1LogicalUnaryOperatorNode.html#a01278f321aafefddaa3a242692b2d7d6" title="Get the type of the child expression." alt="" coords="266,1615,450,1655"/>
+<area shape="poly" title=" " alt="" coords="562,1005,560,1131,549,1310,539,1402,524,1487,504,1556,491,1583,477,1605,452,1623,449,1619,473,1601,486,1581,499,1554,519,1485,534,1401,544,1310,554,1131,556,1005"/>
+<area shape="rect" href="classlp_1_1NumericOperatorNode.html#a765cab60501004cd725b3e55288f5bb8" title="Get the type of the children expressions." alt="" coords="264,1679,452,1719"/>
+<area shape="poly" title=" " alt="" coords="562,1005,562,1143,553,1341,543,1443,528,1537,506,1615,492,1645,477,1668,454,1686,451,1682,473,1665,488,1642,501,1613,522,1536,538,1442,548,1340,556,1142,557,1005"/>
+<area shape="rect" href="classlp_1_1RelationalOperatorNode.html#a455372e869721070813e2a5a4fe70e52" title="Get the type of the children expressions." alt="" coords="259,1743,457,1783"/>
+<area shape="poly" title=" " alt="" coords="560,1005,551,1164,534,1395,510,1612,494,1689,486,1716,477,1732,459,1747,456,1743,473,1729,481,1714,489,1688,504,1611,529,1394,546,1164,555,1005"/>
+<area shape="rect" href="classlp_1_1LogicalOperatorNode.html#a4dea6a1099b42d63e46b8dd6b61bebfb" title="Get the type of the children expressions." alt="" coords="269,1807,447,1847"/>
+<area shape="poly" title=" " alt="" coords="560,1005,553,1177,536,1427,525,1553,512,1664,496,1749,487,1778,477,1796,464,1808,449,1817,446,1812,461,1804,473,1793,482,1776,490,1748,506,1664,520,1553,531,1427,547,1176,555,1005"/>
+<area shape="rect" href="classlp_1_1BuiltinFunctionNode__1.html#a84946ab2d1d69d1e27fc6097ef68e79d" title="Get the type of the child expression:" alt="" coords="271,1871,445,1911"/>
+<area shape="poly" title=" " alt="" coords="561,1005,554,1187,538,1459,527,1596,513,1717,497,1809,487,1841,477,1860,463,1873,446,1882,444,1877,460,1869,473,1857,482,1839,492,1808,508,1716,522,1595,533,1458,548,1187,555,1005"/>
+<area shape="rect" href="classlp_1_1BuiltinFunctionNode__2.html#a989c2cf47c3efa36b3192f3c37cd9e0e" title="Get the type of the children expressions." alt="" coords="271,1935,445,1975"/>
+<area shape="poly" title=" " alt="" coords="561,1005,555,1200,540,1492,529,1639,515,1770,498,1869,488,1903,477,1924,463,1937,446,1946,444,1941,460,1933,473,1921,483,1901,493,1868,510,1769,524,1639,535,1491,549,1200,555,1005"/>
+<area shape="rect" href="error_8cpp.html#ac91f26a2ec0d893e1e75feb45404bd75" title="Parser error recovery function." alt="" coords="323,1999,393,2025"/>
+<area shape="poly" title=" " alt="" coords="561,1005,556,1212,543,1524,532,1683,518,1823,500,1929,489,1966,477,1988,459,2003,437,2012,393,2017,393,2012,436,2007,456,1998,473,1985,484,1964,495,1928,513,1822,527,1682,538,1524,551,1212,556,1005"/>
+<area shape="rect" href="error_8cpp.html#ae0f88e37281de7fb561e74c7b15d540c" title="Control EDOM or ERANGE errors." alt="" coords="115,1465,193,1490"/>
+<area shape="poly" title=" " alt="" coords="303,1506,193,1487,194,1482,304,1501"/>
+<area shape="rect" href="error_8cpp.html#a5dffb67e4667377e1ac3db92422225a2" title="Run time error recovery function." alt="" coords="115,1538,193,1563"/>
+<area shape="poly" title=" " alt="" coords="304,1526,194,1546,193,1541,303,1521"/>
+<area shape="rect" href="mathFunction_8cpp.html#aaa5ab3c65b9641f75f6d58a780d1a624" title="Calcula la arcotangente del cociente x/y." alt="" coords="6,1341,66,1366"/>
+<area shape="poly" title=" " alt="" coords="132,1456,65,1379,52,1368,56,1364,69,1375,136,1452"/>
+<area shape="rect" href="mathFunction_8cpp.html#ab778ae483c09efc88fe80ee315634247" title="Calcula la exponencial de un número real." alt="" coords="13,1390,59,1415"/>
+<area shape="poly" title=" " alt="" coords="120,1459,56,1418,59,1413,123,1455"/>
+<area shape="rect" href="mathFunction_8cpp.html#ab190405c8d2ef86c06c2a76c8919a5ec" title="Calcula el logaritmo neperiano de un número real." alt="" coords="13,1439,59,1465"/>
+<area shape="poly" title=" " alt="" coords="100,1469,59,1459,60,1454,102,1463"/>
+<area shape="rect" href="mathFunction_8cpp.html#a6f34bf0aa6b49d312f200d73282f235d" title="Calcula el logaritmo decimal de un número real." alt="" coords="5,1489,67,1514"/>
+<area shape="poly" title=" " alt="" coords="101,1491,67,1498,66,1493,100,1486"/>
+<area shape="rect" href="mathFunction_8cpp.html#a0df8e683452b4bc3bf2bac39300b78fb" title="Calcula la raíz cuadrada de un número real." alt="" coords="12,1538,60,1563"/>
+<area shape="poly" title=" " alt="" coords="122,1500,59,1540,56,1536,119,1495"/>
+<area shape="rect" href="interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function." alt="" coords="9,1587,63,1613"/>
+<area shape="poly" title=" " alt="" coords="111,1571,64,1591,62,1586,109,1566"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac91f26a2ec0d893e1e75feb45404bd75" name="ac91f26a2ec0d893e1e75feb45404bd75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac91f26a2ec0d893e1e75feb45404bd75">&#9670;&#160;</a></span>yyerror()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void yyerror </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>errorMessage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parser error recovery function. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorMessage</td><td>Parser error message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="error_8hpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages.">warning</a> </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="error_8cpp_source.html#l00047">47</a> del archivo <a class="el" href="error_8cpp_source.html">error.cpp</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="error_8cpp_ac91f26a2ec0d893e1e75feb45404bd75_cgraph.png" border="0" usemap="#aerror_8cpp_ac91f26a2ec0d893e1e75feb45404bd75_cgraph" alt=""/></div>
+<map name="aerror_8cpp_ac91f26a2ec0d893e1e75feb45404bd75_cgraph" id="aerror_8cpp_ac91f26a2ec0d893e1e75feb45404bd75_cgraph">
+<area shape="rect" title="Parser error recovery function." alt="" coords="5,5,75,31"/>
+<area shape="rect" href="error_8cpp.html#a49cb0d9d8b1078240896a25b9e97c7a4" title="Show the error messages." alt="" coords="123,5,197,31"/>
+<area shape="poly" title=" " alt="" coords="75,15,109,15,109,21,75,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="ab9444a880c717f57ccbacc21c0ab8cb9" name="ab9444a880c717f57ccbacc21c0ab8cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9444a880c717f57ccbacc21c0ab8cb9">&#9670;&#160;</a></span>begin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">jmp_buf begin</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used for error recovery. </p>
+<p>Used for error recovery. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00075">75</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a44bf2f6ee91a35522c07c779325d3ef0" name="a44bf2f6ee91a35522c07c779325d3ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44bf2f6ee91a35522c07c779325d3ef0">&#9670;&#160;</a></span>lineNumber</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lineNumber</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>// Reference to line counter </p>
+<p>// Reference to line counter </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00034">34</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a13f3991d45154aa44f37dc1a4703e97f" name="a13f3991d45154aa44f37dc1a4703e97f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13f3991d45154aa44f37dc1a4703e97f">&#9670;&#160;</a></span>progname</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string progname</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reference to program name. </p>
+<p>Reference to program name. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00046">46</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

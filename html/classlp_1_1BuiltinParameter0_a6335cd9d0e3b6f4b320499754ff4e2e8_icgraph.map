@@ -1,0 +1,9 @@
+<map id="lp::BuiltinParameter0::getFunction" name="lp::BuiltinParameter0::getFunction">
+<area shape="rect" id="Node000001" title="Devuelve la función asociada." alt="" coords="227,69,385,109"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1BuiltinParameter0.html#a2bc5ea1642c126c13ba0fe4c57e1fd5d" title="Constructor de copia: clona los atributos de otra función predefinida." alt="" coords="13,5,171,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,68,159,48,160,43,226,63"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1BuiltinFunctionNode__0.html#a4f2e5a9d229438e4ccee2bba757e4c18" title="Evaluate the BuiltinFunctionNode_0." alt="" coords="5,69,179,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,92,179,92,179,87,213,87"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1BuiltinParameter0.html#a18d34f288b38c14623e5d18c1809cc61" title="Operador de asignación." alt="" coords="13,133,171,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="226,116,160,136,159,131,224,111"/>
+</map>

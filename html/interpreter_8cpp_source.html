@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Archivo de código fuente interpreter.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">interpreter.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="interpreter_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// New in example 2</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">  NEW in example 16 </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">  AST class</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">  IMPORTANT: must be written before interpreter.tab.h</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="ast_8hpp.html">ast/ast.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;./parser/interpreter.tab.h&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#a44bf2f6ee91a35522c07c779325d3ef0">   34</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="interpreter_8cpp.html#a44bf2f6ee91a35522c07c779325d3ef0">lineNumber</a> = 1; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/* NEW in example 15 */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">   37</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a>; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/* NEW in example 17 */</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#a38a5fff93fa70faa75b8fa0bc27d8550">   40</a></span><span class="keywordtype">int</span> <a class="code hl_variable" href="interpreter_8cpp.html#a38a5fff93fa70faa75b8fa0bc27d8550">control</a> = 0; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// New in example 2</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> FILE * <a class="code hl_variable" href="interpreter_8cpp.html#a46af646807e0797e72b6e8945e7ea88b">yyin</a>; </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">extern</span> <span class="keywordtype">int</span> yy_flex_debug;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#a13f3991d45154aa44f37dc1a4703e97f">   46</a></span>std::string <a class="code hl_variable" href="interpreter_8cpp.html#a13f3991d45154aa44f37dc1a4703e97f">progname</a>; </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">// NEW in example 6 </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// Use for recovery of runtime errors </span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &lt;setjmp.h&gt;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// Error recovery functions </span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &quot;<a class="code" href="error_8hpp.html">error/error.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#a6878d9de99196085b7593b60057bd81d">   61</a></span><a class="code hl_class" href="classlp_1_1AST.html">lp::AST</a> *<a class="code hl_variable" href="interpreter_8cpp.html#a6878d9de99196085b7593b60057bd81d">root</a>; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// NEW in example 10 </span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#include &quot;<a class="code" href="init_8hpp.html">table/init.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> jhmp_buf</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">    This is an array type capable of storing the information of a calling environment to be restored later.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">   This information is filled by calling macro setjmp and can be restored by calling function longjmp.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#ab9444a880c717f57ccbacc21c0ab8cb9">   75</a></span>jmp_buf <a class="code hl_variable" href="interpreter_8cpp.html#ab9444a880c717f57ccbacc21c0ab8cb9">begin</a>; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">// NEW in example 7 </span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#include &quot;<a class="code" href="table_8hpp.html">table/table.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#a1c3671f774276086f0b06f52dea5d4a8">   82</a></span><a class="code hl_class" href="classlp_1_1Table.html">lp::Table</a> <a class="code hl_variable" href="interpreter_8cpp.html#a1c3671f774276086f0b06f52dea5d4a8">table</a>; </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">// cout.precision</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">  100</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">/* Option -t needed to debug */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">/* 1, on; 0, off */</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    yydebug = 0;  <span class="comment">// Disable parser debug for normal execution</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    yy_flex_debug = 0;  <span class="comment">// Disable lexer debug for normal execution</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> <span class="comment">/* </span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">   If the input file exists </span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">      then </span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">           it is set as input device for yylex();</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">      otherwise</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">            the input device is the keyboard (stdin)</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> <span class="keywordflow">if</span> (argc == 2) </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>     <a class="code hl_variable" href="interpreter_8cpp.html#a46af646807e0797e72b6e8945e7ea88b">yyin</a> = fopen(argv[1],<span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>     <a class="code hl_variable" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordflow">else</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_variable" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> <span class="comment">// Copy the name of the interpreter </span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_variable" href="interpreter_8cpp.html#a13f3991d45154aa44f37dc1a4703e97f">progname</a> = argv[0];</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> <span class="comment">/* Number of decimal places */</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> std::cout.precision(7);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> <span class="comment">/* </span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">   Table of symbols initialization </span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">   Must be written before the recovery sentence: setjmp</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>   <a class="code hl_function" href="init_8cpp.html#ae7bf5ad90e29870521071cd69cd00f37">init</a>(<a class="code hl_variable" href="interpreter_8cpp.html#a1c3671f774276086f0b06f52dea5d4a8">table</a>);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">/* Sets a viable state to continue after a runtime error */</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> setjmp(<a class="code hl_variable" href="interpreter_8cpp.html#ab9444a880c717f57ccbacc21c0ab8cb9">begin</a>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> <span class="comment">/* The name of the function to handle floating-point errors is set */</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> signal(SIGFPE,<a class="code hl_function" href="error_8cpp.html#a5dffb67e4667377e1ac3db92422225a2">fpecatch</a>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> <span class="comment">// Parser function</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  yyparse();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a> == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  <span class="comment">/* Evaluate parsed program */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>       <a class="code hl_variable" href="interpreter_8cpp.html#a6878d9de99196085b7593b60057bd81d">root</a>-&gt;<a class="code hl_function" href="classlp_1_1AST.html#a91a26dbae5bf494fd36ec75b065f5d5a">evaluate</a>();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> <span class="comment">/* End of program */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>}</div>
+</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="ttc" id="aast_8hpp_html"><div class="ttname"><a href="ast_8hpp.html">ast.hpp</a></div><div class="ttdoc">Declaration of AST class.</div></div>
+<div class="ttc" id="aclasslp_1_1AST_html"><div class="ttname"><a href="classlp_1_1AST.html">lp::AST</a></div><div class="ttdoc">Definition of atributes and methods of AST class.</div><div class="ttdef"><b>Definition</b> <a href="ast_8hpp_source.html#l01761">ast.hpp:1761</a></div></div>
+<div class="ttc" id="aclasslp_1_1AST_html_a91a26dbae5bf494fd36ec75b065f5d5a"><div class="ttname"><a href="classlp_1_1AST.html#a91a26dbae5bf494fd36ec75b065f5d5a">lp::AST::evaluate</a></div><div class="ttdeci">void evaluate()</div><div class="ttdoc">evaluate the AST</div><div class="ttdef"><b>Definition</b> <a href="ast_8cpp_source.html#l01520">ast.cpp:1520</a></div></div>
+<div class="ttc" id="aclasslp_1_1Table_html"><div class="ttname"><a href="classlp_1_1Table.html">lp::Table</a></div><div class="ttdoc">Clase que representa una tabla de símbolos.</div><div class="ttdef"><b>Definition</b> <a href="table_8hpp_source.html#l00021">table.hpp:22</a></div></div>
+<div class="ttc" id="aerror_8cpp_html_a5dffb67e4667377e1ac3db92422225a2"><div class="ttname"><a href="error_8cpp.html#a5dffb67e4667377e1ac3db92422225a2">fpecatch</a></div><div class="ttdeci">void fpecatch(int signum)</div><div class="ttdoc">Run time error recovery function.</div><div class="ttdef"><b>Definition</b> <a href="error_8cpp_source.html#l00060">error.cpp:60</a></div></div>
+<div class="ttc" id="aerror_8hpp_html"><div class="ttname"><a href="error_8hpp.html">error.hpp</a></div><div class="ttdoc">Prototypes of error recovery functions.</div></div>
+<div class="ttc" id="ainit_8cpp_html_ae7bf5ad90e29870521071cd69cd00f37"><div class="ttname"><a href="init_8cpp.html#ae7bf5ad90e29870521071cd69cd00f37">init</a></div><div class="ttdeci">void init(lp::Table &amp;t)</div><div class="ttdoc">Inicializa la tabla de símbolos con constantes, palabras clave y funciones predefinidas.</div><div class="ttdef"><b>Definition</b> <a href="init_8cpp_source.html#l00027">init.cpp:27</a></div></div>
+<div class="ttc" id="ainit_8hpp_html"><div class="ttname"><a href="init_8hpp.html">init.hpp</a></div><div class="ttdoc">Prototipo de la función de inicialización de la tabla de símbolos.</div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdoc">Main function.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00100">interpreter.cpp:100</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a13f3991d45154aa44f37dc1a4703e97f"><div class="ttname"><a href="interpreter_8cpp.html#a13f3991d45154aa44f37dc1a4703e97f">progname</a></div><div class="ttdeci">std::string progname</div><div class="ttdoc">Program name.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00046">interpreter.cpp:46</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a1c3671f774276086f0b06f52dea5d4a8"><div class="ttname"><a href="interpreter_8cpp.html#a1c3671f774276086f0b06f52dea5d4a8">table</a></div><div class="ttdeci">lp::Table table</div><div class="ttdoc">Table of Symbols.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00082">interpreter.cpp:82</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a38a5fff93fa70faa75b8fa0bc27d8550"><div class="ttname"><a href="interpreter_8cpp.html#a38a5fff93fa70faa75b8fa0bc27d8550">control</a></div><div class="ttdeci">int control</div><div class="ttdoc">To control the interactive mode in &quot;if&quot; and &quot;while&quot; sentences.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00040">interpreter.cpp:40</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a44bf2f6ee91a35522c07c779325d3ef0"><div class="ttname"><a href="interpreter_8cpp.html#a44bf2f6ee91a35522c07c779325d3ef0">lineNumber</a></div><div class="ttdeci">int lineNumber</div><div class="ttdoc">Line counter.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00034">interpreter.cpp:34</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a46af646807e0797e72b6e8945e7ea88b"><div class="ttname"><a href="interpreter_8cpp.html#a46af646807e0797e72b6e8945e7ea88b">yyin</a></div><div class="ttdeci">FILE * yyin</div><div class="ttdoc">Standard input device for yylex()</div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_a6878d9de99196085b7593b60057bd81d"><div class="ttname"><a href="interpreter_8cpp.html#a6878d9de99196085b7593b60057bd81d">root</a></div><div class="ttdeci">lp::AST * root</div><div class="ttdoc">Root of the abstract syntax tree AST.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00061">interpreter.cpp:61</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_aae4554cb8b91e3653644cde3ffac6c6e"><div class="ttname"><a href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a></div><div class="ttdeci">bool interactiveMode</div><div class="ttdoc">Control the interactive mode of execution of the interpreter.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00037">interpreter.cpp:37</a></div></div>
+<div class="ttc" id="ainterpreter_8cpp_html_ab9444a880c717f57ccbacc21c0ab8cb9"><div class="ttname"><a href="interpreter_8cpp.html#ab9444a880c717f57ccbacc21c0ab8cb9">begin</a></div><div class="ttdeci">jmp_buf begin</div><div class="ttdoc">It enables recovery of runtime errors.</div><div class="ttdef"><b>Definition</b> <a href="interpreter_8cpp_source.html#l00075">interpreter.cpp:75</a></div></div>
+<div class="ttc" id="atable_8hpp_html"><div class="ttname"><a href="table_8hpp.html">table.hpp</a></div><div class="ttdoc">Declaración de la clase Table.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

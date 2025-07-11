@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Archivo de código fuente table/logicalVariable.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7cea70ad8000b4ba25606f1df9c7574a.html">table</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">logicalVariable.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="logicalVariable_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="logicalVariable_8hpp.html">logicalVariable.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Operador de asignación</span></div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classlp_1_1LogicalVariable.html#a230efbbe1552bca3ed711567ca781a83">   10</a></span><a class="code hl_class" href="classlp_1_1LogicalVariable.html">lp::LogicalVariable</a> &amp;<a class="code hl_function" href="classlp_1_1LogicalVariable.html#a230efbbe1552bca3ed711567ca781a83">lp::LogicalVariable::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlp_1_1LogicalVariable.html">lp::LogicalVariable</a> &amp;n)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;n)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    this-&gt;<a class="code hl_function" href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6">setName</a>(n.<a class="code hl_function" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a>());</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    this-&gt;<a class="code hl_function" href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730">setToken</a>(n.<a class="code hl_function" href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b">getToken</a>());</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    this-&gt;<a class="code hl_function" href="classlp_1_1Variable.html#adce49b2ab53c1ebc21c74029c84a66fb">setType</a>(n.<a class="code hl_function" href="classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6">getType</a>());</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    this-&gt;<a class="code hl_function" href="classlp_1_1LogicalVariable.html#aca1a668883f360ec20e9c331d600285e">setValue</a>(n.<a class="code hl_function" href="classlp_1_1LogicalVariable.html#a5070b926c8b2d0b9ccf2524f0708651e">getValue</a>());</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// Lectura desde entrada estándar</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classlp_1_1LogicalVariable.html#a14c70b84ed84093a0f77071406cd1da0">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classlp_1_1LogicalVariable.html#a14c70b84ed84093a0f77071406cd1da0">lp::LogicalVariable::read</a>()</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Nombre de la variable lógica: &quot;</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  std::cin &gt;&gt; this-&gt;_name;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Token asociado: &quot;</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  std::cin &gt;&gt; this-&gt;_token;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  std::cin.ignore();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Tipo (ej. BOOL): &quot;</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  std::cin &gt;&gt; this-&gt;_type;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  std::cin.ignore();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Valor lógico (0 o 1): &quot;</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  std::cin &gt;&gt; this-&gt;_value;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  std::cin.ignore();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Escritura por salida estándar</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classlp_1_1LogicalVariable.html#a5806e726ad3c4033365c45c71ea9f7a9">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classlp_1_1LogicalVariable.html#a5806e726ad3c4033365c45c71ea9f7a9">lp::LogicalVariable::write</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Nombre: &quot;</span> &lt;&lt; this-&gt;getName() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Token: &quot;</span> &lt;&lt; this-&gt;getToken() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Tipo: &quot;</span> &lt;&lt; this-&gt;getType() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;Valor: &quot;</span> &lt;&lt; this-&gt;getValue() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacelp.html">lp</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// Operador de entrada (&gt;&gt;) para leer desde flujo</span></div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classlp_1_1LogicalVariable.html#ac07efa7516c4053cfdac6515b54d70c6">   54</a></span>std::istream &amp;<a class="code hl_function" href="namespacelp.html#aa81386ced57452310e093181d447ce72">operator&gt;&gt;</a>(std::istream &amp;i, <a class="code hl_class" href="classlp_1_1LogicalVariable.html">lp::LogicalVariable</a> &amp;n)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  i &gt;&gt; n.<a class="code hl_variable" href="classlp_1_1Symbol.html#a1c4e8ad981e265649e067607ae1cd4ac">_name</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  i &gt;&gt; n.<a class="code hl_variable" href="classlp_1_1Symbol.html#a1256421f0ff4d09cea3a51a52b04e932">_token</a>;  i.ignore();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  i &gt;&gt; n.<a class="code hl_variable" href="classlp_1_1Variable.html#a9a6b5251c533519733814f53664af2e9">_type</a>;   i.ignore();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  i &gt;&gt; n.<a class="code hl_variable" href="classlp_1_1LogicalVariable.html#a25d54a689e785a3ea690efac373da3f2">_value</a>;  i.ignore();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">return</span> i;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// Operador de salida (&lt;&lt;) para escribir en flujo</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classlp_1_1LogicalVariable.html#a930088fba5bde0aece1cdf7a6254dcb5">   65</a></span>std::ostream &amp;<a class="code hl_function" href="namespacelp.html#a8db60b7b37a9ac39145b4f337feaabd2">operator&lt;&lt;</a>(std::ostream &amp;o, <a class="code hl_class" href="classlp_1_1LogicalVariable.html">lp::LogicalVariable</a> <span class="keyword">const</span> &amp;n)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  o &lt;&lt; n.<a class="code hl_variable" href="classlp_1_1Symbol.html#a1c4e8ad981e265649e067607ae1cd4ac">_name</a>  &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  o &lt;&lt; n.<a class="code hl_variable" href="classlp_1_1Symbol.html#a1256421f0ff4d09cea3a51a52b04e932">_token</a> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  o &lt;&lt; n.<a class="code hl_variable" href="classlp_1_1Variable.html#a9a6b5251c533519733814f53664af2e9">_type</a>  &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  o &lt;&lt; n.<a class="code hl_variable" href="classlp_1_1LogicalVariable.html#a25d54a689e785a3ea690efac373da3f2">_value</a> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>} <span class="comment">// namespace lp</span></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html"><div class="ttname"><a href="classlp_1_1LogicalVariable.html">lp::LogicalVariable</a></div><div class="ttdoc">Representa una variable lógica (true o false)</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8hpp_source.html#l00025">logicalVariable.hpp:26</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html_a14c70b84ed84093a0f77071406cd1da0"><div class="ttname"><a href="classlp_1_1LogicalVariable.html#a14c70b84ed84093a0f77071406cd1da0">lp::LogicalVariable::read</a></div><div class="ttdeci">void read()</div><div class="ttdoc">Lee los atributos desde entrada estándar.</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8cpp_source.html#l00024">logicalVariable.cpp:24</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html_a230efbbe1552bca3ed711567ca781a83"><div class="ttname"><a href="classlp_1_1LogicalVariable.html#a230efbbe1552bca3ed711567ca781a83">lp::LogicalVariable::operator=</a></div><div class="ttdeci">LogicalVariable &amp; operator=(const LogicalVariable &amp;n)</div><div class="ttdoc">Operador de asignación.</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8cpp_source.html#l00010">logicalVariable.cpp:10</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html_a25d54a689e785a3ea690efac373da3f2"><div class="ttname"><a href="classlp_1_1LogicalVariable.html#a25d54a689e785a3ea690efac373da3f2">lp::LogicalVariable::_value</a></div><div class="ttdeci">bool _value</div><div class="ttdoc">Valor lógico de la variable.</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8hpp_source.html#l00028">logicalVariable.hpp:28</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html_a5070b926c8b2d0b9ccf2524f0708651e"><div class="ttname"><a href="classlp_1_1LogicalVariable.html#a5070b926c8b2d0b9ccf2524f0708651e">lp::LogicalVariable::getValue</a></div><div class="ttdeci">bool getValue() const</div><div class="ttdoc">Devuelve el valor lógico.</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8hpp_source.html#l00049">logicalVariable.hpp:49</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html_a5806e726ad3c4033365c45c71ea9f7a9"><div class="ttname"><a href="classlp_1_1LogicalVariable.html#a5806e726ad3c4033365c45c71ea9f7a9">lp::LogicalVariable::write</a></div><div class="ttdeci">void write() const</div><div class="ttdoc">Escribe los atributos por salida estándar.</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8cpp_source.html#l00043">logicalVariable.cpp:43</a></div></div>
+<div class="ttc" id="aclasslp_1_1LogicalVariable_html_aca1a668883f360ec20e9c331d600285e"><div class="ttname"><a href="classlp_1_1LogicalVariable.html#aca1a668883f360ec20e9c331d600285e">lp::LogicalVariable::setValue</a></div><div class="ttdeci">void setValue(bool value)</div><div class="ttdoc">Establece el valor lógico.</div><div class="ttdef"><b>Definition</b> <a href="logicalVariable_8hpp_source.html#l00055">logicalVariable.hpp:55</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_a1256421f0ff4d09cea3a51a52b04e932"><div class="ttname"><a href="classlp_1_1Symbol.html#a1256421f0ff4d09cea3a51a52b04e932">lp::Symbol::_token</a></div><div class="ttdeci">int _token</div><div class="ttdoc">Token asociado al símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00027">symbol.hpp:27</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_a1c4e8ad981e265649e067607ae1cd4ac"><div class="ttname"><a href="classlp_1_1Symbol.html#a1c4e8ad981e265649e067607ae1cd4ac">lp::Symbol::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdoc">Nombre del símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00026">symbol.hpp:26</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_a3863314f7ff898f11837f4b0e474199b"><div class="ttname"><a href="classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b">lp::Symbol::getToken</a></div><div class="ttdeci">int getToken() const</div><div class="ttdoc">Devuelve el token asociado al símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00052">symbol.hpp:52</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_aa16f1249563d7b6e26203383c7f912ec"><div class="ttname"><a href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">lp::Symbol::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Devuelve el nombre del símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00046">symbol.hpp:46</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_af5643444e0b8b0f19fdee8b962369730"><div class="ttname"><a href="classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730">lp::Symbol::setToken</a></div><div class="ttdeci">void setToken(int token)</div><div class="ttdoc">Modifica el token del símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00064">symbol.hpp:64</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_afa2573736a4fff8aafbc038e9741bed6"><div class="ttname"><a href="classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6">lp::Symbol::setName</a></div><div class="ttdeci">void setName(const std::string &amp;name)</div><div class="ttdoc">Modifica el nombre del símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00058">symbol.hpp:58</a></div></div>
+<div class="ttc" id="aclasslp_1_1Variable_html_a4d86f303894dbea8809fcb1b7be310a6"><div class="ttname"><a href="classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6">lp::Variable::getType</a></div><div class="ttdeci">int getType() const</div><div class="ttdoc">Devuelve el tipo de la variable.</div><div class="ttdef"><b>Definition</b> <a href="variable_8hpp_source.html#l00042">variable.hpp:42</a></div></div>
+<div class="ttc" id="aclasslp_1_1Variable_html_a9a6b5251c533519733814f53664af2e9"><div class="ttname"><a href="classlp_1_1Variable.html#a9a6b5251c533519733814f53664af2e9">lp::Variable::_type</a></div><div class="ttdeci">int _type</div><div class="ttdoc">Tipo de variable: UNDEFINED, NUMERICVAR, STRINGVAR, LOGICALVAR.</div><div class="ttdef"><b>Definition</b> <a href="variable_8hpp_source.html#l00023">variable.hpp:23</a></div></div>
+<div class="ttc" id="aclasslp_1_1Variable_html_adce49b2ab53c1ebc21c74029c84a66fb"><div class="ttname"><a href="classlp_1_1Variable.html#adce49b2ab53c1ebc21c74029c84a66fb">lp::Variable::setType</a></div><div class="ttdeci">void setType(int type)</div><div class="ttdoc">Modifica el tipo de la variable.</div><div class="ttdef"><b>Definition</b> <a href="variable_8hpp_source.html#l00048">variable.hpp:48</a></div></div>
+<div class="ttc" id="alogicalVariable_8hpp_html"><div class="ttname"><a href="logicalVariable_8hpp.html">logicalVariable.hpp</a></div><div class="ttdoc">Declaración de la clase LogicalVariable.</div></div>
+<div class="ttc" id="anamespacelp_html"><div class="ttname"><a href="namespacelp.html">lp</a></div><div class="ttdoc">Espacio de nombres para el intérprete de pseudocódigo.</div></div>
+<div class="ttc" id="anamespacelp_html_a8db60b7b37a9ac39145b4f337feaabd2"><div class="ttname"><a href="namespacelp.html#a8db60b7b37a9ac39145b4f337feaabd2">lp::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;o, lp::LogicalConstant const &amp;n)</div><div class="ttdef"><b>Definition</b> <a href="logicalConstant_8cpp_source.html#l00064">logicalConstant.cpp:64</a></div></div>
+<div class="ttc" id="anamespacelp_html_aa81386ced57452310e093181d447ce72"><div class="ttname"><a href="namespacelp.html#aa81386ced57452310e093181d447ce72">lp::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;i, lp::LogicalConstant &amp;n)</div><div class="ttdef"><b>Definition</b> <a href="logicalConstant_8cpp_source.html#l00054">logicalConstant.cpp:54</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

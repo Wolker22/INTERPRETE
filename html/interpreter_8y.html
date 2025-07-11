@@ -1,0 +1,909 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Referencia del archivo parser/interpreter.y</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_572890c148f68441e050f6560d78312b.html">parser</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo interpreter.y</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Grammar file for the interpreter using Bison.  
+<a href="#details">Más...</a></p>
+
+<p><a href="interpreter_8y_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:abfbfbe9161d3507732de9d220d07bece" id="r_abfbfbe9161d3507732de9d220d07bece"><td class="memItemLeft" align="right" valign="top"><a id="abfbfbe9161d3507732de9d220d07bece" name="abfbfbe9161d3507732de9d220d07bece"></a>
+$$&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> ($2)</td></tr>
+<tr class="separator:abfbfbe9161d3507732de9d220d07bece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5be04a01721e0560a4410fcfb51af30" id="r_ae5be04a01721e0560a4410fcfb51af30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#ae5be04a01721e0560a4410fcfb51af30">if</a> (<a class="el" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a> &amp;&amp;<a class="el" href="interpreter_8cpp.html#a38a5fff93fa70faa75b8fa0bc27d8550">control</a>==0)</td></tr>
+<tr class="separator:ae5be04a01721e0560a4410fcfb51af30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a44bf2f6ee91a35522c07c779325d3ef0" id="r_a44bf2f6ee91a35522c07c779325d3ef0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a44bf2f6ee91a35522c07c779325d3ef0">lineNumber</a></td></tr>
+<tr class="memdesc:a44bf2f6ee91a35522c07c779325d3ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line counter.  <br /></td></tr>
+<tr class="separator:a44bf2f6ee91a35522c07c779325d3ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae4554cb8b91e3653644cde3ffac6c6e" id="r_aae4554cb8b91e3653644cde3ffac6c6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a></td></tr>
+<tr class="memdesc:aae4554cb8b91e3653644cde3ffac6c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control the interactive mode of execution of the interpreter.  <br /></td></tr>
+<tr class="separator:aae4554cb8b91e3653644cde3ffac6c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a5fff93fa70faa75b8fa0bc27d8550" id="r_a38a5fff93fa70faa75b8fa0bc27d8550"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a38a5fff93fa70faa75b8fa0bc27d8550">control</a></td></tr>
+<tr class="memdesc:a38a5fff93fa70faa75b8fa0bc27d8550"><td class="mdescLeft">&#160;</td><td class="mdescRight">To control the interactive mode in "if" and "while" sentences.  <br /></td></tr>
+<tr class="separator:a38a5fff93fa70faa75b8fa0bc27d8550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13f3991d45154aa44f37dc1a4703e97f" id="r_a13f3991d45154aa44f37dc1a4703e97f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a13f3991d45154aa44f37dc1a4703e97f">progname</a></td></tr>
+<tr class="memdesc:a13f3991d45154aa44f37dc1a4703e97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Program name.  <br /></td></tr>
+<tr class="separator:a13f3991d45154aa44f37dc1a4703e97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9444a880c717f57ccbacc21c0ab8cb9" id="r_ab9444a880c717f57ccbacc21c0ab8cb9"><td class="memItemLeft" align="right" valign="top">jmp_buf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#ab9444a880c717f57ccbacc21c0ab8cb9">begin</a></td></tr>
+<tr class="memdesc:ab9444a880c717f57ccbacc21c0ab8cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It enables recovery of runtime errors.  <br /></td></tr>
+<tr class="separator:ab9444a880c717f57ccbacc21c0ab8cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3671f774276086f0b06f52dea5d4a8" id="r_a1c3671f774276086f0b06f52dea5d4a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlp_1_1Table.html">lp::Table</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a1c3671f774276086f0b06f52dea5d4a8">table</a></td></tr>
+<tr class="memdesc:a1c3671f774276086f0b06f52dea5d4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table of Symbols.  <br /></td></tr>
+<tr class="separator:a1c3671f774276086f0b06f52dea5d4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6878d9de99196085b7593b60057bd81d" id="r_a6878d9de99196085b7593b60057bd81d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlp_1_1AST.html">lp::AST</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a6878d9de99196085b7593b60057bd81d">root</a></td></tr>
+<tr class="memdesc:a6878d9de99196085b7593b60057bd81d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root of the abstract syntax tree AST.  <br /></td></tr>
+<tr class="separator:a6878d9de99196085b7593b60057bd81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9ed1b8a27eb20854efe6e23e297683" id="r_afb9ed1b8a27eb20854efe6e23e297683"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#afb9ed1b8a27eb20854efe6e23e297683">code</a></td></tr>
+<tr class="separator:afb9ed1b8a27eb20854efe6e23e297683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad56b6d2137671e2551ac6d73bb72d661" id="r_ad56b6d2137671e2551ac6d73bb72d661"><td class="memItemLeft" align="right" valign="top">stmtlist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#ad56b6d2137671e2551ac6d73bb72d661">__pad0__</a></td></tr>
+<tr class="separator:ad56b6d2137671e2551ac6d73bb72d661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e8ba7d720ccea9d8a8588f9a8e8b95c" id="r_a6e8ba7d720ccea9d8a8588f9a8e8b95c"><td class="memItemLeft" align="right" valign="top">stmtlist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a6e8ba7d720ccea9d8a8588f9a8e8b95c">stmt</a></td></tr>
+<tr class="separator:a6e8ba7d720ccea9d8a8588f9a8e8b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad26dd6058dadd5935a37e627f0626f" id="r_a8ad26dd6058dadd5935a37e627f0626f"><td class="memItemLeft" align="right" valign="top">stmtlist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a8ad26dd6058dadd5935a37e627f0626f">error</a></td></tr>
+<tr class="separator:a8ad26dd6058dadd5935a37e627f0626f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3c85d6c1067013e850dee1e8d44bb8" id="r_aba3c85d6c1067013e850dee1e8d44bb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aba3c85d6c1067013e850dee1e8d44bb8">yyclearin</a></td></tr>
+<tr class="separator:aba3c85d6c1067013e850dee1e8d44bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54fba847fe6e7949edc14b972a35c3ba" id="r_a54fba847fe6e7949edc14b972a35c3ba"><td class="memItemLeft" align="right" valign="top">stmt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a54fba847fe6e7949edc14b972a35c3ba">__pad1__</a></td></tr>
+<tr class="separator:a54fba847fe6e7949edc14b972a35c3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f8f8be1aa98db2cc92a080c622435a0" id="r_a0f8f8be1aa98db2cc92a080c622435a0"><td class="memItemLeft" align="right" valign="top">asgn SEMICOLON print SEMICOLON read SEMICOLON CLEAR_SCREEN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a0f8f8be1aa98db2cc92a080c622435a0">SEMICOLON</a> { $$ = new <a class="el" href="classlp_1_1ClearScreenStmt.html">lp::ClearScreenStmt</a>()</td></tr>
+<tr class="separator:a0f8f8be1aa98db2cc92a080c622435a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad49812a01dbfe0158bc9af8d4472bc0" id="r_aad49812a01dbfe0158bc9af8d4472bc0"><td class="memItemLeft" align="right" valign="top">REPEAT stmtlist UNTIL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aad49812a01dbfe0158bc9af8d4472bc0">cond</a> { $$ = new <a class="el" href="classlp_1_1RepeatStmt.html">lp::RepeatStmt</a>(new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($2), $4)</td></tr>
+<tr class="separator:aad49812a01dbfe0158bc9af8d4472bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fbab70d93cea1b000af671a559137a" id="r_a03fbab70d93cea1b000af671a559137a"><td class="memItemLeft" align="right" valign="top">FOR VARIABLE FROM exp TO exp stepOpt DO stmtlist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a03fbab70d93cea1b000af671a559137a">END_FOR</a> { $$ = new <a class="el" href="classlp_1_1ForStmt.html">lp::ForStmt</a>($2,$4,$6,$7,new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($9))</td></tr>
+<tr class="separator:a03fbab70d93cea1b000af671a559137a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef84c2eda781a42ea6b38533c0bd239c" id="r_aef84c2eda781a42ea6b38533c0bd239c"><td class="memItemLeft" align="right" valign="top">SWITCH LPAREN exp RPAREN switchcases&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aef84c2eda781a42ea6b38533c0bd239c">END_SWITCH</a> { $$ = new <a class="el" href="classlp_1_1SwitchStmt.html">lp::SwitchStmt</a>($3,$5)</td></tr>
+<tr class="separator:aef84c2eda781a42ea6b38533c0bd239c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ceb94eb0bf46b2589f4d1a9424a5672" id="r_a1ceb94eb0bf46b2589f4d1a9424a5672"><td class="memItemLeft" align="right" valign="top">WHILE cond DO stmtlist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a1ceb94eb0bf46b2589f4d1a9424a5672">END_WHILE</a> { $$ = new <a class="el" href="classlp_1_1WhileStmt.html">lp::WhileStmt</a>($2, new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($4))</td></tr>
+<tr class="separator:a1ceb94eb0bf46b2589f4d1a9424a5672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad68922e73fb63db34b93a190b496e0e" id="r_aad68922e73fb63db34b93a190b496e0e"><td class="memItemLeft" align="right" valign="top">IF cond THEN stmtlist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aad68922e73fb63db34b93a190b496e0e">END_IF</a> { $$ = new <a class="el" href="classlp_1_1IfStmt.html">lp::IfStmt</a>($2, new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($4))</td></tr>
+<tr class="separator:aad68922e73fb63db34b93a190b496e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb7602f42ed2ff5fd08b7e2fd9a58350" id="r_afb7602f42ed2ff5fd08b7e2fd9a58350"><td class="memItemLeft" align="right" valign="top">asgn&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#afb7602f42ed2ff5fd08b7e2fd9a58350">__pad2__</a></td></tr>
+<tr class="separator:afb7602f42ed2ff5fd08b7e2fd9a58350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17e92f877960e278e0b0fb057317f08" id="r_aa17e92f877960e278e0b0fb057317f08"><td class="memItemLeft" align="right" valign="top">asgn&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aa17e92f877960e278e0b0fb057317f08">$3</a></td></tr>
+<tr class="separator:aa17e92f877960e278e0b0fb057317f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3a9d4896e5ef8033aec82b59eb6301" id="r_aff3a9d4896e5ef8033aec82b59eb6301"><td class="memItemLeft" align="right" valign="top">VARIABLE ASSIGNMENT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aff3a9d4896e5ef8033aec82b59eb6301">asgn</a></td></tr>
+<tr class="separator:aff3a9d4896e5ef8033aec82b59eb6301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28b28365e820b3e102a925d16e5460c6" id="r_a28b28365e820b3e102a925d16e5460c6"><td class="memItemLeft" align="right" valign="top">CONSTANT ASSIGNMENT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a28b28365e820b3e102a925d16e5460c6">exp</a></td></tr>
+<tr class="separator:a28b28365e820b3e102a925d16e5460c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe87e7e3c11dba6eb72f0c237c3fe1fa" id="r_abe87e7e3c11dba6eb72f0c237c3fe1fa"><td class="memItemLeft" align="right" valign="top">print&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#abe87e7e3c11dba6eb72f0c237c3fe1fa">__pad3__</a></td></tr>
+<tr class="separator:abe87e7e3c11dba6eb72f0c237c3fe1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1131d11b597c0124025a6bd026bce3b9" id="r_a1131d11b597c0124025a6bd026bce3b9"><td class="memItemLeft" align="right" valign="top">read&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a1131d11b597c0124025a6bd026bce3b9">__pad4__</a></td></tr>
+<tr class="separator:a1131d11b597c0124025a6bd026bce3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097153724bcc649ce22cea544760de79" id="r_a097153724bcc649ce22cea544760de79"><td class="memItemLeft" align="right" valign="top">READ_STRING LPAREN VARIABLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a097153724bcc649ce22cea544760de79">RPAREN</a></td></tr>
+<tr class="separator:a097153724bcc649ce22cea544760de79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a464312b11d68d2655b657f2b42e57c1e" id="r_a464312b11d68d2655b657f2b42e57c1e"><td class="memItemLeft" align="right" valign="top">exp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a464312b11d68d2655b657f2b42e57c1e">__pad5__</a></td></tr>
+<tr class="separator:a464312b11d68d2655b657f2b42e57c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae158940723622f094459a31491a87336" id="r_ae158940723622f094459a31491a87336"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#ae158940723622f094459a31491a87336">STRING</a> { $$ = new <a class="el" href="classlp_1_1StringNode.html">lp::StringNode</a>($1)</td></tr>
+<tr class="separator:ae158940723622f094459a31491a87336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22f31a6432fe1fda546a6de3193e3ee" id="r_ac22f31a6432fe1fda546a6de3193e3ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#ac22f31a6432fe1fda546a6de3193e3ee">VARIABLE</a> { $$ = new <a class="el" href="classlp_1_1VariableNode.html">lp::VariableNode</a>($1)</td></tr>
+<tr class="separator:ac22f31a6432fe1fda546a6de3193e3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f014b1cbaebca918eadd6e5fc041f7" id="r_aa1f014b1cbaebca918eadd6e5fc041f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#aa1f014b1cbaebca918eadd6e5fc041f7">CONSTANT</a> { $$ = new <a class="el" href="classlp_1_1ConstantNode.html">lp::ConstantNode</a>($1)</td></tr>
+<tr class="separator:aa1f014b1cbaebca918eadd6e5fc041f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59361aaeace5a9c8f5c440d5eed54f77" id="r_a59361aaeace5a9c8f5c440d5eed54f77"><td class="memItemLeft" align="right" valign="top">PLUS exp prec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a59361aaeace5a9c8f5c440d5eed54f77">UNARY</a> { $$ = new <a class="el" href="classlp_1_1UnaryPlusNode.html">lp::UnaryPlusNode</a>($2)</td></tr>
+<tr class="separator:a59361aaeace5a9c8f5c440d5eed54f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade96dd53be287dbd4ec3cf629c4e5082" id="r_ade96dd53be287dbd4ec3cf629c4e5082"><td class="memItemLeft" align="right" valign="top">cond&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#ade96dd53be287dbd4ec3cf629c4e5082">__pad6__</a></td></tr>
+<tr class="separator:ade96dd53be287dbd4ec3cf629c4e5082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d68c092c13e3d53b62b4baef8344cc" id="r_a99d68c092c13e3d53b62b4baef8344cc"><td class="memItemLeft" align="right" valign="top">stepOpt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a99d68c092c13e3d53b62b4baef8344cc">__pad7__</a></td></tr>
+<tr class="separator:a99d68c092c13e3d53b62b4baef8344cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a439c7999c487f54da027acd9797282d7" id="r_a439c7999c487f54da027acd9797282d7"><td class="memItemLeft" align="right" valign="top">switchcases&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a439c7999c487f54da027acd9797282d7">__pad8__</a></td></tr>
+<tr class="separator:a439c7999c487f54da027acd9797282d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f53ecbf783028b3b36bf124d4de2456" id="r_a6f53ecbf783028b3b36bf124d4de2456"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a6f53ecbf783028b3b36bf124d4de2456">switchcase</a> { $$ = new std::list&lt;<a class="el" href="structlp_1_1SwitchCase.html">lp::SwitchCase</a> *&gt;()</td></tr>
+<tr class="separator:a6f53ecbf783028b3b36bf124d4de2456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c42bbbb26d388a86d4b2ab47485cba" id="r_a67c42bbbb26d388a86d4b2ab47485cba"><td class="memItemLeft" align="right" valign="top">switchcase&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a67c42bbbb26d388a86d4b2ab47485cba">__pad9__</a></td></tr>
+<tr class="separator:a67c42bbbb26d388a86d4b2ab47485cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2901921107b2f45159a75317ba5f38a7" id="r_a2901921107b2f45159a75317ba5f38a7"><td class="memItemLeft" align="right" valign="top">DEFAULT COLON&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interpreter_8y.html#a2901921107b2f45159a75317ba5f38a7">stmtlist</a> { $$ = new <a class="el" href="structlp_1_1SwitchCase.html">lp::SwitchCase</a>(NULL, new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($3))</td></tr>
+<tr class="separator:a2901921107b2f45159a75317ba5f38a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Grammar file for the interpreter using Bison. </p>
+
+<p class="definition">Definición en el archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+</div><h2 class="groupheader">Documentación de funciones</h2>
+<a id="ae5be04a01721e0560a4410fcfb51af30" name="ae5be04a01721e0560a4410fcfb51af30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5be04a01721e0560a4410fcfb51af30">&#9670;&#160;</a></span>if()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">if </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interpreter_8cpp.html#aae4554cb8b91e3653644cde3ffac6c6e">interactiveMode</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>control</em> = <code>=&#160;0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00114">114</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="aa17e92f877960e278e0b0fb057317f08" name="aa17e92f877960e278e0b0fb057317f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17e92f877960e278e0b0fb057317f08">&#9670;&#160;</a></span>$3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">asgn $3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00147">147</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="ad56b6d2137671e2551ac6d73bb72d661" name="ad56b6d2137671e2551ac6d73bb72d661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad56b6d2137671e2551ac6d73bb72d661">&#9670;&#160;</a></span>__pad0__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stmtlist __pad0__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00107">107</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a54fba847fe6e7949edc14b972a35c3ba" name="a54fba847fe6e7949edc14b972a35c3ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54fba847fe6e7949edc14b972a35c3ba">&#9670;&#160;</a></span>__pad1__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stmt __pad1__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00128">128</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="afb7602f42ed2ff5fd08b7e2fd9a58350" name="afb7602f42ed2ff5fd08b7e2fd9a58350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb7602f42ed2ff5fd08b7e2fd9a58350">&#9670;&#160;</a></span>__pad2__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">asgn __pad2__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00145">145</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="abe87e7e3c11dba6eb72f0c237c3fe1fa" name="abe87e7e3c11dba6eb72f0c237c3fe1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe87e7e3c11dba6eb72f0c237c3fe1fa">&#9670;&#160;</a></span>__pad3__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">print __pad3__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00160">160</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a1131d11b597c0124025a6bd026bce3b9" name="a1131d11b597c0124025a6bd026bce3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1131d11b597c0124025a6bd026bce3b9">&#9670;&#160;</a></span>__pad4__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">read __pad4__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00166">166</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a464312b11d68d2655b657f2b42e57c1e" name="a464312b11d68d2655b657f2b42e57c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a464312b11d68d2655b657f2b42e57c1e">&#9670;&#160;</a></span>__pad5__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">exp __pad5__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00182">182</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="ade96dd53be287dbd4ec3cf629c4e5082" name="ade96dd53be287dbd4ec3cf629c4e5082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade96dd53be287dbd4ec3cf629c4e5082">&#9670;&#160;</a></span>__pad6__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cond __pad6__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00209">209</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a99d68c092c13e3d53b62b4baef8344cc" name="a99d68c092c13e3d53b62b4baef8344cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d68c092c13e3d53b62b4baef8344cc">&#9670;&#160;</a></span>__pad7__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stepOpt __pad7__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00214">214</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a439c7999c487f54da027acd9797282d7" name="a439c7999c487f54da027acd9797282d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a439c7999c487f54da027acd9797282d7">&#9670;&#160;</a></span>__pad8__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">switchcases __pad8__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00219">219</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a67c42bbbb26d388a86d4b2ab47485cba" name="a67c42bbbb26d388a86d4b2ab47485cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c42bbbb26d388a86d4b2ab47485cba">&#9670;&#160;</a></span>__pad9__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">switchcase __pad9__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00224">224</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aff3a9d4896e5ef8033aec82b59eb6301" name="aff3a9d4896e5ef8033aec82b59eb6301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3a9d4896e5ef8033aec82b59eb6301">&#9670;&#160;</a></span>asgn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CONSTANT ASSIGNMENT asgn</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        $$ = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1AssignmentStmt.html">lp::AssignmentStmt</a>($1, (<a class="code hl_class" href="classlp_1_1AssignmentStmt.html">lp::AssignmentStmt</a> *) $3)</div>
+<div class="ttc" id="aclasslp_1_1AssignmentStmt_html"><div class="ttname"><a href="classlp_1_1AssignmentStmt.html">lp::AssignmentStmt</a></div><div class="ttdoc">Definition of atributes and methods of AssignmentStmt class.</div><div class="ttdef"><b>Definition</b> <a href="ast_8hpp_source.html#l01419">ast.hpp:1420</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00149">149</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="ab9444a880c717f57ccbacc21c0ab8cb9" name="ab9444a880c717f57ccbacc21c0ab8cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9444a880c717f57ccbacc21c0ab8cb9">&#9670;&#160;</a></span>begin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">jmp_buf begin</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>It enables recovery of runtime errors. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00075">75</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afb9ed1b8a27eb20854efe6e23e297683" name="afb9ed1b8a27eb20854efe6e23e297683"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9ed1b8a27eb20854efe6e23e297683">&#9670;&#160;</a></span>code</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">code</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00037">37</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aad49812a01dbfe0158bc9af8d4472bc0" name="aad49812a01dbfe0158bc9af8d4472bc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad49812a01dbfe0158bc9af8d4472bc0">&#9670;&#160;</a></span>cond</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">REPEAT stmtlist UNTIL cond { $$ = new <a class="el" href="classlp_1_1RepeatStmt.html">lp::RepeatStmt</a>(new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($2), $4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00137">137</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aa1f014b1cbaebca918eadd6e5fc041f7" name="aa1f014b1cbaebca918eadd6e5fc041f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f014b1cbaebca918eadd6e5fc041f7">&#9670;&#160;</a></span>CONSTANT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CONSTANT { $$ = new <a class="el" href="classlp_1_1ConstantNode.html">lp::ConstantNode</a>($1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00186">186</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a38a5fff93fa70faa75b8fa0bc27d8550" name="a38a5fff93fa70faa75b8fa0bc27d8550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a5fff93fa70faa75b8fa0bc27d8550">&#9670;&#160;</a></span>control</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int control</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>To control the interactive mode in "if" and "while" sentences. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00040">40</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a03fbab70d93cea1b000af671a559137a" name="a03fbab70d93cea1b000af671a559137a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03fbab70d93cea1b000af671a559137a">&#9670;&#160;</a></span>END_FOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FOR VARIABLE FROM exp TO exp stepOpt DO stmtlist END_FOR { $$ = new <a class="el" href="classlp_1_1ForStmt.html">lp::ForStmt</a>($2,$4,$6,$7,new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($9))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00138">138</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aad68922e73fb63db34b93a190b496e0e" name="aad68922e73fb63db34b93a190b496e0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad68922e73fb63db34b93a190b496e0e">&#9670;&#160;</a></span>END_IF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IF cond THEN stmtlist ELSE stmtlist END_IF { $$ = new <a class="el" href="classlp_1_1IfStmt.html">lp::IfStmt</a>($2, new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($4))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00141">141</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aef84c2eda781a42ea6b38533c0bd239c" name="aef84c2eda781a42ea6b38533c0bd239c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef84c2eda781a42ea6b38533c0bd239c">&#9670;&#160;</a></span>END_SWITCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SWITCH LPAREN exp RPAREN switchcases END_SWITCH { $$ = new <a class="el" href="classlp_1_1SwitchStmt.html">lp::SwitchStmt</a>($3,$5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00139">139</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a1ceb94eb0bf46b2589f4d1a9424a5672" name="a1ceb94eb0bf46b2589f4d1a9424a5672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ceb94eb0bf46b2589f4d1a9424a5672">&#9670;&#160;</a></span>END_WHILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WHILE cond DO stmtlist END_WHILE { $$ = new <a class="el" href="classlp_1_1WhileStmt.html">lp::WhileStmt</a>($2, new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($4))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00140">140</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a8ad26dd6058dadd5935a37e627f0626f" name="a8ad26dd6058dadd5935a37e627f0626f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad26dd6058dadd5935a37e627f0626f">&#9670;&#160;</a></span>error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stmtlist error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        $$ = $1</div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00122">122</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a28b28365e820b3e102a925d16e5460c6" name="a28b28365e820b3e102a925d16e5460c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b28365e820b3e102a925d16e5460c6">&#9670;&#160;</a></span>exp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STEP exp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        <a class="code hl_function" href="error_8cpp.html#a4f829608a6770ad4998f226129e06850">execerror</a>(<span class="stringliteral">&quot;No se puede modificar una constante&quot;</span>, $1)</div>
+<div class="ttc" id="aerror_8cpp_html_a4f829608a6770ad4998f226129e06850"><div class="ttname"><a href="error_8cpp.html#a4f829608a6770ad4998f226129e06850">execerror</a></div><div class="ttdeci">void execerror(std::string errorMessage1, std::string errorMessage2)</div><div class="ttdoc">Run time error recovery function.</div><div class="ttdef"><b>Definition</b> <a href="error_8cpp_source.html#l00053">error.cpp:53</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00152">152</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aae4554cb8b91e3653644cde3ffac6c6e" name="aae4554cb8b91e3653644cde3ffac6c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae4554cb8b91e3653644cde3ffac6c6e">&#9670;&#160;</a></span>interactiveMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool interactiveMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Control the interactive mode of execution of the interpreter. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00037">37</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a44bf2f6ee91a35522c07c779325d3ef0" name="a44bf2f6ee91a35522c07c779325d3ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44bf2f6ee91a35522c07c779325d3ef0">&#9670;&#160;</a></span>lineNumber</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lineNumber</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;setjmp.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;../includes/macros.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../error/error.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../ast/ast.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/table.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/numericVariable.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/logicalVariable.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/numericConstant.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/logicalConstant.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/builtinParameter0.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/builtinParameter1.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/builtinParameter2.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;../table/init.hpp&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">int</span> yylex()</div>
+</div><!-- fragment -->
+<p>Line counter. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00034">34</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a13f3991d45154aa44f37dc1a4703e97f" name="a13f3991d45154aa44f37dc1a4703e97f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13f3991d45154aa44f37dc1a4703e97f">&#9670;&#160;</a></span>progname</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string progname</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Program name. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00046">46</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6878d9de99196085b7593b60057bd81d" name="a6878d9de99196085b7593b60057bd81d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6878d9de99196085b7593b60057bd81d">&#9670;&#160;</a></span>root</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlp_1_1AST.html">lp::AST</a>* root</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Root of the abstract syntax tree AST. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00061">61</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a097153724bcc649ce22cea544760de79" name="a097153724bcc649ce22cea544760de79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097153724bcc649ce22cea544760de79">&#9670;&#160;</a></span>RPAREN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LPAREN exp RPAREN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        $$ = <span class="keyword">new</span> <a class="code hl_class" href="classlp_1_1ReadStringStmt.html">lp::ReadStringStmt</a>($3)</div>
+<div class="ttc" id="aclasslp_1_1ReadStringStmt_html"><div class="ttname"><a href="classlp_1_1ReadStringStmt.html">lp::ReadStringStmt</a></div><div class="ttdef"><b>Definition</b> <a href="ast_8hpp_source.html#l01902">ast.hpp:1903</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00170">170</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a0f8f8be1aa98db2cc92a080c622435a0" name="a0f8f8be1aa98db2cc92a080c622435a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f8f8be1aa98db2cc92a080c622435a0">&#9670;&#160;</a></span>SEMICOLON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PLACE LPAREN exp COMMA exp RPAREN SEMICOLON { $$ = new <a class="el" href="classlp_1_1ClearScreenStmt.html">lp::ClearScreenStmt</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00135">135</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a6e8ba7d720ccea9d8a8588f9a8e8b95c" name="a6e8ba7d720ccea9d8a8588f9a8e8b95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e8ba7d720ccea9d8a8588f9a8e8b95c">&#9670;&#160;</a></span>stmt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stmtlist stmt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        $$ = $1</div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00111">111</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a2901921107b2f45159a75317ba5f38a7" name="a2901921107b2f45159a75317ba5f38a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2901921107b2f45159a75317ba5f38a7">&#9670;&#160;</a></span>stmtlist</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DEFAULT COLON stmtlist { $$ = new <a class="el" href="structlp_1_1SwitchCase.html">lp::SwitchCase</a>(NULL, new <a class="el" href="classlp_1_1BlockStmt.html">lp::BlockStmt</a>($3))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00226">226</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="ae158940723622f094459a31491a87336" name="ae158940723622f094459a31491a87336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae158940723622f094459a31491a87336">&#9670;&#160;</a></span>STRING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STRING { $$ = new <a class="el" href="classlp_1_1StringNode.html">lp::StringNode</a>($1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00184">184</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a6f53ecbf783028b3b36bf124d4de2456" name="a6f53ecbf783028b3b36bf124d4de2456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f53ecbf783028b3b36bf124d4de2456">&#9670;&#160;</a></span>switchcase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">switchcase { $$ = new std::list&lt;<a class="el" href="structlp_1_1SwitchCase.html">lp::SwitchCase</a> *&gt;()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00221">221</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="a1c3671f774276086f0b06f52dea5d4a8" name="a1c3671f774276086f0b06f52dea5d4a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3671f774276086f0b06f52dea5d4a8">&#9670;&#160;</a></span>table</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlp_1_1Table.html">lp::Table</a> table</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Table of Symbols. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8cpp_source.html#l00082">82</a> del archivo <a class="el" href="interpreter_8cpp_source.html">interpreter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a59361aaeace5a9c8f5c440d5eed54f77" name="a59361aaeace5a9c8f5c440d5eed54f77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59361aaeace5a9c8f5c440d5eed54f77">&#9670;&#160;</a></span>UNARY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MINUS exp prec UNARY { $$ = new <a class="el" href="classlp_1_1UnaryPlusNode.html">lp::UnaryPlusNode</a>($2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00189">189</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="ac22f31a6432fe1fda546a6de3193e3ee" name="ac22f31a6432fe1fda546a6de3193e3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22f31a6432fe1fda546a6de3193e3ee">&#9670;&#160;</a></span>VARIABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VARIABLE { $$ = new <a class="el" href="classlp_1_1VariableNode.html">lp::VariableNode</a>($1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00185">185</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+<a id="aba3c85d6c1067013e850dee1e8d44bb8" name="aba3c85d6c1067013e850dee1e8d44bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3c85d6c1067013e850dee1e8d44bb8">&#9670;&#160;</a></span>yyclearin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">yyclearin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="interpreter_8y_source.html#l00124">124</a> del archivo <a class="el" href="interpreter_8y_source.html">interpreter.y</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

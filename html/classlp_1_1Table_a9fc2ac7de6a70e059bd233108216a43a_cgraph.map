@@ -1,0 +1,9 @@
+<map id="lp::Table::printTable" name="lp::Table::printTable">
+<area shape="rect" id="Node000001" title="Muestra por consola el contenido de la tabla." alt="" coords="5,31,153,56"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Table.html#a16bcb34d81a3180d1a29f8e6aacbb97b" title="Devuelve un puntero al símbolo con el nombre dado (debe existir)" alt="" coords="203,5,357,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,31,189,27,190,32,154,37"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="201,55,359,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,50,188,54,188,59,154,55"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Table.html#aa373e3d576e0e9accca108607fdfb187" title="Comprueba si existe un símbolo con el nombre dado." alt="" coords="407,5,583,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="358,15,393,15,393,21,358,21"/>
+</map>

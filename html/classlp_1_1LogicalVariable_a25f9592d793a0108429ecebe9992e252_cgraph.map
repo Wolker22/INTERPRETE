@@ -1,0 +1,19 @@
+<map id="lp::LogicalVariable::LogicalVariable" name="lp::LogicalVariable::LogicalVariable">
+<area shape="rect" id="Node000001" title="Constructor de copia." alt="" coords="5,183,147,223"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="195,5,353,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,182,125,113,156,73,193,40,202,34,205,39,196,44,160,77,129,116,89,185"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="195,55,353,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,181,134,135,163,110,193,89,205,83,208,88,196,94,166,115,138,139,95,185"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1Variable.html#a4d86f303894dbea8809fcb1b7be310a6" title="Devuelve el tipo de la variable." alt="" coords="197,104,351,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="111,181,194,140,215,131,217,136,196,144,113,186"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1LogicalVariable.html#a5070b926c8b2d0b9ccf2524f0708651e" title="Devuelve el valor lógico." alt="" coords="203,154,345,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="146,190,189,184,190,189,147,196"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="195,219,353,244"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="147,211,181,216,181,221,146,216"/>
+<area shape="rect" id="Node000007" href="$classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="196,268,352,293"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="121,221,196,253,219,261,217,266,194,258,119,226"/>
+<area shape="rect" id="Node000008" href="$classlp_1_1Variable.html#adce49b2ab53c1ebc21c74029c84a66fb" title="Modifica el tipo de la variable." alt="" coords="197,317,351,343"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="98,222,140,262,196,302,212,310,209,315,193,307,137,266,94,225"/>
+<area shape="rect" id="Node000009" href="$classlp_1_1LogicalVariable.html#aca1a668883f360ec20e9c331d600285e" title="Establece el valor lógico." alt="" coords="203,367,345,407"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="91,222,132,285,162,321,196,352,206,358,203,363,193,356,158,324,128,288,86,225"/>
+</map>

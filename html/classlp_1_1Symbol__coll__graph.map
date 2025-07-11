@@ -1,0 +1,5 @@
+<map id="lp::Symbol" name="lp::Symbol">
+<area shape="rect" id="Node000001" title="Clase base para representar un símbolo con nombre y token." alt="" coords="15,237,212,536"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="5,5,221,189"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,203,116,237,111,237,111,203"/>
+</map>

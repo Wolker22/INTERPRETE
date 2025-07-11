@@ -1,0 +1,9 @@
+<map id="lp::ConstantNode::getType" name="lp::ConstantNode::getType">
+<area shape="rect" id="Node000001" title="Type of the Constant." alt="" coords="5,31,199,56"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Table.html#a16bcb34d81a3180d1a29f8e6aacbb97b" title="Devuelve un puntero al símbolo con el nombre dado (debe existir)" alt="" coords="249,5,403,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,30,234,26,235,31,199,35"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1Constant.html#a1382b5b5f2fd2f376f22b6ce4447f06d" title="Devuelve el tipo de la constante." alt="" coords="247,55,405,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,51,233,55,233,60,199,56"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Table.html#aa373e3d576e0e9accca108607fdfb187" title="Comprueba si existe un símbolo con el nombre dado." alt="" coords="453,5,629,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,15,440,15,440,21,404,21"/>
+</map>

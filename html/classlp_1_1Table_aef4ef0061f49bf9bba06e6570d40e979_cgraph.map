@@ -1,0 +1,7 @@
+<map id="lp::Table::installSymbol" name="lp::Table::installSymbol">
+<area shape="rect" id="Node000001" title="Inserta un nuevo símbolo en la tabla (debe no existir previamente)" alt="" coords="5,31,179,56"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="235,5,394,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,31,221,26,222,31,179,36"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Table.html#aa373e3d576e0e9accca108607fdfb187" title="Comprueba si existe un símbolo con el nombre dado." alt="" coords="227,55,403,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,50,213,54,213,59,179,55"/>
+</map>

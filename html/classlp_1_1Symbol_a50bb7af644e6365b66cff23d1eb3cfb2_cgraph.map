@@ -1,0 +1,11 @@
+<map id="lp::Symbol::Symbol" name="lp::Symbol::Symbol">
+<area shape="rect" id="Node000001" title="Constructor de copia." alt="" coords="5,80,153,105"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec" title="Devuelve el nombre del símbolo." alt="" coords="201,5,360,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,78,200,40,222,32,223,37,202,44,110,82"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Symbol.html#a3863314f7ff898f11837f4b0e474199b" title="Devuelve el token asociado al símbolo." alt="" coords="202,55,359,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,81,188,76,189,82,154,86"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1Symbol.html#afa2573736a4fff8aafbc038e9741bed6" title="Modifica el nombre del símbolo." alt="" coords="201,104,360,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,99,188,103,187,108,153,104"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1Symbol.html#af5643444e0b8b0f19fdee8b962369730" title="Modifica el token del símbolo." alt="" coords="203,153,359,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="112,103,202,138,226,146,224,151,200,143,110,108"/>
+</map>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Language Processors: Archivo de código fuente table/symbol.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Language Processors
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7cea70ad8000b4ba25606f1df9c7574a.html">table</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">symbol.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="symbol_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="symbol_8hpp.html">symbol.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacelp.html">lp</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Operador de igualdad: compara símbolos por nombre</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classlp_1_1Symbol.html#a326c840e438dfe05331abe5f9eb9eed5">   11</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classlp_1_1Symbol.html#a326c840e438dfe05331abe5f9eb9eed5">Symbol::operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlp_1_1Symbol.html">lp::Symbol</a> &amp;s)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a>() == s.<a class="code hl_function" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
+</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// Operador menor: ordena símbolos alfabéticamente por nombre</span></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classlp_1_1Symbol.html#a50302aa26589cc24fe652e706ffeb49d">   17</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classlp_1_1Symbol.html#a50302aa26589cc24fe652e706ffeb49d">Symbol::operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlp_1_1Symbol.html">lp::Symbol</a> &amp;s)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a>() &lt; s.<a class="code hl_function" href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">getName</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>} <span class="comment">// namespace lp</span></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html"><div class="ttname"><a href="classlp_1_1Symbol.html">lp::Symbol</a></div><div class="ttdoc">Clase base para representar un símbolo con nombre y token.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00023">symbol.hpp:24</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_a326c840e438dfe05331abe5f9eb9eed5"><div class="ttname"><a href="classlp_1_1Symbol.html#a326c840e438dfe05331abe5f9eb9eed5">lp::Symbol::operator==</a></div><div class="ttdeci">bool operator==(const Symbol &amp;s) const</div><div class="ttdoc">Operador de igualdad: compara por nombre.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8cpp_source.html#l00011">symbol.cpp:11</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_a50302aa26589cc24fe652e706ffeb49d"><div class="ttname"><a href="classlp_1_1Symbol.html#a50302aa26589cc24fe652e706ffeb49d">lp::Symbol::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Symbol &amp;s) const</div><div class="ttdoc">Operador menor: ordena por nombre (orden lexicográfico)</div><div class="ttdef"><b>Definition</b> <a href="symbol_8cpp_source.html#l00017">symbol.cpp:17</a></div></div>
+<div class="ttc" id="aclasslp_1_1Symbol_html_aa16f1249563d7b6e26203383c7f912ec"><div class="ttname"><a href="classlp_1_1Symbol.html#aa16f1249563d7b6e26203383c7f912ec">lp::Symbol::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Devuelve el nombre del símbolo.</div><div class="ttdef"><b>Definition</b> <a href="symbol_8hpp_source.html#l00046">symbol.hpp:46</a></div></div>
+<div class="ttc" id="anamespacelp_html"><div class="ttname"><a href="namespacelp.html">lp</a></div><div class="ttdoc">Espacio de nombres para el intérprete de pseudocódigo.</div></div>
+<div class="ttc" id="asymbol_8hpp_html"><div class="ttname"><a href="symbol_8hpp.html">symbol.hpp</a></div><div class="ttdoc">Declaración de la clase Symbol.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

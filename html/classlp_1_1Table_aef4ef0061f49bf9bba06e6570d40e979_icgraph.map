@@ -1,0 +1,17 @@
+<map id="lp::Table::installSymbol" name="lp::Table::installSymbol">
+<area shape="rect" id="Node000001" title="Inserta un nuevo símbolo en la tabla (debe no existir previamente)" alt="" coords="344,159,517,185"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1AssignmentStmt.html#a47da6a6ee03b0808aba85f4ebb08f6f0" title="Evaluate the AssignmentStmt." alt="" coords="127,5,277,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="406,151,358,105,327,81,295,60,270,48,273,43,297,55,330,77,361,101,410,147"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1ReadStmt.html#ad98669f25bb9d0c298b96c4eb07e2822" title="Evaluate the ReadStmt." alt="" coords="117,70,287,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="393,155,295,110,255,98,257,93,297,106,395,150"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1AssignmentStmtStringNode.html#ac9f7c1d5f15d53553d14491906fe2b69" title="Evaluate the Statement." alt="" coords="108,120,296,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="330,161,296,156,296,150,331,155"/>
+<area shape="rect" id="Node000005" href="$classlp_1_1ReadStringStmt.html#ac7861157b05220facaa4fc9f531957fe" title="Evaluate the Statement." alt="" coords="130,184,274,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="331,189,275,197,274,191,330,183"/>
+<area shape="rect" id="Node000006" href="$classlp_1_1ForStmt.html#a012ddfa5d6df442b246a1b70ec9313a9" title="Evaluate the Statement." alt="" coords="123,249,281,274"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="395,194,297,238,257,251,255,246,295,234,393,189"/>
+<area shape="rect" id="Node000007" href="$init_8cpp.html#ae7bf5ad90e29870521071cd69cd00f37" title="Inicializa la tabla de símbolos con constantes, palabras clave y funciones predefinidas." alt="" coords="181,298,223,323"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="410,197,362,243,331,267,297,288,259,302,224,310,223,305,257,297,295,283,328,263,358,239,407,193"/>
+<area shape="rect" id="Node000008" href="$interpreter_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main function." alt="" coords="5,298,60,323"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="167,313,60,313,60,308,167,308"/>
+</map>

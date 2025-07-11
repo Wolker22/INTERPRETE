@@ -1,0 +1,9 @@
+<map id="lp::BuiltinParameter2" name="lp::BuiltinParameter2">
+<area shape="rect" id="Node000001" title="Representa una función predefinida con dos parámetros." alt="" coords="5,905,289,1197"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1Builtin.html" title="Clase abstracta que representa una función predefinida." alt="" coords="53,584,242,857"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,871,150,905,145,905,145,871"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1Symbol.html" title="Clase base para representar un símbolo con nombre y token." alt="" coords="49,237,246,536"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="150,550,150,584,145,584,145,550"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1SymbolInterface.html" title="Interfaz abstracta para símbolos del lenguaje." alt="" coords="39,5,255,189"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,203,150,237,145,237,145,203"/>
+</map>

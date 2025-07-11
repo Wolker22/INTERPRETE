@@ -1,0 +1,9 @@
+<map id="lp::NumericConstant::setValue" name="lp::NumericConstant::setValue">
+<area shape="rect" id="Node000001" title="Establece el valor numérico." alt="" coords="208,69,363,109"/>
+<area shape="rect" id="Node000002" href="$classlp_1_1NumericConstant.html#aabf8e6a04f084e6753006dd24029cbdc" title="Constructor de copia." alt="" coords="5,5,160,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,68,146,48,147,43,209,63"/>
+<area shape="rect" id="Node000003" href="$classlp_1_1NumericConstant.html#acc740a5894aea9049e6aa18f22a1a8c5" title="Constructor con valores por defecto." alt="" coords="5,69,160,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,92,161,92,161,87,194,87"/>
+<area shape="rect" id="Node000004" href="$classlp_1_1NumericConstant.html#a8f699d2cd438832ea00a529186c07f7d" title="Operador de asignación." alt="" coords="5,133,160,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,116,147,136,146,131,207,111"/>
+</map>
