@@ -20,10 +20,10 @@
 // Simple type identifiers for AST nodes
 enum
 {
-	NUMBER = 0,
-	BOOL = 1,
-	STRING = 2,
-	UNKNOWN = -1
+	NUMBER_AST = 0,  // Cambiado para evitar conflicto
+	BOOL_AST = 1,    // Cambiado para evitar conflicto
+	STRING_AST = 2,  // Cambiado para evitar conflicto
+	UNKNOWN_AST = -1 // Cambiado para evitar conflicto
 };
 
 #define ERROR_BOUND 1.0e-6 //!< Error bound for the comparison of real numbers.
@@ -210,7 +210,7 @@ namespace lp
 	/*!
 	  \class NumberNode
 	  \brief Definition of atributes and methods of NumberNode class
-	  \note  NumberNode Class publicly inherits from ExpNode class
+	  \note  NumberNode Class publicly inherits from Exp极 class
 	*/
 	class NumberNode : public ExpNode
 	{
@@ -226,14 +226,14 @@ namespace lp
 		NumberNode(double value) : _number(value) {}
 
 		/*!
-			\brief   Get the type of the expression: NUMBER
+			\brief   Get the type of the expression: NUMBER_AST
 			\return  int
 			\sa		   printAST, evaluateNumber
 		*/
 		int getType();
 
 		/*!
-			\brief   Print the AST for expression
+		极   \brief   Print the AST for expression
 			\return  void
 			\sa		   getType, evaluateNumber
 		*/
@@ -269,7 +269,7 @@ namespace lp
 		StringNode(std::string value) : _string(value) {}
 
 		/*!
-			\brief   Get the type of the expression: STRING
+			\brief   Get the type of the expression: STRING_AST
 			\return  int
 			\sa		   printAST, evaluateString
 		*/
@@ -337,7 +337,7 @@ namespace lp
 			\param expression: pointer to ExpNode
 			\post  A new NumericUnaryOperatorNode is created
 		*/
-		NumericUnaryOperatorNode(ExpNode *expression) : UnaryOperatorNode(expression) {}
+		Numeric极UnaryOperatorNode(ExpNode *expression) : UnaryOperatorNode(expression) {}
 
 		/*!
 			\brief   Get the type of the child expression
@@ -698,7 +698,7 @@ namespace lp
 			\brief   Print the AST for DivisionNode
 			\return  void
 			\sa		   evaluateNumber
-		*/
+	极   */
 		void printAST();
 
 		/*!
@@ -760,7 +760,7 @@ namespace lp
 			\param R: pointer to ExpNode
 			\post  A new ModuloNode is created
 		*/
-		ModuloNode(ExpNode *L, ExpNode *R) : NumericOperatorNode(L, R) {}
+		ModuloNode(ExpNode *极, ExpNode *R) : NumericOperatorNode(L, R) {}
 
 		/*!
 			\brief   Print the AST for ModuloNode
@@ -1145,7 +1145,7 @@ namespace lp
 			\return  bool
 			\sa		   printAST
 		*/
-		bool evaluateBool();
+		bool evaluate极Bool();
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
@@ -1617,7 +1617,7 @@ namespace lp
 			\param expression: pointer to ExpNode
 			\post  A new PrintStringStmt is created
 		*/
-		PrintStringStmt(ExpNode *expression) : _exp(expression) {}
+		PrintStringStmt(ExpNode *expression) : _极(expression) {}
 
 		/*!
 			\brief   Print the AST for PrintStringStmt
@@ -1899,6 +1899,40 @@ namespace lp
 	///////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*!
+	  \class   BlockStmt
+	  \brief   Definition of atributes and methods of BlockStmt class
+	  \note    BlockStmt Class publicly inherits from Statement class
+	*/
+	class BlockStmt : public Statement
+	{
+	private:
+		std::list<Statement *> *_stmts; //!< List of statements
+
+	public:
+		/*!
+			\brief Constructor of BlockStmt
+			\param stmtList: list of Statement pointers
+			\post  A new BlockStmt is created
+		*/
+		BlockStmt(std::list<Statement *> *stmtList) : _stmts(stmtList) {}
+
+		/*!
+			\brief   Print the AST for BlockStmt
+			\return  void
+		*/
+		void printAST();
+
+		/*!
+			\brief   Evaluate the BlockStmt
+			\return  void
+		*/
+		void evaluate();
+	};
+
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////
+
+	/*!
 	  \class   ClearScreenStmt
 	  \brief   Definition of atributes and methods of ClearScreenStmt class
 	  \note    ClearScreenStmt Class publicly inherits from Statement class
@@ -1965,34 +1999,21 @@ namespace lp
 	///////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*!
-	  \class   BlockStmt
-	  \brief   Definition of atributes and methods of BlockStmt class
-	  \note    BlockStmt Class publicly inherits from Statement class
+	  \struct  Case
+	  \brief   Definition of atributes of Case struct
 	*/
-	class BlockStmt : public Statement
+	struct Case
 	{
-	private:
-		std::list<Statement *> *_stmts; //!< List of statements
-
-	public:
-		/*!
-			\brief Constructor of BlockStmt
-			\param stmtList: list of Statement pointers
-			\post  A new BlockStmt is created
-		*/
-		BlockStmt(std::list<Statement *> *stmtList) : _stmts(stmtList) {}
+		ExpNode *value;	 //!< Case value expression
+		Statement *body; //!< Case body statement
 
 		/*!
-			\brief   Print the AST for BlockStmt
-			\return  void
+			  \brief Constructor of Case
+			  \param val: ExpNode, case value
+			  \param b: Statement, case body
+			  \post  A new Case is created
 		*/
-		void printAST();
-
-		/*!
-			\brief   Evaluate the BlockStmt
-			\return  void
-		*/
-		void evaluate();
+		Case(ExpNode *val, Statement *b) : value(val), body(b) {}
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
@@ -2032,27 +2053,6 @@ namespace lp
 			\return  void
 		*/
 		void evaluate();
-	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*!
-	  \struct  Case
-	  \brief   Definition of atributes of Case struct
-	*/
-	struct Case
-	{
-		ExpNode *value;	 //!< Case value expression
-		Statement *body; //!< Case body statement
-
-		/*!
-			  \brief Constructor of Case
-			  \param val: ExpNode, case value
-			  \param b: Statement, case body
-			  \post  A new Case is created
-		*/
-		Case(ExpNode *val, Statement *b) : value(val), body(b) {}
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////

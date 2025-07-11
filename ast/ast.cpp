@@ -5,6 +5,8 @@
 #include <limits>
 #include <cmath>
 #include <cassert>
+#include <cctype>
+#include <algorithm>
 #include "ast.hpp"
 #include "../table/table.hpp"
 #include "../error/error.hpp"
@@ -27,6 +29,14 @@ namespace lp
     {
         return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND);
     }
+    
+    // Función toLower para manejo de nombres de símbolos
+    inline std::string toLower(const std::string& str) {
+        std::string result = str;
+        std::transform(result.begin(), result.end(), result.begin(),
+            [](unsigned char c){ return std::tolower(c); });
+        return result;
+    }
 }
 
 extern lp::Table table;
@@ -38,8 +48,12 @@ extern lp::AST *root;
 
 int lp::VariableNode::getType()
 {
-    lp::Variable *var = (lp::Variable *)table.getSymbol(this->_id);
-    return var->getType();
+    lp::Symbol* symbol = table.getSymbol(this->_id);
+    if (symbol == nullptr) {
+        warning("Undefined variable", this->_id);
+        return UNKNOWN;
+    }
+    return symbol->getType();
 }
 
 void lp::VariableNode::printAST()
@@ -75,9 +89,9 @@ std::string lp::VariableNode::evaluateString()
     if (this->getType() != STRING)
     {
         warning("Runtime error: expected string variable", this->_id);
-        return false;
+        return "";
     }
-    lp::LogicalVariable *var = (lp::LogicalVariable *)table.getSymbol(this->_id);
+    lp::StringVariable *var = (lp::StringVariable *)table.getSymbol(this->_id);
     return var->getValue();
 }
 
@@ -87,8 +101,12 @@ std::string lp::VariableNode::evaluateString()
 
 int lp::ConstantNode::getType()
 {
-    lp::Constant *var = (lp::Constant *)table.getSymbol(this->_id);
-    return var->getType();
+    lp::Symbol* symbol = table.getSymbol(this->_id);
+    if (symbol == nullptr) {
+        warning("Undefined constant", this->_id);
+        return UNKNOWN;
+    }
+    return symbol->getType();
 }
 
 void lp::ConstantNode::printAST()
@@ -126,7 +144,7 @@ std::string lp::ConstantNode::evaluateString()
         warning("Runtime error: expected string constant", this->_id);
         return "";
     }
-    lp::AlphanumericConstant *constant = (lp::AlphanumericConstant *)table.getSymbol(this->_id);
+    lp::StringConstant *constant = (lp::StringConstant *)table.getSymbol(this->_id);
     return constant->getValue();
 }
 
@@ -155,7 +173,7 @@ int lp::NumericUnaryOperatorNode::getType()
     if (this->_exp->getType() == NUMBER)
         return NUMBER;
     warning("Runtime error: incompatible types for", "Numeric Unary Operator");
-    return 0;
+    return UNKNOWN;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -167,7 +185,7 @@ int lp::LogicalUnaryOperatorNode::getType()
     if (this->_exp->getType() == BOOL)
         return BOOL;
     warning("Runtime error: incompatible types for", "Logical Unary Operator");
-    return 0;
+    return UNKNOWN;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -179,7 +197,7 @@ int lp::NumericOperatorNode::getType()
     if ((this->_left->getType() == NUMBER) && (this->_right->getType() == NUMBER))
         return NUMBER;
     warning("Runtime error: incompatible types for", "Numeric Operator");
-    return 0;
+    return UNKNOWN;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -195,7 +213,7 @@ int lp::RelationalOperatorNode::getType()
     if ((this->_left->getType() == STRING) && (this->_right->getType() == STRING))
         return BOOL;
     warning("Runtime error: incompatible types for", "Relational Operator");
-    return 0;
+    return UNKNOWN;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -207,7 +225,7 @@ int lp::LogicalOperatorNode::getType()
     if ((this->_left->getType() == BOOL) && (this->_right->getType() == BOOL))
         return BOOL;
     warning("Runtime error: incompatible types for", "Logical Operator");
-    return 0;
+    return UNKNOWN;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -219,7 +237,7 @@ int lp::AlphanumericOperatorNode::getType()
     if ((this->_left->getType() == STRING) && (this->_right->getType() == STRING))
         return STRING;
     warning("Runtime error: incompatible types for", "Alphanumeric Operator");
-    return 0;
+    return UNKNOWN;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -508,7 +526,7 @@ int lp::BuiltinFunctionNode_1::getType()
     if (this->_exp->getType() == NUMBER)
         return NUMBER;
     warning("Runtime error: incompatible type for", "BuiltinFunctionNode_1");
-    return 0;
+    return UNKNOWN;
 }
 
 void lp::BuiltinFunctionNode_1::printAST()
@@ -537,7 +555,7 @@ int lp::BuiltinFunctionNode_2::getType()
     if (this->_exp1->getType() == this->_exp2->getType())
         return this->_exp1->getType();
     warning("Runtime error: incompatible types for", "BuiltinFunctionNode_2");
-    return 0;
+    return UNKNOWN;
 }
 
 void lp::BuiltinFunctionNode_2::printAST()
@@ -800,7 +818,7 @@ void lp::AssignmentStmt::evaluate()
         {
             if (var)
                 table.eraseSymbol(this->_id);
-            var = NULL;
+            var = nullptr;
         }
 
         switch (expType)
@@ -867,7 +885,7 @@ void lp::AssignmentStmt::evaluate()
         {
             if (var)
                 table.eraseSymbol(this->_id);
-            var = NULL;
+            var = nullptr;
         }
 
         switch (srcType)
@@ -918,52 +936,6 @@ void lp::AssignmentStmt::evaluate()
             warning("Runtime error: incompatible type", "Assignment");
         }
     }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// AssignmentPlusStmt Implementation
-////////////////////////////////////////////////////////////////////////////////
-
-void lp::AssignmentPlusStmt::printAST()
-{
-    std::cout << "AssignmentPlusStmt: +:=" << std::endl;
-    std::cout << "\t" << this->_id << std::endl;
-    this->_exp->printAST();
-}
-
-void lp::AssignmentPlusStmt::evaluate()
-{
-    lp::Variable *var = table.getSymbol(this->_id);
-    if (!var || var->getType() != NUMBER)
-    {
-        warning("Runtime error: variable not numeric", this->_id);
-        return;
-    }
-    double value = ((lp::NumericVariable *)var)->getValue() + this->_exp->evaluateNumber();
-    ((lp::NumericVariable *)var)->setValue(value);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// AssignmentMinusStmt Implementation
-////////////////////////////////////////////////////////////////////////////////
-
-void lp::AssignmentMinusStmt::printAST()
-{
-    std::cout << "AssignmentMinusStmt: -:=" << std::endl;
-    std::cout << "\t" << this->_id << std::endl;
-    this->_exp->printAST();
-}
-
-void lp::AssignmentMinusStmt::evaluate()
-{
-    lp::Variable *var = table.getSymbol(this->_id);
-    if (!var || var->getType() != NUMBER)
-    {
-        warning("Runtime error: variable not numeric", this->_id);
-        return;
-    }
-    double value = ((lp::NumericVariable *)var)->getValue() - this->_exp->evaluateNumber();
-    ((lp::NumericVariable *)var)->setValue(value);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1074,79 +1046,6 @@ void lp::ReadStringStmt::evaluate()
         if (var)
             table.eraseSymbol(this->_id);
         table.installSymbol(new lp::StringVariable(this->_id, VARIABLE, STRING, input));
-    }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// IncrementStmt Implementation
-////////////////////////////////////////////////////////////////////////////////
-
-void lp::IncrementStmt::printAST()
-{
-    std::cout << "IncrementStmt: ++" << std::endl;
-    std::cout << "\t" << this->_id << std::endl;
-}
-
-void lp::IncrementStmt::evaluate()
-{
-    lp::Variable *var = table.getSymbol(this->_id);
-    if (!var || var->getType() != NUMBER)
-    {
-        warning("Runtime error: variable not numeric", this->_id);
-        return;
-    }
-    double value = ((lp::NumericVariable *)var)->getValue() + 1;
-    ((lp::NumericVariable *)var)->setValue(value);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// DecrementStmt Implementation
-////////////////////////////////////////////////////////////////////////////////
-
-void lp::DecrementStmt::printAST()
-{
-    std::cout << "DecrementStmt: --" << std::endl;
-    std::cout << "\t" << this->_id << std::endl;
-}
-
-void lp::DecrementStmt::evaluate()
-{
-    lp::Variable *var = table.getSymbol(this->_id);
-    if (!var || var->getType() != NUMBER)
-    {
-        warning("Runtime error: variable not numeric", this->_id);
-        return;
-    }
-    double value = ((lp::NumericVariable *)var)->getValue() - 1;
-    ((lp::NumericVariable *)var)->setValue(value);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// AssignmentStmtStringNode Implementation
-////////////////////////////////////////////////////////////////////////////////
-
-void lp::AssignmentStmtStringNode::printAST()
-{
-    std::cout << "assignment_string_node: =" << std::endl;
-    std::cout << "\t" << this->_id << std::endl;
-    if (_exp)
-        _exp->printAST();
-}
-
-void lp::AssignmentStmtStringNode::evaluate()
-{
-    std::string value = _exp->evaluateString();
-    lp::Variable *var = table.getSymbol(this->_id);
-
-    if (var && var->getType() == STRING)
-    {
-        ((lp::StringVariable *)var)->setValue(value);
-    }
-    else
-    {
-        if (var)
-            table.eraseSymbol(this->_id);
-        table.installSymbol(new lp::StringVariable(this->_id, VARIABLE, STRING, value));
     }
 }
 
@@ -1280,7 +1179,9 @@ void lp::SwitchStmt::printAST()
     this->_expression->printAST();
     for (auto &caseItem : *this->_cases)
     {
-        caseItem->value->printAST();
+        if (caseItem->value) {
+            caseItem->value->printAST();
+        }
         caseItem->body->printAST();
     }
     if (this->_default)
@@ -1294,6 +1195,9 @@ void lp::SwitchStmt::evaluate()
 
     for (auto &caseItem : *this->_cases)
     {
+        // Skip default case (handled later)
+        if (caseItem->value == nullptr) continue;
+
         if (caseItem->value->getType() != exprType)
         {
             warning("Runtime error: type mismatch in case", "Switch");
@@ -1314,6 +1218,9 @@ void lp::SwitchStmt::evaluate()
         case STRING:
             condition = _expression->evaluateString() == caseItem->value->evaluateString();
             break;
+        default:
+            warning("Runtime error: unsupported type in switch", "Switch");
+            continue;
         }
 
         if (condition)
