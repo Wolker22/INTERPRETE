@@ -1,140 +1,44 @@
-/*!	
-	\file    alphanumericVariable.cpp
-	\brief   Code of some functions of AlphanumericVariable class
-	\author 
-	\date    2017-10-19
-	\version 1.0
-*/
+#ifndef _ALPHANUMERICVARIABLE_HPP_
+#define _ALPHANUMERICVARIABLE_HPP_
 
+#include <string>
+#include "variable.hpp"
 
-#include <iostream>
+namespace lp {
 
-// Delete the comment if you want to use atof in the operator overload >>
-// #include <stdlib.h>
+class AlphanumericVariable : public Variable {
+private:
+    std::string _value;
 
-#include "alphanumericVariable.hpp"
+public:
+    // Constructor mejorado con valores por defecto
+    explicit AlphanumericVariable(const std::string& name = "", 
+                                 int token = 0, 
+                                 int type = ALPHANUMERIC, 
+                                 const std::string& value = "")
+        : Variable(name, token, type), _value(value) {}
+    
+    // Constructor de copia
+    AlphanumericVariable(const AlphanumericVariable& other)
+        : Variable(other), _value(other._value) {}
 
+    // Destructor virtual
+    virtual ~AlphanumericVariable() = default;
 
-/*
- Definitions of the read and write functions of the AlphanumericVariable class 
-*/
+    // Observador
+    std::string getValue() const { return _value; }
 
-void lp::AlphanumericVariable::read()
-{
-  // Inherited attributes
-   std::cout << "Name of the AlphanumericVariable: ";
-   std::cin >> this->_name;
+    // Modificador
+    void setValue(const std::string& value) { _value = value; }
 
-   std::cout << "Token of the AlphanumericVariable: ";
-   std::cin >> this->_token;
-   // The \n character is read 
-   std::cin.ignore(); 
+    // Sobrecarga de operadores
+    AlphanumericVariable& operator=(const AlphanumericVariable& other);
 
-   std::cout << "Type of the AlphanumericVariable: ";
-   std::cin >> this->_type;
-   // The \n character is read 
-   std::cin.ignore(); 
+    // Funciones de E/S (opcionales, podrían eliminarse si no se usan)
+    void read() override;
+    void write() const override;
+};
 
+} // namespace lp
 
-   // Own attribute
-   std::cout << "Value of the AlphanumericVariable: ";
-   std::cin >> this->_value;
-   // The \n character is read 
-   std::cin.ignore(); 
-}
-
-
-void lp::AlphanumericVariable::write() const
-{
-  // Inherited methods
-  std::cout << "Name:" << this->getName() << std::endl;
-  std::cout << "Token:" << this->getToken() << std::endl;
-  std::cout << "Type:" << this->getType() << std::endl;
-
-  // Own method
-  std::cout << "Value:" << this->getValue() << std::endl;
-}
-
-lp::AlphanumericVariable &lp::AlphanumericVariable::operator=(const lp::AlphanumericVariable &n)
-  {
- 	// Check that is not the current object
-		if (this != &n) 
-		{
-			// Inherited methods
-			this->setName(n.getName());
-
-			this->setToken(n.getToken());
-
-			this->setType(n.getType());
-
-			// Own method
-			this->setValue(n.getValue());
-		}
-
-    // Return the current object
-		return *this;
-  }
-
-
-/*!	
-	\namespace lp
-	\brief Name space for the subject Language Processors
-*/
-namespace lp{
-
-std::istream &operator>>(std::istream &i, lp::AlphanumericVariable &n)
-{
-  // Inherited attributes
-  i >> n._name;
-
-  i >> n._token;
-  // The \n character is read 
-  i.ignore();
-
-
-  i >> n._type;
-  // The \n character is read 
-  i.ignore();
-
-
-  i >> n._token;
-  // The \n character is read 
-  i.ignore();
-
-  ////////////////////////////////////
-
-  // Own attribute
-
-  i >> n._value;
-  // The \n character is read 
-  i.ignore();
-
-  ////////////////////////////////////
-
-  // The input stream is returned
-  return i;
-}
-
-
-std::ostream &operator<<(std::ostream &o, lp::AlphanumericVariable const &n)
-{
-  // Inherited attributes
-  o << n._name << std::endl;
-
-  o << n._token << std::endl;
-
-  o << n._type << std::endl;
-
-  // Own attribute
-  o << n._value << std::endl;
-
-  // The output stream is returned
-  return o;
-}
-
-// End of name space lp
-} 
-
-
-
-
+#endif

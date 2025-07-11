@@ -1,77 +1,72 @@
-/*! 
-  \file mathFunction.cpp
-  \brief Code of mathematical functions 
-*/
-
-
-#include <iostream>
-
-#include <string>
-
-// rand, RAND_MAX
-#include <stdlib.h>
-
-
-// sin, cos, atan, fabs, ...
-#include <math.h>
-
+#include <cmath>
+#include <random>
+#include <chrono>
 #include "mathFunction.hpp"
 
-// errcheck
-#include "../error/error.hpp"
+namespace lp {
 
-double Log(double x)
-{
- std::string msg("Neperian logarithm");
- return errcheck(log(x),msg);
- }
-
-
-double Log10(double x)
-{
- std::string msg("Decimal logarithm");
- return errcheck(log10(x),msg);
+// Función auxiliar para validar entradas
+namespace {
+    void CheckDomain(double x, const std::string& function) {
+        if (std::isnan(x)) {
+            throw MathException(function, "NaN input");
+        }
+        if (std::isinf(x)) {
+            throw MathException(function, "Infinite input");
+        }
+    }
 }
 
-
-double Exp(double x)
-{
- std::string msg("Exponential");
-
- return errcheck(exp(x),msg);
+double SafeLog(double x) {
+    CheckDomain(x, "logarithm");
+    if (x <= 0.0) {
+        throw MathException("logarithm", "Non-positive argument");
+    }
+    return std::log(x);
 }
 
-double Sqrt(double x)
-{
- std::string msg("Square root");
- return errcheck(sqrt(x),msg);
+double SafeLog10(double x) {
+    CheckDomain(x, "log10");
+    if (x <= 0.0) {
+        throw MathException("log10", "Non-positive argument");
+    }
+    return std::log10(x);
 }
 
-
-double integer(double x)
-{
- return  (double) (long) x;
+double SafeExp(double x) {
+    CheckDomain(x, "exponential");
+    const double result = std::exp(x);
+    if (std::isinf(result)) {
+        throw MathException("exponential", "Overflow");
+    }
+    return result;
 }
 
-
-////////////////////////////////
-
-double Random()
-{
- srand (time(NULL));
-
- return (double) (long) rand() / RAND_MAX;
+double SafeSqrt(double x) {
+    CheckDomain(x, "square root");
+    if (x < 0.0) {
+        throw MathException("square root", "Negative argument");
+    }
+    return std::sqrt(x);
 }
 
-
-///////////////////////////////
-
-double Atan2(double x, double y)
-{
- return errcheck(atan(x/y),"double tangent arc");
+double SafeAtan2(double x, double y) {
+    CheckDomain(x, "atan2");
+    CheckDomain(y, "atan2");
+    if (x == 0.0 && y == 0.0) {
+        throw MathException("atan2", "Both arguments zero");
+    }
+    return std::atan2(x, y);
 }
 
+double Integer(double x) {
+    return std::trunc(x);
+}
 
+double Random() {
+    static std::mt19937 generator(std::random_device{}());
+    static std::uniform_real_distribution<double> distribution(0.0, 1.0);
+    return distribution(generator);
+}
 
-
-
+} // namespace lp

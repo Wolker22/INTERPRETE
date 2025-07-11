@@ -55,7 +55,7 @@ void yyerror(const char *s);
 
 %token <number> NUMBER
 %token <logic> BOOL
-%token <string> STRING 
+%token <string> STRINGLITERAL 
 
 %token PRINT READ READ_STRING
 %token IF THEN ELSE END_IF
@@ -70,15 +70,12 @@ void yyerror(const char *s);
 %token INTDIV
 %token CONCAT
 %token LPAREN RPAREN
-%token LEFTCURLYBRACKET RIGHTCURLYBRACKET
 %token GREATER_OR_EQUAL LESS_OR_EQUAL GREATER_THAN LESS_THAN EQUAL NOT_EQUAL
 %token OR AND NOT
 
-// DECLARACIÓN DE TOKENS FALTANTES
 %token <string> VARIABLE
 %token <string> CONSTANT
 %token <string> BUILTIN
-%token <string> STRINGLITERAL  // Agregado para el literal de cadena
 
 %right ASSIGNMENT
 %left OR

@@ -1,151 +1,96 @@
-/*!	
-	\file    builtinParameter1.hpp
-	\brief   Declaration of BuiltinParameter1 class
-	\author  
-	\date    2017-12-7
-	\version 1.0
-*/
-
 #ifndef _BUILTINPARAMETER1_HPP_
 #define _BUILTINPARAMETER1_HPP_
 
 #include <string>
-#include <iostream>
-
+#include <functional>
 #include "builtin.hpp"
+#include "../ast/ast.hpp"
 
-/*!	
-	\namespace lp
-	\brief Name space for the subject Language Processors
-*/
-namespace lp{
+namespace lp {
 
+class BuiltinParameter1 : public Builtin {
+public:
+    // Tipos de funciones para 1 parámetro
+    using NumericFunction = std::function<double(double)>;
+    using LogicalFunction = std::function<bool(double)>;
+    using StringFunction = std::function<std::string(double)>;
+    using GenericFunction = std::function<ExpNode*(ExpNode*)>;
+    
+    enum FunctionType { NUMERIC, LOGICAL, STRING, GENERIC };
 
-/*! New type definition: TypePointerDoubleFunction_1 */
-typedef double (*TypePointerDoubleFunction_1)(double x);
+private:
+    FunctionType _funcType;
+    union {
+        NumericFunction numericFunc;
+        LogicalFunction logicalFunc;
+        StringFunction stringFunc;
+        GenericFunction genericFunc;
+    } _function;
 
-
-
-/*!	
-  \class BuiltinParameter1
-  \brief Definition of atributes and methods of BuiltinParameter1 class
-  \note  BuiltinParameter1 Class publicly inherits from Constant class
-*/
-class BuiltinParameter1:public lp::Builtin
-{
-/*!		
-\name Private atributes of BuiltinParameter1 class
-*/
-	private:
-        lp::TypePointerDoubleFunction_1 _function; //!< \brief function of the BuiltinParameter1 
-
-/*!		
-\name Public methods of BuiltinParameter1 class
-*/
-	public:
-
-/*!	
-	\name Constructors
-*/
-		
-/*!		
-	\brief Constructor 
-	\note  Inline function that uses Constant's constructor as members initializer
-	\param name: name of the BuiltinParameter1
-	\param token: token of the BuiltinParameter1
-	\param nParameters: número de parámetros of the BuiltinParameter1
-	\param function: numeric function of the BuiltinParameter1
-	\pre   None
-	\post  A new BuiltinParameter1 is created with the functions of the parameters
-	\sa    setFunction
-*/
-	inline BuiltinParameter1(std::string name, 
-							  int token, 
-							  int nParameters,
-						      lp::TypePointerDoubleFunction_1 function): 
-							  Builtin(name,token,nParameters)
-	{
-		this->setFunction(function);
-	}
-		
-/*!		
-	\brief Copy constructor
-	\note  Inline function
-	\param f: object of BuiltinParameter1 class
-	\pre   None
-	\post  A new BuiltinParameter1 is created with the functions of an existent BuiltinParameter1
-	\sa    setName, setToken,  setNParameters,  setFunction
-*/
-	BuiltinParameter1(const BuiltinParameter1 & f)
-	{
-		// Inherited methods
-		this->setName(f.getName());
-
-		this->setToken(f.getToken());
-
-		this->setNParameters(f.getNParameters());
-		
-		// Own method
-		this->setFunction(f.getFunction());
-	}
-
-
-/*!	
-	\name Observer
-*/
-	
-/*!	
-	\brief  Public method that returns the function of the BuiltinParameter1
-	\note   Función inline
-	\pre    None
-	\post   None
-    \return Function of the BuiltinParameter1
-	\sa		getFunction
-*/
-	lp::TypePointerDoubleFunction_1 getFunction() const
-	{
-		return this->_function;
-	}
-
-
-
-/*!	
-	\name Modifier
-*/
-		
-/*!	
-	\brief   This functions modifies the function of the BuiltinParameter1
-	\note    Inline function
-	\param   function: new function of the BuiltinParameter1
-	\pre     None
-	\post    The function of the BuiltinParameter1 is equal to the parameter 
-	\return  void
-	\sa 	 setFunction
-*/
-	inline void setFunction(const lp::TypePointerDoubleFunction_1 & function)
-	{
-	    this->_function = function;
-	}
-
-
-/*!	
-	\name Operators
-*/
-	
-/*!		
-	\brief  Assignment Operator
-	\param  f: objectoof BuiltinParameter1 class
-	\post   The atributes of this object are equal to the atributes of the parameter
-	\return Reference to this object
-*/
-	BuiltinParameter1 &operator=(const BuiltinParameter1 &f);
-	
-	
-// End of BuiltinParameter1 class
+public:
+    // Constructor para función numérica
+    BuiltinParameter1(const std::string& name, 
+                      int token,
+                      NumericFunction func)
+        : Builtin(name, token, 1), _funcType(NUMERIC) {
+        _function.numericFunc = func;
+    }
+    
+    // Constructor para función lógica
+    BuiltinParameter1(const std::string& name, 
+                      int token,
+                      LogicalFunction func)
+        : Builtin(name, token, 1), _funcType(LOGICAL) {
+        _function.logicalFunc = func;
+    }
+    
+    // Constructor para función de cadena
+    BuiltinParameter1(const std::string& name, 
+                      int token,
+                      StringFunction func)
+        : Builtin(name, token, 1), _funcType(STRING) {
+        _function.stringFunc = func;
+    }
+    
+    // Constructor para función genérica
+    BuiltinParameter1(const std::string& name, 
+                      int token,
+                      GenericFunction func)
+        : Builtin(name, token, 1), _funcType(GENERIC) {
+        _function.genericFunc = func;
+    }
+    
+    // Evaluar la función
+    ExpNode* evaluate(ExpNode* arg) const {
+        switch (_funcType) {
+            case NUMERIC: {
+                double argValue = arg->evaluateNumber();
+                return new NumberNode(_function.numericFunc(argValue));
+            }
+            case LOGICAL: {
+                double argValue = arg->evaluateNumber();
+                return new BoolNode(_function.logicalFunc(argValue));
+            }
+            case STRING: {
+                double argValue = arg->evaluateNumber();
+                return new StringNode(_function.stringFunc(argValue));
+            }
+            case GENERIC:
+                return _function.genericFunc(arg);
+            default:
+                return nullptr;
+        }
+    }
+    
+    // Obtener función numérica (para compatibilidad)
+    NumericFunction getNumericFunction() const {
+        return (_funcType == NUMERIC) ? _function.numericFunc : nullptr;
+    }
+    
+    // Sobrecarga de operador de asignación
+    BuiltinParameter1& operator=(const BuiltinParameter1& b);
 };
 
-// End of name space lp
-}
+} // namespace lp
 
-// End of _BUILTINPARAMETER1_HPP_
 #endif
