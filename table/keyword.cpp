@@ -1,40 +1,63 @@
-/*!
-  \file    keyword.cpp
-  \brief   Implementación de funciones de la clase Keyword
+/*!	
+	\file    keyword.cpp
+	\brief   Code of some functions of Keyword class
+	\author 
+	\date    2017-10-19
+	\version 1.0
 */
 
+
 #include <iostream>
+
 #include "keyword.hpp"
 
-// Operador de asignación
+
+
+/*
+	Operator
+*/
+
 lp::Keyword &lp::Keyword::operator=(const lp::Keyword &k)
-{
-  // Evitar autoasignación
-  if (this != &k)
   {
-    // Copiar atributos heredados
-    this->setName(k.getName());
-    this->setToken(k.getToken());
+ 	// Check that is not the current object
+		if (this != &k) 
+		{
+			// Inherited methods
+			this->setName(k.getName());
+
+			this->setToken(k.getToken());
+		}
+
+    // Return the current object
+		return *this;
   }
 
-  // Devolver referencia al objeto actual
-  return *this;
-}
 
-// Leer atributos desde la entrada estándar
+/*	
+  	I/O Functions
+*/
+	
+
 void lp::Keyword::read()
 {
-  std::cout << "Nombre de la palabra clave: ";
-  std::cin >> this->_name;
+  // Inherited attributes
+   std::cout << "Name of the Keyword: ";
+   std::cin >> this->_name;
 
-  std::cout << "Token asociado: ";
-  std::cin >> this->_token;
-  std::cin.ignore(); // Ignorar salto de línea
+   std::cout << "Token of the Keyword: ";
+   std::cin >> this->_token;
+   // The \n character is read 
+   std::cin.ignore(); 
+
 }
 
-// Escribir atributos por salida estándar
+
 void lp::Keyword::write() const
 {
-  std::cout << "Nombre: " << this->getName() << std::endl;
-  std::cout << "Token: " << this->getToken() << std::endl;
+  // Inherited methods
+  std::cout << "Name:" << this->getName() << std::endl;
+  std::cout << "Token:" << this->getToken() << std::endl;
+
 }
+
+

@@ -1,42 +1,75 @@
-/*!
-  \file    variable.cpp
-  \brief   Implementación de los métodos de la clase Variable
+/*!	
+	\file    variable.cpp
+	\brief   Code of some functions of Variable class
+	\author 
+	\date    2017-10-19
+	\version 1.0
 */
 
+
 #include <iostream>
+
 #include "variable.hpp"
 
-// Operador de asignación
-lp::Variable &lp::Variable::operator=(const lp::Variable &v)
-{
-  if (this != &v)
-  {
-    this->setName(v.getName());
-    this->setToken(v.getToken());
-    this->setType(v.getType());
-  }
-  return *this;
-}
 
-// Lectura de atributos desde consola
+
+/*
+	Operator
+*/
+
+lp::Variable &lp::Variable::operator=(const lp::Variable &v)
+  {
+ 	// Check that is not the current object
+		if (this != &v) 
+		{
+			// Inherited methods
+			this->setName(v.getName());
+
+			this->setToken(v.getToken());
+
+		    //  Own method
+			this->setType(v.getType());
+		}
+
+    // Return the current object
+		return *this;
+  }
+
+
+/*	
+  	I/O Functions
+*/
+	
+
 void lp::Variable::read()
 {
-  std::cout << "Nombre de la variable: ";
-  std::cin >> this->_name;
+  // Inherited attributes
+   std::cout << "Name of the Variable: ";
+   std::cin >> this->_name;
 
-  std::cout << "Token de la variable: ";
-  std::cin >> this->_token;
-  std::cin.ignore(); // Consumir '\n'
+   std::cout << "Token of the Variable: ";
+   std::cin >> this->_token;
+   // The \n character is read 
+   std::cin.ignore(); 
 
-  std::cout << "Tipo de la variable: ";
-  std::cin >> this->_type;
-  std::cin.ignore(); // Consumir '\n'
+  // Own attribute
+   std::cout << "Type of the Variable: ";
+   std::cin >> this->_type;
+   // The \n character is read 
+   std::cin.ignore(); 
+
 }
 
-// Escritura de atributos en consola
+
 void lp::Variable::write() const
 {
-  std::cout << "Nombre: " << this->getName() << std::endl;
-  std::cout << "Token: " << this->getToken() << std::endl;
-  std::cout << "Tipo: " << this->getType() << std::endl;
+  // Inherited methods
+  std::cout << "Name:" << this->getName() << std::endl;
+  std::cout << "Token:" << this->getToken() << std::endl;
+
+  //  Own method
+  std::cout << "Token:" << this->getType() << std::endl;
+
 }
+
+

@@ -1,67 +1,73 @@
-/*!
-  \file    table.cpp
-  \brief   Implementación de los métodos de la clase Table
+/*!	
+
+	\file   table.cpp
+	\brief   Code of some functions of Table class
+	\author  
+	\date    2017-12-13
+	\version 1.0
 */
 
 #include <map>
+
 #include <cassert>
+
 #include <iostream>
+
 #include "table.hpp"
 
-namespace lp {
+#include "../includes/utils.hpp"
 
-// Comprueba si un símbolo existe en la tabla
-bool Table::lookupSymbol(const std::string &name) const
-{
-  return this->_table.find(name) != this->_table.end();
+
+bool lp::Table::lookupSymbol(const std::string & name) const 
+{		
+	return this->_table.find(toLower(name)) != this->_table.end();
 }
 
-// Devuelve un puntero al símbolo asociado a un nombre
-Symbol *Table::getSymbol(const std::string &name)
+
+lp::Symbol * lp::Table::getSymbol(const std::string & name)
 {
-#ifndef NDEBUG
-  assert(this->lookupSymbol(name) == true); // Precondición
-#endif
-  return this->_table[name];
+ #ifndef NDEBUG
+   // Precondition
+   assert (this->lookupSymbol(name) == true);
+ #endif //NDEBUG
+
+ return	this->_table[toLower(name)];
 }
 
-// Inserta un nuevo símbolo en la tabla
-void Table::installSymbol(Symbol *s)
+
+
+void lp::Table::installSymbol(Symbol * s)
 {
-#ifndef NDEBUG
-  assert(this->lookupSymbol(s->getName()) == false); // Precondición
-#endif
-
-  this->_table[s->getName()] = s;
-
-#ifndef NDEBUG
-  assert(this->lookupSymbol(s->getName()) == true); // Postcondición
-#endif
+  assert(this->lookupSymbol(s->getName()) == false);
+  this->_table[toLower(s->getName())] = s;
+  assert(this->lookupSymbol(s->getName()) == true);
 }
 
-// Elimina un símbolo de la tabla
-void Table::eraseSymbol(const std::string &name)
+
+
+void lp::Table::eraseSymbol(const std::string & name)
 {
-#ifndef NDEBUG
-  assert(this->lookupSymbol(name) == true); // Precondición
-#endif
+ #ifndef NDEBUG
+  // Precondition
+   assert (this->lookupSymbol(name) == true);
+ #endif //NDEBUG
 
-  this->_table.erase(name);
+   // The symbol "name" is deleted from the map
+   this->_table.erase(toLower(name));
 
-#ifndef NDEBUG
-  assert(this->lookupSymbol(name) == false); // Postcondición
-#endif
+ #ifndef NDEBUG
+  // Postcondition
+   assert (this->lookupSymbol(name) == false);
+ #endif //NDEBUG
 }
 
-// Imprime todos los símbolos de la tabla
-void Table::printTable()
-{
-  for (std::map<std::string, lp::Symbol *>::const_iterator it = this->_table.begin();
-       it != this->_table.end();
-       ++it)
-  {
-    std::cout << it->first << ", " << getSymbol(it->first)->getToken() << std::endl;
-  }
-}
 
-} // namespace lp
+void lp::Table::printTable()
+{
+	for(std::map<std::string, lp::Symbol *>::const_iterator it = this->_table.begin();
+        it != this->_table.end();
+        ++it)
+    {
+		std::cout<<it->first<<", "<<getSymbol(it->first)->getToken()<< std::endl;
+	}
+}

@@ -1,48 +1,75 @@
-/*!
-  \file    constant.cpp
-  \brief   Implementación de funciones de la clase Constant
+/*!	
+	\file    constant.cpp
+	\brief   Code of some functions of Constant class
+	\author 
+	\date    2017-10-19
+	\version 1.0
 */
 
+
 #include <iostream>
+
 #include "constant.hpp"
 
-// Operador de asignación
-lp::Constant &lp::Constant::operator=(const lp::Constant &c)
-{
-  // Evitar autoasignación
-  if (this != &c)
-  {
-    // Copiar atributos heredados
-    this->setName(c.getName());
-    this->setToken(c.getToken());
 
-    // Copiar atributo propio
-    this->setType(c.getType());
+
+/*
+	Operator
+*/
+
+lp::Constant &lp::Constant::operator=(const lp::Constant &c)
+  {
+ 	// Check that is not the current object
+		if (this != &c) 
+		{
+			// Inherited methods
+			this->setName(c.getName());
+
+			this->setToken(c.getToken());
+
+		    //  Own method
+			this->setType(c.getType());
+		}
+
+    // Return the current object
+		return *this;
   }
 
-  // Devolver referencia al objeto actual
-  return *this;
-}
 
-// Lectura de los atributos desde entrada estándar
+/*	
+  	I/O Functions
+*/
+	
+
 void lp::Constant::read()
 {
-  std::cout << "Nombre de la constante: ";
-  std::cin >> this->_name;
+  // Inherited attributes
+   std::cout << "Name of the Constant: ";
+   std::cin >> this->_name;
 
-  std::cout << "Token asociado: ";
-  std::cin >> this->_token;
-  std::cin.ignore(); // Ignorar salto de línea
+   std::cout << "Token of the Constant: ";
+   std::cin >> this->_token;
+   // The \n character is read 
+   std::cin.ignore(); 
 
-  std::cout << "Tipo de la constante (entero, real, etc.): ";
-  std::cin >> this->_type;
-  std::cin.ignore(); // Ignorar salto de línea
+  // Own attribute
+   std::cout << "Type of the Constant: ";
+   std::cin >> this->_type;
+   // The \n character is read 
+   std::cin.ignore(); 
+
 }
 
-// Escritura de los atributos por salida estándar
+
 void lp::Constant::write() const
 {
-  std::cout << "Nombre: " << this->getName() << std::endl;
-  std::cout << "Token: " << this->getToken() << std::endl;
-  std::cout << "Tipo: " << this->getType() << std::endl;
+  // Inherited methods
+  std::cout << "Name:" << this->getName() << std::endl;
+  std::cout << "Token:" << this->getToken() << std::endl;
+
+  //  Own method
+  std::cout << "Token:" << this->getType() << std::endl;
+
 }
+
+
