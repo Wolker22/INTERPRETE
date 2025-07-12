@@ -210,7 +210,7 @@ namespace lp
 	/*!
 	  \class NumberNode
 	  \brief Definition of atributes and methods of NumberNode class
-	  \note  NumberNode Class publicly inherits from Exp极 class
+	  \note  NumberNode Class publicly inherits from Exp class
 	*/
 	class NumberNode : public ExpNode
 	{
@@ -233,7 +233,7 @@ namespace lp
 		int getType();
 
 		/*!
-		极   \brief   Print the AST for expression
+		   \brief   Print the AST for expression
 			\return  void
 			\sa		   getType, evaluateNumber
 		*/
@@ -337,7 +337,7 @@ namespace lp
 			\param expression: pointer to ExpNode
 			\post  A new NumericUnaryOperatorNode is created
 		*/
-		Numeric极UnaryOperatorNode(ExpNode *expression) : UnaryOperatorNode(expression) {}
+		NumericUnaryOperatorNode(ExpNode *expression) : UnaryOperatorNode(expression) {}
 
 		/*!
 			\brief   Get the type of the child expression
@@ -698,7 +698,7 @@ namespace lp
 			\brief   Print the AST for DivisionNode
 			\return  void
 			\sa		   evaluateNumber
-	极   */
+	   */
 		void printAST();
 
 		/*!
@@ -760,7 +760,7 @@ namespace lp
 			\param R: pointer to ExpNode
 			\post  A new ModuloNode is created
 		*/
-		ModuloNode(ExpNode *极, ExpNode *R) : NumericOperatorNode(L, R) {}
+		ModuloNode(ExpNode *, ExpNode *R) : NumericOperatorNode(L, R) {}
 
 		/*!
 			\brief   Print the AST for ModuloNode
@@ -1145,7 +1145,7 @@ namespace lp
 			\return  bool
 			\sa		   printAST
 		*/
-		bool evaluate极Bool();
+		bool evaluateBool();
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
@@ -1617,7 +1617,7 @@ namespace lp
 			\param expression: pointer to ExpNode
 			\post  A new PrintStringStmt is created
 		*/
-		PrintStringStmt(ExpNode *expression) : _极(expression) {}
+		PrintStringStmt(ExpNode *expression) : _(expression) {}
 
 		/*!
 			\brief   Print the AST for PrintStringStmt
