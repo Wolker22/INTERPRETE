@@ -18,7 +18,7 @@ public:
     
     // Constructor simplificado
     explicit LogicalConstant(const std::string& name = "", bool value = true)
-        : Constant(name, CONSTANT, LOGICAL_CONSTANT), _value(value) {}
+        : Constant(name, 0, 2), _value(value) {}
     
     // Destructor
     ~LogicalConstant() override = default;
@@ -39,11 +39,11 @@ public:
         return _value ? "true" : "false";
     }
     
-    void setValue(double) override {
+    void setValue(double) {
         throw std::runtime_error("Cannot modify constant value");
     }
     
-    void setValue(const std::string&) override {
+    void setValue(const std::string&) {
         throw std::runtime_error("Cannot modify constant value");
     }
     

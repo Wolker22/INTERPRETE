@@ -16,7 +16,7 @@ public:
     
     // Constructor simplificado
     explicit LogicalVariable(const std::string& name = "", bool value = false)
-        : Variable(name, VARIABLE, LOGICAL), _value(value) {}
+        : Variable(name, 0, 2), _value(value) {}
     
     // Destructor
     ~LogicalVariable() override = default;
