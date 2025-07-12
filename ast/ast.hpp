@@ -16,17 +16,19 @@
 #include <list>
 #include <cmath>
 #include <cfloat>
+#include <algorithm>
 
-// Simple type identifiers for AST nodes
-enum
-{
-	NUMBER_AST = 0,  // Cambiado para evitar conflicto
-	BOOL_AST = 1,    // Cambiado para evitar conflicto
-	STRING_AST = 2,  // Cambiado para evitar conflicto
-	UNKNOWN_AST = -1 // Cambiado para evitar conflicto
-};
+#include "../table/table.hpp"
+#include "../error/error.hpp"
+#include "../includes/macros.hpp"
 
-#define ERROR_BOUND 1.0e-6 //!< Error bound for the comparison of real numbers.
+// Tipos de datos básicos (consistentes con table.hpp)
+#define NUMBER 0
+#define BOOL   1
+#define STRING 2
+#define UNKNOWN -1
+
+#define ERROR_BOUND 1.0e-6 //!< Error bound for real number comparisons
 
 namespace lp
 {
@@ -226,7 +228,7 @@ namespace lp
 		NumberNode(double value) : _number(value) {}
 
 		/*!
-			\brief   Get the type of the expression: NUMBER_AST
+			\brief   Get the type of the expression: NUMBER
 			\return  int
 			\sa		   printAST, evaluateNumber
 		*/
@@ -269,7 +271,7 @@ namespace lp
 		StringNode(std::string value) : _string(value) {}
 
 		/*!
-			\brief   Get the type of the expression: STRING_AST
+			\brief   Get the type of the expression: STRING
 			\return  int
 			\sa		   printAST, evaluateString
 		*/
@@ -1417,148 +1419,6 @@ namespace lp
 
 		/*!
 			\brief   Evaluate the AssignmentStmt
-			\return  void
-		*/
-		void evaluate();
-	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*!
-	  \class   AssignmentPlusStmt
-	  \brief   Definition of atributes and methods of AssignmentPlusStmt class
-	  \note    AssignmentPlusStmt Class publicly inherits from Statement class
-	*/
-	class AssignmentPlusStmt : public Statement
-	{
-	private:
-		std::string _id; //!< Name of the variable
-		ExpNode *_exp;	 //!< Expression to add
-
-	public:
-		/*!
-			\brief Constructor of AssignmentPlusStmt
-			\param id: string, variable name
-			\param expression: pointer to ExpNode
-			\post  A new AssignmentPlusStmt is created
-		*/
-		AssignmentPlusStmt(std::string id, ExpNode *expression)
-			: _id(id), _exp(expression) {}
-
-		/*!
-			\brief   Print the AST for AssignmentPlusStmt
-			\return  void
-		*/
-		void printAST();
-
-		/*!
-			\brief   Evaluate the AssignmentPlusStmt
-			\return  void
-		*/
-		void evaluate();
-	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*!
-	  \class   AssignmentMinusStmt
-	  \brief   Definition of atributes and methods of AssignmentMinusStmt class
-	  \note    AssignmentMinusStmt Class publicly inherits from Statement class
-	*/
-	class AssignmentMinusStmt : public Statement
-	{
-	private:
-		std::string _id; //!< Name of the variable
-		ExpNode *_exp;	 //!< Expression to subtract
-
-	public:
-		/*!
-			\brief Constructor of AssignmentMinusStmt
-			\param id: string, variable name
-			\param expression: pointer to ExpNode
-			\post  A new AssignmentMinusStmt is created
-		*/
-		AssignmentMinusStmt(std::string id, ExpNode *expression)
-			: _id(id), _exp(expression) {}
-
-		/*!
-			\brief   Print the AST for AssignmentMinusStmt
-			\return  void
-		*/
-		void printAST();
-
-		/*!
-			\brief   Evaluate the AssignmentMinusStmt
-			\return  void
-		*/
-		void evaluate();
-	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*!
-	  \class   IncrementStmt
-	  \brief   Definition of atributes and methods of IncrementStmt class
-	  \note    IncrementStmt Class publicly inherits from Statement class
-	*/
-	class IncrementStmt : public Statement
-	{
-	private:
-		std::string _id; //!< Name of the variable
-
-	public:
-		/*!
-			\brief Constructor of IncrementStmt
-			\param id: string, variable name
-			\post  A new IncrementStmt is created
-		*/
-		IncrementStmt(std::string id) : _id(id) {}
-
-		/*!
-			\brief   Print the AST for IncrementStmt
-			\return  void
-		*/
-		void printAST();
-
-		/*!
-			\brief   Evaluate the IncrementStmt
-			\return  void
-		*/
-		void evaluate();
-	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*!
-	  \class   DecrementStmt
-	  \brief   Definition of atributes and methods of DecrementStmt class
-	  \note    DecrementStmt Class publicly inherits from Statement class
-	*/
-	class DecrementStmt : public Statement
-	{
-	private:
-		std::string _id; //!< Name of the variable
-
-	public:
-		/*!
-			\brief Constructor of DecrementStmt
-			\param id: string, variable name
-			\post  A new DecrementStmt is created
-		*/
-		DecrementStmt(std::string id) : _id(id) {}
-
-		/*!
-			\brief   Print the AST for DecrementStmt
-			\return  void
-		*/
-		void printAST();
-
-		/*!
-			\brief   Evaluate the DecrementStmt
 			\return  void
 		*/
 		void evaluate();

@@ -3,22 +3,33 @@
 #include <string>
 #include <list>
 #include <limits>
-#include <cmath>
-#include <cassert>
-#include <cctype>
 #include <algorithm>
+#include <cmath>
+
 #include "ast.hpp"
+
 #include "../table/table.hpp"
 #include "../error/error.hpp"
 #include "../includes/macros.hpp"
+
 #include "../table/numericVariable.hpp"
 #include "../table/logicalVariable.hpp"
+#include "../table/alphanumericVariable.hpp"
+
 #include "../table/numericConstant.hpp"
 #include "../table/logicalConstant.hpp"
+#include "../table/alphanumericConstant.hpp"
+
 #include "../table/builtinParameter0.hpp"
 #include "../table/builtinParameter1.hpp"
 #include "../table/builtinParameter2.hpp"
+
 #include "../parser/interpreter.tab.h"
+
+// Definir UNKNOWN si no está definido
+#ifndef UNKNOWN
+#define UNKNOWN 0
+#endif
 
 namespace lp
 {
@@ -27,7 +38,6 @@ namespace lp
         return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND);
     }
     
-    // Función toLower para manejo de nombres de símbolos
     inline std::string toLower(const std::string& str) {
         std::string result = str;
         std::transform(result.begin(), result.end(), result.begin(),
@@ -805,17 +815,17 @@ void lp::AssignmentStmt::printAST()
 
 void lp::AssignmentStmt::evaluate()
 {
-    lp::Variable *var = (lp::Variable *)table.getSymbol(this->_id);
-    int varType = var ? var->getType() : UNKNOWN;
+    lp::Symbol *symbol = table.getSymbol(this->_id);
+    int varType = symbol ? symbol->getType() : UNKNOWN;
 
     if (this->_exp)
     {
         int expType = this->_exp->getType();
         if (varType != expType)
         {
-            if (var)
+            if (symbol)
                 table.eraseSymbol(this->_id);
-            var = nullptr;
+            symbol = nullptr;
         }
 
         switch (expType)
@@ -823,42 +833,42 @@ void lp::AssignmentStmt::evaluate()
         case NUMBER:
         {
             double value = this->_exp->evaluateNumber();
-            if (!var)
+            if (!symbol)
             {
-                var = new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value);
-                table.installSymbol(var);
+                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value);
+                table.installSymbol(symbol);
             }
             else
             {
-                ((lp::NumericVariable *)var)->setValue(value);
+                ((lp::NumericVariable *)symbol)->setValue(value);
             }
             break;
         }
         case BOOL:
         {
             bool value = this->_exp->evaluateBool();
-            if (!var)
+            if (!symbol)
             {
-                var = new lp::LogicalVariable(this->_id, VARIABLE, BOOL, value);
-                table.installSymbol(var);
+                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL, value);
+                table.installSymbol(symbol);
             }
             else
             {
-                ((lp::LogicalVariable *)var)->setValue(value);
+                ((lp::LogicalVariable *)symbol)->setValue(value);
             }
             break;
         }
         case STRING:
         {
             std::string value = this->_exp->evaluateString();
-            if (!var)
+            if (!symbol)
             {
-                var = new lp::StringVariable(this->_id, VARIABLE, STRING, value);
-                table.installSymbol(var);
+                symbol = new lp::StringVariable(this->_id, VARIABLE, STRING, value);
+                table.installSymbol(symbol);
             }
             else
             {
-                ((lp::StringVariable *)var)->setValue(value);
+                ((lp::StringVariable *)symbol)->setValue(value);
             }
             break;
         }
@@ -869,63 +879,63 @@ void lp::AssignmentStmt::evaluate()
     else if (this->_asgn)
     {
         this->_asgn->evaluate();
-        lp::Variable *srcVar = (lp::Variable *)table.getSymbol(this->_asgn->_id);
+        lp::Symbol *srcSymbol = table.getSymbol(this->_asgn->_id);
 
-        if (!srcVar)
+        if (!srcSymbol)
         {
             warning("Runtime error: undefined variable", this->_asgn->_id);
             return;
         }
 
-        int srcType = srcVar->getType();
+        int srcType = srcSymbol->getType();
         if (varType != srcType)
         {
-            if (var)
+            if (symbol)
                 table.eraseSymbol(this->_id);
-            var = nullptr;
+            symbol = nullptr;
         }
 
         switch (srcType)
         {
         case NUMBER:
         {
-            double value = ((lp::NumericVariable *)srcVar)->getValue();
-            if (!var)
+            double value = ((lp::NumericVariable *)srcSymbol)->getValue();
+            if (!symbol)
             {
-                var = new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value);
-                table.installSymbol(var);
+                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value);
+                table.installSymbol(symbol);
             }
             else
             {
-                ((lp::NumericVariable *)var)->setValue(value);
+                ((lp::NumericVariable *)symbol)->setValue(value);
             }
             break;
         }
         case BOOL:
         {
-            bool value = ((lp::LogicalVariable *)srcVar)->getValue();
-            if (!var)
+            bool value = ((lp::LogicalVariable *)srcSymbol)->getValue();
+            if (!symbol)
             {
-                var = new lp::LogicalVariable(this->_id, VARIABLE, BOOL, value);
-                table.installSymbol(var);
+                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL, value);
+                table.installSymbol(symbol);
             }
             else
             {
-                ((lp::LogicalVariable *)var)->setValue(value);
+                ((lp::LogicalVariable *)symbol)->setValue(value);
             }
             break;
         }
         case STRING:
         {
-            std::string value = ((lp::StringVariable *)srcVar)->getValue();
-            if (!var)
+            std::string value = ((lp::StringVariable *)srcSymbol)->getValue();
+            if (!symbol)
             {
-                var = new lp::StringVariable(this->_id, VARIABLE, STRING, value);
-                table.installSymbol(var);
+                symbol = new lp::StringVariable(this->_id, VARIABLE, STRING, value);
+                table.installSymbol(symbol);
             }
             else
             {
-                ((lp::StringVariable *)var)->setValue(value);
+                ((lp::StringVariable *)symbol)->setValue(value);
             }
             break;
         }
@@ -987,14 +997,14 @@ void lp::ReadStmt::evaluate()
         return;
     }
 
-    lp::Variable *var = table.getSymbol(this->_id);
-    if (var && var->getType() == NUMBER)
+    lp::Symbol *symbol = table.getSymbol(this->_id);
+    if (symbol && symbol->getType() == NUMBER)
     {
-        ((lp::NumericVariable *)var)->setValue(value);
+        ((lp::NumericVariable *)symbol)->setValue(value);
     }
     else
     {
-        if (var)
+        if (symbol)
             table.eraseSymbol(this->_id);
         table.installSymbol(new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value));
     }
@@ -1033,14 +1043,14 @@ void lp::ReadStringStmt::evaluate()
     std::string input;
     std::getline(std::cin, input);
 
-    lp::Variable *var = table.getSymbol(this->_id);
-    if (var && var->getType() == STRING)
+    lp::Symbol *symbol = table.getSymbol(this->_id);
+    if (symbol && symbol->getType() == STRING)
     {
-        ((lp::StringVariable *)var)->setValue(input);
+        ((lp::StringVariable *)symbol)->setValue(input);
     }
     else
     {
-        if (var)
+        if (symbol)
             table.eraseSymbol(this->_id);
         table.installSymbol(new lp::StringVariable(this->_id, VARIABLE, STRING, input));
     }
@@ -1128,7 +1138,7 @@ void lp::RepeatStmt::evaluate()
 void lp::ForStmt::printAST()
 {
     std::cout << "ForStmt:" << std::endl;
-    std::cout << "\tVariable: " << this->_var << std::endl;
+    std::cout << "\tVariable: " << this->_id << std::endl;
     this->_start->printAST();
     this->_end->printAST();
     this->_step->printAST();
@@ -1149,7 +1159,7 @@ void lp::ForStmt::evaluate()
     double endVal = _end->evaluateNumber();
     double stepVal = _step->evaluateNumber();
 
-    if (stepVal == 0)
+    if (std::abs(stepVal) < ERROR_BOUND)
     {
         warning("Runtime error: zero step value", "For loop");
         return;
@@ -1160,7 +1170,7 @@ void lp::ForStmt::evaluate()
          increasing ? (i <= endVal) : (i >= endVal);
          i += stepVal)
     {
-        lp::AssignmentStmt assignment(_var, new lp::NumberNode(i));
+        lp::AssignmentStmt assignment(this->_id, new lp::NumberNode(i));
         assignment.evaluate();
         _body->evaluate();
     }
