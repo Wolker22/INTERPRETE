@@ -86,7 +86,7 @@ extern "C" int yylex(int& lineNumber);
 %token PRINT READ READ_STRING
 %token IF THEN ELSE END_IF
 %token WHILE DO END_WHILE
-%token CLEAR_SCREEN PLACE  // CORRECCIÓN: Tokens actualizados
+%token CLEAR_SCREEN PLACE
 %token REPEAT UNTIL FOR END_FOR FROM STEP TO
 %token SWITCH CASE DEFAULT END_SWITCH
 %token COLON COMMA QUESTION
@@ -173,11 +173,11 @@ stmt : SEMICOLON
 | repeat
 | for
 | switch
-| CLEAR_SCREEN SEMICOLON  // CORRECCIÓN: Token actualizado
+| CLEAR_SCREEN SEMICOLON
 {
     $$ = new lp::ClearScreenStmt();
 }
-| PLACE LPAREN exp COMMA exp RPAREN SEMICOLON  // CORRECCIÓN: Token actualizado
+| PLACE LPAREN exp COMMA exp RPAREN SEMICOLON
 {
     $$ = new lp::PlaceStmt($3, $5);
 }
@@ -215,7 +215,6 @@ repeat : REPEAT controlSymbol stmtlist UNTIL cond
 }
 ;
 
-// CORRECCIÓN: ForStmt con paso opcional
 for : FOR controlSymbol VARIABLE FROM exp TO exp DO stmtlist END_FOR
 {
     $$ = new lp::ForStmt($3, $5, $7, nullptr, new lp::BlockStmt($9));
@@ -340,7 +339,6 @@ decrement : VARIABLE MINUSMINUS
 }
 ;
 
-// CORRECCIÓN: Reglas para nuevos nodos AST
 exp : NUMBER
 {
     $$ = new lp::NumberNode($1);
@@ -382,7 +380,7 @@ exp : NUMBER
 | exp MINUS exp { $$ = new lp::MinusNode($1, $3); }
 | exp MULTIPLICATION exp { $$ = new lp::MultiplicationNode($1, $3); }
 | exp DIVISION exp { $$ = new lp::DivisionNode($1, $3); }
-| exp DIVISION_ENTERA exp { $$ = new lp::IntDivNode($1, $3); }  // CORRECCIÓN: IntDivNode
+| exp DIVISION_ENTERA exp { $$ = new lp::IntDivNode($1, $3); }
 | exp MODULO exp { $$ = new lp::ModuloNode($1, $3); }
 | exp POWER exp { $$ = new lp::PowerNode($1, $3); }
 | exp CONCATENACION exp { $$ = new lp::ConcatenationNode($1, $3); }
@@ -399,8 +397,6 @@ exp : NUMBER
 | MINUS exp %prec UNARY { $$ = new lp::UnaryMinusNode($2); }
 | cond QUESTION exp COLON exp %prec QUESTION { $$ = new lp::AlternativeNode($1, $3, $5); }
 | LPAREN exp RPAREN { $$ = $2; }
-| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::IncrementStmt($1); }
-| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::DecrementStmt($1); }
 ;
 
 listOfExp : 
