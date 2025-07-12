@@ -1941,6 +1941,52 @@ namespace lp
 		void evaluate();
 	};
 
+	// Add to ast.hpp
+	class AlternativeNode : public ExpNode
+	{
+	private:
+		ExpNode *_cond;
+		ExpNode *_left;
+		ExpNode *_right;
+
+	public:
+		AlternativeNode(ExpNode *cond, ExpNode *left, ExpNode *right)
+			: _cond(cond), _left(left), _right(right) {}
+
+		int getType() override;
+		void printAST() override;
+		double evaluateNumber() override;
+	};
+
+	class AssignmentPlusStmt : public Statement
+	{
+	private:
+		std::string _id;
+		ExpNode *_exp;
+
+	public:
+		AssignmentPlusStmt(const std::string &id, ExpNode *exp)
+			: _id(id), _exp(exp) {}
+
+		void printAST() override;
+		void evaluate() override;
+	};
+
+	// Similarly for AssignmentMinusStmt, IncrementStmt, DecrementStmt
+
+	class BlockStmt : public Statement
+	{
+	private:
+		std::list<Statement *> *_stmts;
+
+	public:
+		BlockStmt(std::list<Statement *> *stmts) : _stmts(stmts) {}
+		~BlockStmt();
+
+		void printAST() override;
+		void evaluate() override;
+	};
+
 	// End of name space lp
 }
 
