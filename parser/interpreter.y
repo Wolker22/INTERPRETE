@@ -95,7 +95,7 @@ void yyerror(const char *s);
 %type <prog> program
 %type <caseptr> case_stmt
 %type <caselist> case_list
-%type <string> for_variable  <!-- CORRECCIÓN CLAVE: Nuevo tipo añadido -->
+%type <string> for_variable  
 
 %start program
 
@@ -190,7 +190,6 @@ repeat : REPEAT controlSymbol stmtlist UNTIL cond
 }
 ;
 
-<!-- SECCIÓN CORREGIDA: Nuevo no terminal for_variable -->
 for_variable : VARIABLE { $$ = $1; }
              | CONSTANT {
                  lp::execerror("No se puede modificar constante en FOR", $1);
