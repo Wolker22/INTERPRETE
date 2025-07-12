@@ -10,14 +10,13 @@ private:
     bool _value;
 
 public:
-    // Constructor simplificado
-    explicit LogicalVariable(const std::string& name = "", 
-                            bool value = false,
-                            int token = 0)
-        : Variable(name, token, LOGICAL), _value(value) {}
+    // Constructor mejorado
+    LogicalVariable(const std::string& name, int token, int type, bool value)
+        : Variable(name, token, type), _value(value) {}
     
-    // Constructor de copia
-    LogicalVariable(const LogicalVariable& other) = default;
+    // Constructor simplificado
+    explicit LogicalVariable(const std::string& name = "", bool value = false)
+        : Variable(name, VARIABLE, LOGICAL), _value(value) {}
     
     // Destructor
     ~LogicalVariable() override = default;
@@ -29,7 +28,7 @@ public:
     // Modificador
     void setValue(bool value) { _value = value; }
     
-    // Implementación de funciones virtuales puras
+    // Implementación de funciones virtuales
     double getNumericValue() const override {
         return _value ? 1.0 : 0.0;
     }
@@ -48,7 +47,6 @@ public:
         } else if (value == "false" || value == "0") {
             _value = false;
         } else {
-            // Manejar error si es necesario
             _value = false;
         }
     }

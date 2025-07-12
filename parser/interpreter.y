@@ -247,13 +247,12 @@ exp
       }
     | BOOL
       {
-          // Usamos LogicalConstant en lugar de LogicalVariable
           static int counter = 0;
           std::string name = "__bool_const_" + std::to_string(counter++);
-          lp::LogicalConstant* con = new lp::LogicalConstant(name, CONSTANT, BOOL, $1);
+          lp::LogicalConstant* con = new lp::LogicalConstant(name, $1);
           table.installSymbol(con);
           $$ = new lp::ConstantNode(name);
-      } 
+      }
     | STRINGLITERAL
       {
           $$ = new lp::StringNode($1);

@@ -12,14 +12,13 @@ private:
 public:
     using Constant::operator=;
 
-    // Constructor simplificado
-    explicit LogicalConstant(const std::string& name = "", 
-                            bool value = true,
-                            int token = 0)
-        : Constant(name, token, LOGICAL_CONSTANT), _value(value) {}
+    // Constructor mejorado
+    LogicalConstant(const std::string& name, int token, int type, bool value)
+        : Constant(name, token, type), _value(value) {}
     
-    // Constructor de copia
-    LogicalConstant(const LogicalConstant& other) = default;
+    // Constructor simplificado
+    explicit LogicalConstant(const std::string& name = "", bool value = true)
+        : Constant(name, CONSTANT, LOGICAL_CONSTANT), _value(value) {}
     
     // Destructor
     ~LogicalConstant() override = default;
@@ -31,7 +30,7 @@ public:
     // Modificador
     void setValue(bool value) { _value = value; }
     
-    // Implementación de funciones virtuales puras
+    // Implementación de funciones virtuales
     double getNumericValue() const override {
         return _value ? 1.0 : 0.0;
     }
@@ -40,11 +39,11 @@ public:
         return _value ? "true" : "false";
     }
     
-    void setValue(double value) override {
+    void setValue(double) override {
         throw std::runtime_error("Cannot modify constant value");
     }
     
-    void setValue(const std::string& value) override {
+    void setValue(const std::string&) override {
         throw std::runtime_error("Cannot modify constant value");
     }
     

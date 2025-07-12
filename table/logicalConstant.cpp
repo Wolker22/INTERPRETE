@@ -20,7 +20,7 @@ void LogicalConstant::read() {
     int temp;
     std::cin >> temp;
     _value = (temp != 0);
-    std::cin.ignore();  // Limpiar buffer
+    std::cin.ignore();
 }
 
 void LogicalConstant::write() const {

@@ -19,7 +19,7 @@ void LogicalVariable::read() {
     int temp;
     std::cin >> temp;
     _value = (temp != 0);
-    std::cin.ignore();  // Limpiar buffer
+    std::cin.ignore();
 }
 
 void LogicalVariable::write() const {
