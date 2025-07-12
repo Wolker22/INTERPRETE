@@ -349,10 +349,6 @@ exp : NUMBER
 {
     $$ = new lp::StringNode($1);
 }
-| BOOL  // CORRECCIÓN: BoolLiteralNode
-{
-    $$ = new lp::BoolLiteralNode($1);
-}
 | VARIABLE
 {
     $$ = new lp::VariableNode($1);
@@ -403,8 +399,8 @@ exp : NUMBER
 | MINUS exp %prec UNARY { $$ = new lp::UnaryMinusNode($2); }
 | cond QUESTION exp COLON exp %prec QUESTION { $$ = new lp::AlternativeNode($1, $3, $5); }
 | LPAREN exp RPAREN { $$ = $2; }
-| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::PostIncrementNode($1); }  // CORRECCIÓN: PostIncrementNode
-| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::PostDecrementNode($1); }  // CORRECCIÓN: PostDecrementNode
+| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::IncrementStmt($1); }  // CORRECCIÓN: PostIncrementNode
+| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::DecrementStmt($1); }  // CORRECCIÓN: PostDecrementNode
 ;
 
 listOfExp : 
