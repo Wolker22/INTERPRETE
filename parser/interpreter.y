@@ -19,7 +19,7 @@
 #include "../table/builtinParameter2.hpp"
 #include "../table/init.hpp"
 
-extern "C" int yylex();
+extern "C" int yylex(int* lineNumber);
 extern int lineNumber;
 extern bool interactiveMode;
 extern int control;
@@ -28,7 +28,7 @@ extern jmp_buf begin;
 extern lp::Table table;
 extern lp::AST *root;
 
-void yyerror(const char *s);
+void yyerror(int& control, const char *s);
 %}
 
 %parse-param { int &control }
@@ -166,26 +166,26 @@ controlSymbol : /* empty */
 
 if : IF controlSymbol cond THEN stmtlist END_IF
 {
-    $$ = new lp::IfStmt($3, new lp::AST($5));
+    $$ = new lp::IfStmt($3, new lp::BlockStmt($5));
     control--;
 }
 | IF controlSymbol cond THEN stmtlist ELSE stmtlist END_IF
 {
-    $$ = new lp::IfStmt($3, new lp::AST($5), new lp::AST($7));
+    $$ = new lp::IfStmt($3, new lp::BlockStmt($5), new lp::BlockStmt($7));
     control--;
 }
 ;
 
 while : WHILE controlSymbol cond DO stmtlist END_WHILE
 {
-    $$ = new lp::WhileStmt($3, new lp::AST($5));
+    $$ = new lp::WhileStmt($3, new lp::BlockStmt($5));
     control--;
 }
 ;
 
 repeat : REPEAT controlSymbol stmtlist UNTIL cond
 {
-    $$ = new lp::RepeatStmt(new lp::AST($3), $5);
+    $$ = new lp::RepeatStmt(new lp::BlockStmt($3), $5);
     control--;
 }
 ;
@@ -199,12 +199,12 @@ for_variable : VARIABLE { $$ = $1; }
 
 for : FOR controlSymbol for_variable FROM exp TO exp DO stmtlist END_FOR
 {
-    $$ = new lp::ForStmt($3, $5, $7, new lp::AST($9));
+    $$ = new lp::ForStmt($3, $5, $7, new lp::BlockStmt($9));
     control--;
 }
 | FOR controlSymbol for_variable FROM exp TO exp STEP exp DO stmtlist END_FOR
 {
-    $$ = new lp::ForStmt($3, $5, $7, $9, new lp::AST($11));
+    $$ = new lp::ForStmt($3, $5, $7, $9, new lp::BlockStmt($11));
     control--;
 }
 ;
@@ -216,7 +216,7 @@ switch : SWITCH controlSymbol LPAREN exp RPAREN case_list END_SWITCH
 }
 | SWITCH controlSymbol LPAREN exp RPAREN case_list DEFAULT COLON stmtlist END_SWITCH
 {
-    $$ = new lp::SwitchStmt($4, $6, new lp::AST($9));
+    $$ = new lp::SwitchStmt($4, $6, new lp::BlockStmt($9));
     control--;
 }
 ;
@@ -235,7 +235,7 @@ case_list : case_list case_stmt
 
 case_stmt : CASE exp COLON stmtlist
 {
-    $$ = new lp::Case($2, new lp::AST($4));
+    $$ = new lp::Case($2, new lp::BlockStmt($4));
 }
 ;
 
@@ -323,7 +323,7 @@ exp : NUMBER
 }
 | BOOL
 {
-    $$ = new lp::BoolNode($1);
+    $$ = new lp::BoolLiteralNode($1);
 }
 | VARIABLE
 {
@@ -358,7 +358,7 @@ exp : NUMBER
 | exp MINUS exp { $$ = new lp::MinusNode($1, $3); }
 | exp MULTIPLICATION exp { $$ = new lp::MultiplicationNode($1, $3); }
 | exp DIVISION exp { $$ = new lp::DivisionNode($1, $3); }
-| exp DIVISION_ENTERA exp { $$ = new lp::WholeDivisionNode($1, $3); }
+| exp DIVISION_ENTERA exp { $$ = new lp::IntegerDivisionNode($1, $3); }
 | exp MODULO exp { $$ = new lp::ModuloNode($1, $3); }
 | exp POWER exp { $$ = new lp::PowerNode($1, $3); }
 | exp CONCATENACION exp { $$ = new lp::ConcatenationNode($1, $3); }
@@ -375,8 +375,8 @@ exp : NUMBER
 | MINUS exp %prec UNARY { $$ = new lp::UnaryMinusNode($2); }
 | cond QUESTION exp COLON exp %prec QUESTION { $$ = new lp::AlternativeNode($1, $3, $5); }
 | LPAREN exp RPAREN { $$ = $2; }
-| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::IncrementExpNode($1); }
-| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::DecrementExpNode($1); }
+| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::PostIncrementNode($1); }
+| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::PostDecrementNode($1); }
 ;
 
 listOfExp : 
@@ -403,6 +403,6 @@ restOfListOfExp :
 
 %%
 
-void yyerror(const char* s) {
+void yyerror(int& control, const char* s) {
     std::cerr << progname << ":" << lineNumber << ": Error: " << s << std::endl;
 }

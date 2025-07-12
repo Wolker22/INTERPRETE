@@ -37,6 +37,7 @@ class AlphanumericVariable:public lp::Variable
 \name Public methods of AlphanumericVariable class
 */
 	public:
+	using Variable::operator=;
 
 /*!	
 	\name Constructors

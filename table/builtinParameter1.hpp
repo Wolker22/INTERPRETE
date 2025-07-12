@@ -43,6 +43,7 @@ class BuiltinParameter1:public lp::Builtin
 \name Public methods of BuiltinParameter1 class
 */
 	public:
+	using Builtin::operator=;
 
 /*!	
 	\name Constructors

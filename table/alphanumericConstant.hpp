@@ -37,6 +37,7 @@ class AlphanumericConstant:public lp::Constant
 \name Public methods of AlphanumericConstant class
 */
 	public:
+	using Constant::operator=;
 
 /*!	
 	\name Constructors
