@@ -327,6 +327,7 @@ read_string : READ_STRING LPAREN VARIABLE RPAREN
 }
 ;
 
+// ÚNICA DEFINICIÓN VÁLIDA (SENTENCIAS)
 increment : VARIABLE PLUSPLUS
 {
     $$ = new lp::IncrementStmt($1);
@@ -339,6 +340,7 @@ decrement : VARIABLE MINUSMINUS
 }
 ;
 
+// EXPRESIONES VÁLIDAS
 exp : NUMBER
 {
     $$ = new lp::NumberNode($1);
