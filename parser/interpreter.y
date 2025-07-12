@@ -95,6 +95,7 @@ void yyerror(const char *s);
 %type <prog> program
 %type <caseptr> case_stmt
 %type <caselist> case_list
+%type <string> for_variable  <!-- CORRECCIÓN CLAVE: Nuevo tipo añadido -->
 
 %start program
 
@@ -189,23 +190,23 @@ repeat : REPEAT controlSymbol stmtlist UNTIL cond
 }
 ;
 
-for : FOR controlSymbol VARIABLE FROM exp TO exp DO stmtlist END_FOR
+<!-- SECCIÓN CORREGIDA: Nuevo no terminal for_variable -->
+for_variable : VARIABLE { $$ = $1; }
+             | CONSTANT {
+                 lp::execerror("No se puede modificar constante en FOR", $1);
+                 $$ = $1;  // Continuar con el análisis
+               }
+             ;
+
+for : FOR controlSymbol for_variable FROM exp TO exp DO stmtlist END_FOR
 {
     $$ = new lp::ForStmt($3, $5, $7, new lp::AST($9));
     control--;
 }
-| FOR controlSymbol VARIABLE FROM exp TO exp STEP exp DO stmtlist END_FOR
+| FOR controlSymbol for_variable FROM exp TO exp STEP exp DO stmtlist END_FOR
 {
     $$ = new lp::ForStmt($3, $5, $7, $9, new lp::AST($11));
     control--;
-}
-| FOR CONSTANT FROM exp TO exp DO stmtlist END_FOR
-{
-    lp::execerror("No se puede modificar constante en FOR", $3);
-}
-| FOR CONSTANT FROM exp TO exp STEP exp DO stmtlist END_FOR
-{
-    lp::execerror("No se puede modificar constante en FOR", $3);
 }
 ;
 
