@@ -32,9 +32,9 @@ const int BOOL_TYPE = 1;
 const int STRING_TYPE = 2;
 const int UNKNOWN_TYPE = -1;
 
-// CONSTANTES DE CATEGORÍA
-const int VARIABLE = 0;
-const int CONSTANT = 1;
+// CONSTANTES DE CATEGORÍA (renamed to avoid conflicts)
+const int VAR_CATEGORY = 0;
+const int CONST_CATEGORY = 1;
 
 namespace lp
 {
@@ -840,7 +840,7 @@ void lp::AssignmentStmt::evaluate()
             double value = this->_exp->evaluateNumber();
             if (!symbol)
             {
-                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER_TYPE, value);
+                symbol = new lp::NumericVariable(this->_id, VAR_CATEGORY, NUMBER_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -854,7 +854,7 @@ void lp::AssignmentStmt::evaluate()
             bool value = this->_exp->evaluateBool();
             if (!symbol)
             {
-                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL_TYPE, value);
+                symbol = new lp::LogicalVariable(this->_id, VAR_CATEGORY, BOOL_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -868,7 +868,7 @@ void lp::AssignmentStmt::evaluate()
             std::string value = this->_exp->evaluateString();
             if (!symbol)
             {
-                symbol = new lp::AlphanumericVariable(this->_id, VARIABLE, STRING_TYPE, value);
+                symbol = new lp::AlphanumericVariable(this->_id, VAR_CATEGORY, STRING_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -907,7 +907,7 @@ void lp::AssignmentStmt::evaluate()
             double value = ((lp::NumericVariable *)srcSymbol)->getValue();
             if (!symbol)
             {
-                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER_TYPE, value);
+                symbol = new lp::NumericVariable(this->_id, VAR_CATEGORY, NUMBER_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -921,7 +921,7 @@ void lp::AssignmentStmt::evaluate()
             bool value = ((lp::LogicalVariable *)srcSymbol)->getValue();
             if (!symbol)
             {
-                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL_TYPE, value);
+                symbol = new lp::LogicalVariable(this->_id, VAR_CATEGORY, BOOL_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -935,7 +935,7 @@ void lp::AssignmentStmt::evaluate()
             std::string value = ((lp::AlphanumericVariable *)srcSymbol)->getValue();
             if (!symbol)
             {
-                symbol = new lp::AlphanumericVariable(this->_id, VARIABLE, STRING_TYPE, value);
+                symbol = new lp::AlphanumericVariable(this->_id, VAR_CATEGORY, STRING_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -1011,7 +1011,7 @@ void lp::ReadStmt::evaluate()
     {
         if (symbol)
             table.eraseSymbol(this->_id);
-        table.installSymbol(new lp::NumericVariable(this->_id, VARIABLE, NUMBER_TYPE, value));
+        table.installSymbol(new lp::NumericVariable(this->_id, VAR_CATEGORY, NUMBER_TYPE, value));
     }
 }
 
@@ -1057,7 +1057,7 @@ void lp::ReadStringStmt::evaluate()
     {
         if (symbol)
             table.eraseSymbol(this->_id);
-        table.installSymbol(new lp::AlphanumericVariable(this->_id, VARIABLE, STRING_TYPE, input));
+        table.installSymbol(new lp::AlphanumericVariable(this->_id, VAR_CATEGORY, STRING_TYPE, input));
     }
 }
 
