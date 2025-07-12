@@ -1300,22 +1300,6 @@ void lp::AST::evaluate()
     }
 }
 
-// AssignmentPlusStmt
-void lp::AssignmentPlusStmt::printAST() {
-    std::cout << "AssignmentPlusStmt: +=" << std::endl;
-    std::cout << "\t" << _id << std::endl;
-    _exp->printAST();
-}
-
-void lp::AssignmentPlusStmt::evaluate() {
-    lp::NumericVariable* var = (lp::NumericVariable*)table.getSymbol(_id);
-    if (var && var->getType() == NUMBER_TYPE) {
-        var->setValue(var->getValue() + _exp->evaluateNumber());
-    } else {
-        warning("Runtime error: variable not numeric", _id);
-    }
-}
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
