@@ -26,13 +26,13 @@
 
 #include "../parser/interpreter.tab.h"
 
-// Definir constantes de tipo
+// CONSTANTES DE TIPO
 const int NUMBER_TYPE = 0;
 const int BOOL_TYPE = 1;
 const int STRING_TYPE = 2;
 const int UNKNOWN_TYPE = -1;
 
-// Definir constantes de categoría
+// CONSTANTES DE CATEGORÍA
 const int VARIABLE = 0;
 const int CONSTANT = 1;
 
@@ -40,7 +40,7 @@ namespace lp
 {
     bool approximatelyEqual(double a, double b)
     {
-        return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND;
+        return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND);
     }
     
     inline std::string toLower(const std::string& str) {

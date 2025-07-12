@@ -22,12 +22,6 @@
 #include "../error/error.hpp"
 #include "../includes/macros.hpp"
 
-// Tipos de datos básicos (consistentes con table.hpp)
-#define NUMBER 0
-#define BOOL   1
-#define STRING 2
-#define UNKNOWN -1
-
 #define ERROR_BOUND 1.0e-6 //!< Error bound for real number comparisons
 
 namespace lp
