@@ -39,9 +39,6 @@ class Symbol:public lp::SymbolInterface
 \name Public methods of Symbol class
 */
 	public:
-	// AÑADE ESTA FUNCIÓN VIRTUAL
-    virtual int getType() const = 0;
-
 
 /*!	
 	\name Constructors
