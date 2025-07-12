@@ -26,16 +26,21 @@
 
 #include "../parser/interpreter.tab.h"
 
-// Definir UNKNOWN si no está definido
-#ifndef UNKNOWN
-#define UNKNOWN 0
-#endif
+// Definir constantes de tipo
+const int NUMBER_TYPE = 0;
+const int BOOL_TYPE = 1;
+const int STRING_TYPE = 2;
+const int UNKNOWN_TYPE = -1;
+
+// Definir constantes de categoría
+const int VARIABLE = 0;
+const int CONSTANT = 1;
 
 namespace lp
 {
     bool approximatelyEqual(double a, double b)
     {
-        return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND);
+        return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND;
     }
     
     inline std::string toLower(const std::string& str) {
@@ -58,7 +63,7 @@ int lp::VariableNode::getType()
     lp::Symbol* symbol = table.getSymbol(this->_id);
     if (symbol == nullptr) {
         warning("Undefined variable", this->_id);
-        return UNKNOWN;
+        return UNKNOWN_TYPE;
     }
     return symbol->getType();
 }
@@ -71,7 +76,7 @@ void lp::VariableNode::printAST()
 
 double lp::VariableNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expected numeric variable", this->_id);
         return 0.0;
@@ -82,7 +87,7 @@ double lp::VariableNode::evaluateNumber()
 
 bool lp::VariableNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: expected boolean variable", this->_id);
         return false;
@@ -93,12 +98,12 @@ bool lp::VariableNode::evaluateBool()
 
 std::string lp::VariableNode::evaluateString()
 {
-    if (this->getType() != STRING)
+    if (this->getType() != STRING_TYPE)
     {
         warning("Runtime error: expected string variable", this->_id);
         return "";
     }
-    lp::StringVariable *var = (lp::StringVariable *)table.getSymbol(this->_id);
+    lp::AlphanumericVariable *var = (lp::AlphanumericVariable *)table.getSymbol(this->_id);
     return var->getValue();
 }
 
@@ -111,7 +116,7 @@ int lp::ConstantNode::getType()
     lp::Symbol* symbol = table.getSymbol(this->_id);
     if (symbol == nullptr) {
         warning("Undefined constant", this->_id);
-        return UNKNOWN;
+        return UNKNOWN_TYPE;
     }
     return symbol->getType();
 }
@@ -124,7 +129,7 @@ void lp::ConstantNode::printAST()
 
 double lp::ConstantNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expected numeric constant", this->_id);
         return 0.0;
@@ -135,7 +140,7 @@ double lp::ConstantNode::evaluateNumber()
 
 bool lp::ConstantNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: expected boolean constant", this->_id);
         return false;
@@ -146,12 +151,12 @@ bool lp::ConstantNode::evaluateBool()
 
 std::string lp::ConstantNode::evaluateString()
 {
-    if (this->getType() != STRING)
+    if (this->getType() != STRING_TYPE)
     {
         warning("Runtime error: expected string constant", this->_id);
         return "";
     }
-    lp::StringConstant *constant = (lp::StringConstant *)table.getSymbol(this->_id);
+    lp::AlphanumericConstant *constant = (lp::AlphanumericConstant *)table.getSymbol(this->_id);
     return constant->getValue();
 }
 
@@ -159,7 +164,7 @@ std::string lp::ConstantNode::evaluateString()
 // NumberNode Implementation
 ////////////////////////////////////////////////////////////////////////////////
 
-int lp::NumberNode::getType() { return NUMBER; }
+int lp::NumberNode::getType() { return NUMBER_TYPE; }
 void lp::NumberNode::printAST() { std::cout << "NumberNode: " << this->_number << std::endl; }
 double lp::NumberNode::evaluateNumber() { return this->_number; }
 
@@ -167,7 +172,7 @@ double lp::NumberNode::evaluateNumber() { return this->_number; }
 // StringNode Implementation
 ////////////////////////////////////////////////////////////////////////////////
 
-int lp::StringNode::getType() { return STRING; }
+int lp::StringNode::getType() { return STRING_TYPE; }
 void lp::StringNode::printAST() { std::cout << "StringNode: " << this->_string << std::endl; }
 std::string lp::StringNode::evaluateString() { return this->_string; }
 
@@ -177,10 +182,10 @@ std::string lp::StringNode::evaluateString() { return this->_string; }
 
 int lp::NumericUnaryOperatorNode::getType()
 {
-    if (this->_exp->getType() == NUMBER)
-        return NUMBER;
+    if (this->_exp->getType() == NUMBER_TYPE)
+        return NUMBER_TYPE;
     warning("Runtime error: incompatible types for", "Numeric Unary Operator");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -189,10 +194,10 @@ int lp::NumericUnaryOperatorNode::getType()
 
 int lp::LogicalUnaryOperatorNode::getType()
 {
-    if (this->_exp->getType() == BOOL)
-        return BOOL;
+    if (this->_exp->getType() == BOOL_TYPE)
+        return BOOL_TYPE;
     warning("Runtime error: incompatible types for", "Logical Unary Operator");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -201,10 +206,10 @@ int lp::LogicalUnaryOperatorNode::getType()
 
 int lp::NumericOperatorNode::getType()
 {
-    if ((this->_left->getType() == NUMBER) && (this->_right->getType() == NUMBER))
-        return NUMBER;
+    if ((this->_left->getType() == NUMBER_TYPE) && (this->_right->getType() == NUMBER_TYPE))
+        return NUMBER_TYPE;
     warning("Runtime error: incompatible types for", "Numeric Operator");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -213,14 +218,14 @@ int lp::NumericOperatorNode::getType()
 
 int lp::RelationalOperatorNode::getType()
 {
-    if ((this->_left->getType() == NUMBER) && (this->_right->getType() == NUMBER))
-        return BOOL;
-    if ((this->_left->getType() == BOOL) && (this->_right->getType() == BOOL))
-        return BOOL;
-    if ((this->_left->getType() == STRING) && (this->_right->getType() == STRING))
-        return BOOL;
+    if ((this->_left->getType() == NUMBER_TYPE) && (this->_right->getType() == NUMBER_TYPE))
+        return BOOL_TYPE;
+    if ((this->_left->getType() == BOOL_TYPE) && (this->_right->getType() == BOOL_TYPE))
+        return BOOL_TYPE;
+    if ((this->_left->getType() == STRING_TYPE) && (this->_right->getType() == STRING_TYPE))
+        return BOOL_TYPE;
     warning("Runtime error: incompatible types for", "Relational Operator");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -229,10 +234,10 @@ int lp::RelationalOperatorNode::getType()
 
 int lp::LogicalOperatorNode::getType()
 {
-    if ((this->_left->getType() == BOOL) && (this->_right->getType() == BOOL))
-        return BOOL;
+    if ((this->_left->getType() == BOOL_TYPE) && (this->_right->getType() == BOOL_TYPE))
+        return BOOL_TYPE;
     warning("Runtime error: incompatible types for", "Logical Operator");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -241,10 +246,10 @@ int lp::LogicalOperatorNode::getType()
 
 int lp::AlphanumericOperatorNode::getType()
 {
-    if ((this->_left->getType() == STRING) && (this->_right->getType() == STRING))
-        return STRING;
+    if ((this->_left->getType() == STRING_TYPE) && (this->_right->getType() == STRING_TYPE))
+        return STRING_TYPE;
     warning("Runtime error: incompatible types for", "Alphanumeric Operator");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -260,7 +265,7 @@ void lp::ConcatenationNode::printAST()
 
 std::string lp::ConcatenationNode::evaluateString()
 {
-    if (this->getType() != STRING)
+    if (this->getType() != STRING_TYPE)
     {
         warning("Runtime error: expressions not alphanumeric", "Concatenation");
         return "";
@@ -280,7 +285,7 @@ void lp::UnaryMinusNode::printAST()
 
 double lp::UnaryMinusNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expression not numeric", "UnaryMinus");
         return 0.0;
@@ -300,7 +305,7 @@ void lp::UnaryPlusNode::printAST()
 
 double lp::UnaryPlusNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expression not numeric", "UnaryPlus");
         return 0.0;
@@ -321,7 +326,7 @@ void lp::PlusNode::printAST()
 
 double lp::PlusNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Plus");
         return 0.0;
@@ -342,7 +347,7 @@ void lp::MinusNode::printAST()
 
 double lp::MinusNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Minus");
         return 0.0;
@@ -363,7 +368,7 @@ void lp::MultiplicationNode::printAST()
 
 double lp::MultiplicationNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Multiplication");
         return 0.0;
@@ -384,7 +389,7 @@ void lp::DivisionNode::printAST()
 
 double lp::DivisionNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Division");
         return 0.0;
@@ -412,7 +417,7 @@ void lp::IntDivNode::printAST()
 
 double lp::IntDivNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Integer Division");
         return 0.0;
@@ -440,7 +445,7 @@ void lp::ModuloNode::printAST()
 
 double lp::ModuloNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Modulo");
         return 0.0;
@@ -468,7 +473,7 @@ void lp::PowerNode::printAST()
 
 double lp::PowerNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Power");
         return 0.0;
@@ -490,13 +495,13 @@ void lp::AlternativeNode::printAST()
 
 double lp::AlternativeNode::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: expressions not numeric", "Alternative");
         return 0.0;
     }
 
-    if (this->_cond->getType() != BOOL)
+    if (this->_cond->getType() != BOOL_TYPE)
     {
         warning("Runtime error: condition not boolean", "Alternative");
         return 0.0;
@@ -511,7 +516,7 @@ double lp::AlternativeNode::evaluateNumber()
 // BuiltinFunctionNode_0 Implementation
 ////////////////////////////////////////////////////////////////////////////////
 
-int lp::BuiltinFunctionNode_0::getType() { return NUMBER; }
+int lp::BuiltinFunctionNode_0::getType() { return NUMBER_TYPE; }
 
 void lp::BuiltinFunctionNode_0::printAST()
 {
@@ -530,10 +535,10 @@ double lp::BuiltinFunctionNode_0::evaluateNumber()
 
 int lp::BuiltinFunctionNode_1::getType()
 {
-    if (this->_exp->getType() == NUMBER)
-        return NUMBER;
+    if (this->_exp->getType() == NUMBER_TYPE)
+        return NUMBER_TYPE;
     warning("Runtime error: incompatible type for", "BuiltinFunctionNode_1");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 void lp::BuiltinFunctionNode_1::printAST()
@@ -544,7 +549,7 @@ void lp::BuiltinFunctionNode_1::printAST()
 
 double lp::BuiltinFunctionNode_1::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: incompatible parameter type", this->_id);
         return 0.0;
@@ -562,7 +567,7 @@ int lp::BuiltinFunctionNode_2::getType()
     if (this->_exp1->getType() == this->_exp2->getType())
         return this->_exp1->getType();
     warning("Runtime error: incompatible types for", "BuiltinFunctionNode_2");
-    return UNKNOWN;
+    return UNKNOWN_TYPE;
 }
 
 void lp::BuiltinFunctionNode_2::printAST()
@@ -574,7 +579,7 @@ void lp::BuiltinFunctionNode_2::printAST()
 
 double lp::BuiltinFunctionNode_2::evaluateNumber()
 {
-    if (this->getType() != NUMBER)
+    if (this->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: incompatible parameter types", this->_id);
         return 0.0;
@@ -596,7 +601,7 @@ void lp::GreaterThanNode::printAST()
 
 bool lp::GreaterThanNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator Greater than");
         return false;
@@ -617,7 +622,7 @@ void lp::GreaterOrEqualNode::printAST()
 
 bool lp::GreaterOrEqualNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator Greater or equal than");
         return false;
@@ -638,7 +643,7 @@ void lp::LessThanNode::printAST()
 
 bool lp::LessThanNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator Less than");
         return false;
@@ -659,7 +664,7 @@ void lp::LessOrEqualNode::printAST()
 
 bool lp::LessOrEqualNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator Less or equal than");
         return false;
@@ -680,7 +685,7 @@ void lp::EqualNode::printAST()
 
 bool lp::EqualNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "Equal operator");
         return false;
@@ -688,13 +693,13 @@ bool lp::EqualNode::evaluateBool()
 
     switch (this->_left->getType())
     {
-    case NUMBER:
+    case NUMBER_TYPE:
         return lp::approximatelyEqual(
             this->_left->evaluateNumber(),
             this->_right->evaluateNumber());
-    case BOOL:
+    case BOOL_TYPE:
         return this->_left->evaluateBool() == this->_right->evaluateBool();
-    case STRING:
+    case STRING_TYPE:
         return this->_left->evaluateString() == this->_right->evaluateString();
     default:
         warning("Runtime error: incompatible types", "Equal operator");
@@ -715,7 +720,7 @@ void lp::NotEqualNode::printAST()
 
 bool lp::NotEqualNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "Not Equal operator");
         return false;
@@ -723,13 +728,13 @@ bool lp::NotEqualNode::evaluateBool()
 
     switch (this->_left->getType())
     {
-    case NUMBER:
+    case NUMBER_TYPE:
         return !lp::approximatelyEqual(
             this->_left->evaluateNumber(),
             this->_right->evaluateNumber());
-    case BOOL:
+    case BOOL_TYPE:
         return this->_left->evaluateBool() != this->_right->evaluateBool();
-    case STRING:
+    case STRING_TYPE:
         return this->_left->evaluateString() != this->_right->evaluateString();
     default:
         warning("Runtime error: incompatible types", "Not Equal operator");
@@ -750,7 +755,7 @@ void lp::AndNode::printAST()
 
 bool lp::AndNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator And");
         return false;
@@ -771,7 +776,7 @@ void lp::OrNode::printAST()
 
 bool lp::OrNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator Or");
         return false;
@@ -791,7 +796,7 @@ void lp::NotNode::printAST()
 
 bool lp::NotNode::evaluateBool()
 {
-    if (this->getType() != BOOL)
+    if (this->getType() != BOOL_TYPE)
     {
         warning("Runtime error: incompatible types", "operator Not");
         return false;
@@ -816,7 +821,7 @@ void lp::AssignmentStmt::printAST()
 void lp::AssignmentStmt::evaluate()
 {
     lp::Symbol *symbol = table.getSymbol(this->_id);
-    int varType = symbol ? symbol->getType() : UNKNOWN;
+    int varType = symbol ? symbol->getType() : UNKNOWN_TYPE;
 
     if (this->_exp)
     {
@@ -830,12 +835,12 @@ void lp::AssignmentStmt::evaluate()
 
         switch (expType)
         {
-        case NUMBER:
+        case NUMBER_TYPE:
         {
             double value = this->_exp->evaluateNumber();
             if (!symbol)
             {
-                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value);
+                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -844,12 +849,12 @@ void lp::AssignmentStmt::evaluate()
             }
             break;
         }
-        case BOOL:
+        case BOOL_TYPE:
         {
             bool value = this->_exp->evaluateBool();
             if (!symbol)
             {
-                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL, value);
+                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -858,17 +863,17 @@ void lp::AssignmentStmt::evaluate()
             }
             break;
         }
-        case STRING:
+        case STRING_TYPE:
         {
             std::string value = this->_exp->evaluateString();
             if (!symbol)
             {
-                symbol = new lp::StringVariable(this->_id, VARIABLE, STRING, value);
+                symbol = new lp::AlphanumericVariable(this->_id, VARIABLE, STRING_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
             {
-                ((lp::StringVariable *)symbol)->setValue(value);
+                ((lp::AlphanumericVariable *)symbol)->setValue(value);
             }
             break;
         }
@@ -897,12 +902,12 @@ void lp::AssignmentStmt::evaluate()
 
         switch (srcType)
         {
-        case NUMBER:
+        case NUMBER_TYPE:
         {
             double value = ((lp::NumericVariable *)srcSymbol)->getValue();
             if (!symbol)
             {
-                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value);
+                symbol = new lp::NumericVariable(this->_id, VARIABLE, NUMBER_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -911,12 +916,12 @@ void lp::AssignmentStmt::evaluate()
             }
             break;
         }
-        case BOOL:
+        case BOOL_TYPE:
         {
             bool value = ((lp::LogicalVariable *)srcSymbol)->getValue();
             if (!symbol)
             {
-                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL, value);
+                symbol = new lp::LogicalVariable(this->_id, VARIABLE, BOOL_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
@@ -925,17 +930,17 @@ void lp::AssignmentStmt::evaluate()
             }
             break;
         }
-        case STRING:
+        case STRING_TYPE:
         {
-            std::string value = ((lp::StringVariable *)srcSymbol)->getValue();
+            std::string value = ((lp::AlphanumericVariable *)srcSymbol)->getValue();
             if (!symbol)
             {
-                symbol = new lp::StringVariable(this->_id, VARIABLE, STRING, value);
+                symbol = new lp::AlphanumericVariable(this->_id, VARIABLE, STRING_TYPE, value);
                 table.installSymbol(symbol);
             }
             else
             {
-                ((lp::StringVariable *)symbol)->setValue(value);
+                ((lp::AlphanumericVariable *)symbol)->setValue(value);
             }
             break;
         }
@@ -959,13 +964,13 @@ void lp::PrintStmt::evaluate()
 {
     switch (this->_exp->getType())
     {
-    case NUMBER:
+    case NUMBER_TYPE:
         std::cout << this->_exp->evaluateNumber() << std::endl;
         break;
-    case BOOL:
+    case BOOL_TYPE:
         std::cout << (this->_exp->evaluateBool() ? "true" : "false") << std::endl;
         break;
-    case STRING:
+    case STRING_TYPE:
         std::cout << this->_exp->evaluateString() << std::endl;
         break;
     default:
@@ -998,7 +1003,7 @@ void lp::ReadStmt::evaluate()
     }
 
     lp::Symbol *symbol = table.getSymbol(this->_id);
-    if (symbol && symbol->getType() == NUMBER)
+    if (symbol && symbol->getType() == NUMBER_TYPE)
     {
         ((lp::NumericVariable *)symbol)->setValue(value);
     }
@@ -1006,7 +1011,7 @@ void lp::ReadStmt::evaluate()
     {
         if (symbol)
             table.eraseSymbol(this->_id);
-        table.installSymbol(new lp::NumericVariable(this->_id, VARIABLE, NUMBER, value));
+        table.installSymbol(new lp::NumericVariable(this->_id, VARIABLE, NUMBER_TYPE, value));
     }
 }
 
@@ -1044,15 +1049,15 @@ void lp::ReadStringStmt::evaluate()
     std::getline(std::cin, input);
 
     lp::Symbol *symbol = table.getSymbol(this->_id);
-    if (symbol && symbol->getType() == STRING)
+    if (symbol && symbol->getType() == STRING_TYPE)
     {
-        ((lp::StringVariable *)symbol)->setValue(input);
+        ((lp::AlphanumericVariable *)symbol)->setValue(input);
     }
     else
     {
         if (symbol)
             table.eraseSymbol(this->_id);
-        table.installSymbol(new lp::StringVariable(this->_id, VARIABLE, STRING, input));
+        table.installSymbol(new lp::AlphanumericVariable(this->_id, VARIABLE, STRING_TYPE, input));
     }
 }
 
@@ -1123,7 +1128,7 @@ void lp::RepeatStmt::evaluate()
     do
     {
         this->_body->evaluate();
-        if (this->_cond->getType() != BOOL)
+        if (this->_cond->getType() != BOOL_TYPE)
         {
             warning("Runtime error: condition not boolean", "repeat");
             break;
@@ -1147,9 +1152,9 @@ void lp::ForStmt::printAST()
 
 void lp::ForStmt::evaluate()
 {
-    if (this->_start->getType() != NUMBER ||
-        this->_end->getType() != NUMBER ||
-        this->_step->getType() != NUMBER)
+    if (this->_start->getType() != NUMBER_TYPE ||
+        this->_end->getType() != NUMBER_TYPE ||
+        this->_step->getType() != NUMBER_TYPE)
     {
         warning("Runtime error: incompatible types", "For loop");
         return;
@@ -1214,15 +1219,15 @@ void lp::SwitchStmt::evaluate()
         bool condition = false;
         switch (exprType)
         {
-        case NUMBER:
+        case NUMBER_TYPE:
             condition = lp::approximatelyEqual(
                 _exp->evaluateNumber(),
                 caseItem->value->evaluateNumber());
             break;
-        case BOOL:
+        case BOOL_TYPE:
             condition = _exp->evaluateBool() == caseItem->value->evaluateBool();
             break;
-        case STRING:
+        case STRING_TYPE:
             condition = _exp->evaluateString() == caseItem->value->evaluateString();
             break;
         default:
