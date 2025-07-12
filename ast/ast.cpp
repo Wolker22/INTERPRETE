@@ -42,13 +42,11 @@ namespace lp
     {
         return std::abs(a - b) <= ((std::abs(a) < std::abs(b) ? std::abs(b) : std::abs(a)) * ERROR_BOUND);
     }
-
-    inline std::string toLower(const std::string &str)
-    {
+    
+    inline std::string toLower(const std::string& str) {
         std::string result = str;
         std::transform(result.begin(), result.end(), result.begin(),
-                       [](unsigned char c)
-                       { return std::tolower(c); });
+            [](unsigned char c){ return std::tolower(c); });
         return result;
     }
 }
@@ -62,9 +60,8 @@ extern lp::AST *root;
 
 int lp::VariableNode::getType()
 {
-    lp::Symbol *symbol = table.getSymbol(this->_id);
-    if (symbol == nullptr)
-    {
+    lp::Symbol* symbol = table.getSymbol(this->_id);
+    if (symbol == nullptr) {
         warning("Undefined variable", this->_id);
         return UNKNOWN_TYPE;
     }
@@ -116,9 +113,8 @@ std::string lp::VariableNode::evaluateString()
 
 int lp::ConstantNode::getType()
 {
-    lp::Symbol *symbol = table.getSymbol(this->_id);
-    if (symbol == nullptr)
-    {
+    lp::Symbol* symbol = table.getSymbol(this->_id);
+    if (symbol == nullptr) {
         warning("Undefined constant", this->_id);
         return UNKNOWN_TYPE;
     }
@@ -1185,78 +1181,6 @@ void lp::ForStmt::evaluate()
     }
 }
 
-// AlternativeNode
-int lp::AlternativeNode::getType()
-{
-    return _left->getType(); // Type matches the branch expressions
-}
-
-void lp::AlternativeNode::printAST()
-{
-    std::cout << "AlternativeNode: ?" << std::endl;
-    _cond->printAST();
-    _left->printAST();
-    _right->printAST();
-}
-
-double lp::AlternativeNode::evaluateNumber()
-{
-    return _cond->evaluateBool()
-               ? _left->evaluateNumber()
-               : _right->evaluateNumber();
-}
-
-// AssignmentPlusStmt
-void lp::AssignmentPlusStmt::printAST()
-{
-    std::cout << "AssignmentPlusStmt: +=" << std::endl;
-    std::cout << "\t" << _id << std::endl;
-    _exp->printAST();
-}
-
-void lp::AssignmentPlusStmt::evaluate()
-{
-    lp::NumericVariable *var = (lp::NumericVariable *)table.getSymbol(_id);
-    if (var && var->getType() == NUMBER_TYPE)
-    {
-        var->setValue(var->getValue() + _exp->evaluateNumber());
-    }
-    else
-    {
-        warning("Runtime error: variable not numeric", _id);
-    }
-}
-
-// Similarly implement AssignmentMinusStmt, IncrementStmt, DecrementStmt
-
-// BlockStmt
-lp::BlockStmt::~BlockStmt()
-{
-    for (auto stmt : *_stmts)
-    {
-        delete stmt;
-    }
-    delete _stmts;
-}
-
-void lp::BlockStmt::printAST()
-{
-    std::cout << "BlockStmt: {" << std::endl;
-    for (auto stmt : *_stmts)
-    {
-        stmt->printAST();
-    }
-    std::cout << "}" << std::endl;
-}
-
-void lp::BlockStmt::evaluate()
-{
-    for (auto stmt : *_stmts)
-    {
-        stmt->evaluate();
-    }
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 // SwitchStmt Implementation
 ////////////////////////////////////////////////////////////////////////////////
@@ -1267,8 +1191,7 @@ void lp::SwitchStmt::printAST()
     this->_exp->printAST();
     for (auto &caseItem : *this->_cases)
     {
-        if (caseItem->value)
-        {
+        if (caseItem->value) {
             caseItem->value->printAST();
         }
         caseItem->body->printAST();
@@ -1285,8 +1208,7 @@ void lp::SwitchStmt::evaluate()
     for (auto &caseItem : *this->_cases)
     {
         // Skip default case (handled later)
-        if (caseItem->value == nullptr)
-            continue;
+        if (caseItem->value == nullptr) continue;
 
         if (caseItem->value->getType() != exprType)
         {
@@ -1376,4 +1298,130 @@ void lp::AST::evaluate()
     {
         stmt->evaluate();
     }
+}
+
+// AssignmentPlusStmt
+void lp::AssignmentPlusStmt::printAST() {
+    std::cout << "AssignmentPlusStmt: +=" << std::endl;
+    std::cout << "\t" << _id << std::endl;
+    _exp->printAST();
+}
+
+void lp::AssignmentPlusStmt::evaluate() {
+    lp::NumericVariable* var = (lp::NumericVariable*)table.getSymbol(_id);
+    if (var && var->getType() == NUMBER_TYPE) {
+        var->setValue(var->getValue() + _exp->evaluateNumber());
+    } else {
+        warning("Runtime error: variable not numeric", _id);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+void lp::IncrementStmt::printAST() 
+{
+  std::cout << "IncrementStmt: ++"  << std::endl;
+  std::cout << "\t";
+  std::cout << this->_id;
+  std::cout << std::endl;
+}
+
+
+void lp::IncrementStmt::evaluate() 
+{
+	
+	lp::NumericVariable *n = (lp::NumericVariable *) table.getSymbol(this->_id);
+
+	if (n->getType() == NUMBER)
+	{
+		n->setValue(n->getValue() + 1);
+	}
+	else
+	{
+		warning("Error en tiempo de ejecución: la expresión no es numérica para ","increment");
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+void lp::DecrementStmt::printAST() 
+{
+  std::cout << "DecrementStmt: --"  << std::endl;
+  std::cout << "\t";
+  std::cout << this->_id;
+  std::cout << std::endl;
+}
+
+
+void lp::DecrementStmt::evaluate() 
+{
+	
+	lp::NumericVariable *n = (lp::NumericVariable *) table.getSymbol(this->_id);
+
+	if (n->getType() == NUMBER)
+	{
+		n->setValue(n->getValue() - 1);
+	}
+	else
+	{
+		warning("Error en tiempo de ejecución: la expresión no es numérica para ","decrement");
+	}
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+void lp::AssignmentPlusStmt::printAST() 
+{
+  std::cout << "AssignmentPlusStmt: +:="  << std::endl;
+  std::cout << "\t";
+  std::cout << this->_id << std::endl;
+  std::cout << "\t";
+  this->_exp->printAST();
+  std::cout << std::endl;
+}
+
+void lp::AssignmentPlusStmt::evaluate() 
+{
+	lp::NumericVariable *n = (lp::NumericVariable *) table.getSymbol(this->_id);
+	
+	if (n->getType() == NUMBER)
+	{
+		double result = n->getValue() + this->_exp->evaluateNumber();
+		n->setValue(result);
+	}
+	else
+	{
+		warning("Error en tiempo de ejecución: la expresión no es numérica para ","Assignment_plus");
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+void lp::AssignmentMinusStmt::printAST() 
+{
+  std::cout << "AssignmentPlusStmt: -:="  << std::endl;
+  std::cout << "\t";
+  std::cout << this->_id << std::endl;
+  std::cout << "\t";
+  this->_exp->printAST();
+  std::cout << std::endl;
+}
+
+void lp::AssignmentMinusStmt::evaluate() 
+{
+	lp::NumericVariable *n = (lp::NumericVariable *) table.getSymbol(this->_id);
+	
+	if (n->getType() == NUMBER)
+	{
+		double result = n->getValue() - this->_exp->evaluateNumber();
+		n->setValue(result);
+	}
+	else
+	{
+		warning("Error en tiempo de ejecución: la expresión no es numérica para ","Assignment_minus");
+	}
 }

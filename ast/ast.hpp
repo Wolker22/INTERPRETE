@@ -1941,50 +1941,174 @@ namespace lp
 		void evaluate();
 	};
 
-	// Add to ast.hpp
-	class AlternativeNode : public ExpNode
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////
+
+	/*!
+	  \class   IncrementStmt
+	  \brief   Definition of atributes and methods of IncrementStmt class
+	  \note    IncrementStmt Class publicly inherits from Statement class
+			   and adds its own print and evaluate functions
+	  \warning  In this class, printAST and evaluate functions have the same meaning.
+	*/
+	class IncrementStmt : public Statement
 	{
 	private:
-		ExpNode *_cond;
-		ExpNode *_left;
-		ExpNode *_right;
+		std::string _id; //!< Name of the variable to increment
 
 	public:
-		AlternativeNode(ExpNode *cond, ExpNode *left, ExpNode *right)
-			: _cond(cond), _left(left), _right(right) {}
+		/*!
+			\brief Constructor of IncrementStmt
+			\param id: string, Name of the variable to increment
+			\post  A new IncrementStmt is created with the parameter
+		*/
+		IncrementStmt(std::string id)
+		{
+			this->_id = id;
+		}
 
-		int getType() override;
-		void printAST() override;
-		double evaluateNumber() override;
+		/*!
+			\brief   Print the AST for IncrementStmt
+			\return  void
+			\sa		   evaluate
+		*/
+		void printAST();
+
+		/*!
+			\brief   Evaluate the IncrementStmt
+			\return  double
+			\sa		   printAST
+		*/
+		void evaluate();
 	};
 
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////
+
+	/*!
+	  \class   DecrementStmt
+	  \brief   Definition of atributes and methods of DecrementStmt class
+	  \note    DecrementStmt Class publicly inherits from Statement class
+			   and adds its own print and evaluate functions
+	  \warning  In this class, printAST and evaluate functions have the same meaning.
+	*/
+	class DecrementStmt : public Statement
+	{
+	private:
+		std::string _id; //!< Name of the variable to decrement
+
+	public:
+		/*!
+			\brief Constructor of DecrementStmt
+			\param id: string, Name of the variable to decrement
+			\post  A new DecrementStmt is created with the parameter
+		*/
+		DecrementStmt(std::string id)
+		{
+			this->_id = id;
+		}
+
+		/*!
+			\brief   Print the AST for DecrementStmt
+			\return  void
+			\sa		   evaluate
+		*/
+		void printAST();
+
+		/*!
+			\brief   Evaluate the DecrementStmt
+			\return  double
+			\sa		   printAST
+		*/
+		void evaluate();
+	};
+
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////
+
+	/*!
+	  \class   AssignmentPlusStmt
+	  \brief   Definition of atributes and methods of AssignmentPlusStmt class
+	  \note    AssignmentPlusStmt Class publicly inherits from Statement class
+			   and adds its own print and evaluate functions
+	  \warning  In this class, printAST and evaluate functions have the same meaning.
+	*/
 	class AssignmentPlusStmt : public Statement
 	{
 	private:
-		std::string _id;
-		ExpNode *_exp;
+		std::string _id; //!< Name of the variable of the assignment statement
+		ExpNode *_exp;	 //!< Expresssion the assignment statement
 
 	public:
-		AssignmentPlusStmt(const std::string &id, ExpNode *exp)
-			: _id(id), _exp(exp) {}
+		/*!
+			\brief Constructor of AssignmentPlusStmt
+			\param id: string, variable of the AssignmentStmt
+			\param exp: pointer to ExpNode
+			\post  A new AssignmentPlusStmt is created with the parameter
+		*/
+		AssignmentPlusStmt(std::string id, lp::ExpNode *exp)
+		{
+			this->_id = id;
+			this->_exp = exp;
+		}
 
-		void printAST() override;
-		void evaluate() override;
+		/*!
+			\brief   Print the AST for AssignmentPlusStmt
+			\return  void
+			\sa		   evaluate
+		*/
+		void printAST();
+
+		/*!
+			\brief   Evaluate the AssignmentPlusStmt
+			\return  void
+			\sa		   printAST
+		*/
+		void evaluate();
 	};
 
-	// Similarly for AssignmentMinusStmt, IncrementStmt, DecrementStmt
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////
 
-	class BlockStmt : public Statement
+	/*!
+	  \class   AssignmentMinusStmt
+	  \brief   Definition of atributes and methods of AssignmentMinusStmt class
+	  \note    AssignmentMinusStmt Class publicly inherits from Statement class
+			   and adds its own print and evaluate functions
+	  \warning  In this class, printAST and evaluate functions have the same meaning.
+	*/
+	class AssignmentMinusStmt : public Statement
 	{
 	private:
-		std::list<Statement *> *_stmts;
+		std::string _id; //!< Name of the variable of the assignment statement
+		ExpNode *_exp;	 //!< Expresssion the assignment statement
 
 	public:
-		BlockStmt(std::list<Statement *> *stmts) : _stmts(stmts) {}
-		~BlockStmt();
+		/*!
+			\brief Constructor of AssignmentMinusStmt
+			\param id: string, variable of the AssignmentMinusStmt
+			\param exp: pointer to ExpNode
+			\post  A new AssignmentMinusStmt is created with the parameter
+		*/
+		AssignmentMinusStmt(std::string id, lp::ExpNode *exp)
+		{
+			this->_id = id;
+			this->_exp = exp;
+		}
 
-		void printAST() override;
-		void evaluate() override;
+		/*!
+			\brief   Print the AST for AssignmentMinusStmt
+			\return  void
+			\sa		   evaluate
+		*/
+		void printAST();
+
+		/*!
+			\brief   Evaluate the AssignmentMinusStmt
+			\return  void
+			\sa		   printAST
+		*/
+		void evaluate();
 	};
 
 	// End of name space lp
