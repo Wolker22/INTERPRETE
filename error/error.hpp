@@ -33,8 +33,9 @@ void warning(std::string errorMessage1,std::string errorMessage2);
 	\param  errorMessage2: second error message
 	\sa     warning, longjmp
 */
-void execerror(std::string errorMessage1,std::string errorMessage2);
-
+namespace lp {
+    void execerror(std::string errorMessage1, std::string errorMessage2);
+}
 
 /*! 
 	\brief  Run time error recovery function

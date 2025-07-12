@@ -242,11 +242,11 @@ exp
       }
     | BOOL
       {
-          $$ = new lp::BoolNode($1);
-      }
+          $$ = new lp::BoolNode($1); // Agrega lp::
+      } 
     | STRINGLITERAL
       {
-          $$ = new lp::StringNode($3);
+          $$ = new lp::StringNode($1);  // CORRECCIÓN APLICADA: $1 en lugar de $3
       }
     | VARIABLE
       {
@@ -262,7 +262,7 @@ exp
       }
     | BUILTIN LPAREN exp RPAREN
       {
-          $$ = new lp::BuiltinFunctionNode1($1, $3);
+          $$ = new lp::BuiltinFunctionNode1($1, $3); // Agrega lp::
       }
     | PLUS exp %prec UNARY
       {

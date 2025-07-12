@@ -3,6 +3,7 @@
 
 #include <string>
 #include <functional>
+#include <memory>
 #include "builtin.hpp"
 #include "../ast/ast.hpp"
 
@@ -10,7 +11,6 @@ namespace lp {
 
 class BuiltinParameter1 : public Builtin {
 public:
-    // Tipos de funciones para 1 parámetro
     using NumericFunction = std::function<double(double)>;
     using LogicalFunction = std::function<bool(double)>;
     using StringFunction = std::function<std::string(double)>;
@@ -20,75 +20,56 @@ public:
 
 private:
     FunctionType _funcType;
-    union {
-        NumericFunction numericFunc;
-        LogicalFunction logicalFunc;
-        StringFunction stringFunc;
-        GenericFunction genericFunc;
-    } _function;
+    std::unique_ptr<void, void(*)(void*)> _function;
+
+    template<typename T>
+    static void function_deleter(void* ptr) {
+        delete static_cast<T*>(ptr);
+    }
 
 public:
-    // Constructor para función numérica
-    BuiltinParameter1(const std::string& name, 
-                      int token,
-                      NumericFunction func)
-        : Builtin(name, token, 1), _funcType(NUMERIC) {
-        _function.numericFunc = func;
-    }
-    
-    // Constructor para función lógica
-    BuiltinParameter1(const std::string& name, 
-                      int token,
-                      LogicalFunction func)
-        : Builtin(name, token, 1), _funcType(LOGICAL) {
-        _function.logicalFunc = func;
-    }
-    
-    // Constructor para función de cadena
-    BuiltinParameter1(const std::string& name, 
-                      int token,
-                      StringFunction func)
-        : Builtin(name, token, 1), _funcType(STRING) {
-        _function.stringFunc = func;
-    }
-    
-    // Constructor para función genérica
-    BuiltinParameter1(const std::string& name, 
-                      int token,
-                      GenericFunction func)
-        : Builtin(name, token, 1), _funcType(GENERIC) {
-        _function.genericFunc = func;
-    }
-    
-    // Evaluar la función
+    BuiltinParameter1(const std::string& name, int token, NumericFunction func)
+        : Builtin(name, token, 1), _funcType(NUMERIC),
+          _function(new NumericFunction(std::move(func)), function_deleter<NumericFunction>) {}
+
+    BuiltinParameter1(const std::string& name, int token, LogicalFunction func)
+        : Builtin(name, token, 1), _funcType(LOGICAL),
+          _function(new LogicalFunction(std::move(func)), function_deleter<LogicalFunction>) {}
+
+    BuiltinParameter1(const std::string& name, int token, StringFunction func)
+        : Builtin(name, token, 1), _funcType(STRING),
+          _function(new StringFunction(std::move(func)), function_deleter<StringFunction>) {}
+
+    BuiltinParameter1(const std::string& name, int token, GenericFunction func)
+        : Builtin(name, token, 1), _funcType(GENERIC),
+          _function(new GenericFunction(std::move(func)), function_deleter<GenericFunction>) {}
+
     ExpNode* evaluate(ExpNode* arg) const {
         switch (_funcType) {
             case NUMERIC: {
+                auto func = static_cast<NumericFunction*>(_function.get());
                 double argValue = arg->evaluateNumber();
-                return new NumberNode(_function.numericFunc(argValue));
+                return new lp::NumberNode((*func)(argValue));
             }
             case LOGICAL: {
+                auto func = static_cast<LogicalFunction*>(_function.get());
                 double argValue = arg->evaluateNumber();
-                return new BoolNode(_function.logicalFunc(argValue));
+                return new lp::BoolNode((*func)(argValue));
             }
             case STRING: {
+                auto func = static_cast<StringFunction*>(_function.get());
                 double argValue = arg->evaluateNumber();
-                return new StringNode(_function.stringFunc(argValue));
+                return new lp::StringNode((*func)(argValue));
             }
-            case GENERIC:
-                return _function.genericFunc(arg);
-            default:
-                return nullptr;
+            case GENERIC: {
+                auto func = static_cast<GenericFunction*>(_function.get());
+                return (*func)(arg);
+            }
+            default: return nullptr;
         }
     }
     
-    // Obtener función numérica (para compatibilidad)
-    NumericFunction getNumericFunction() const {
-        return (_funcType == NUMERIC) ? _function.numericFunc : nullptr;
-    }
-    
-    // Sobrecarga de operador de asignación
-    BuiltinParameter1& operator=(const BuiltinParameter1& b);
+    // ... (resto de la implementación)
 };
 
 } // namespace lp
