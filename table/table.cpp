@@ -2,8 +2,17 @@
 #include "../includes/utils.hpp"
 #include <cassert>
 #include <iostream>
+#include <cctype> // Añadido para std::tolower
+#include <algorithm> // Añadido para std::transform
 
 namespace lp {
+
+std::string toLower(const std::string& s) {
+    std::string result = s;
+    std::transform(result.begin(), result.end(), result.begin(),
+        [](unsigned char c){ return std::tolower(c); });
+    return result;
+}
 
 bool Table::lookupSymbol(const std::string& name) const {
     return _table.find(toLower(name)) != _table.end();
@@ -35,8 +44,8 @@ void Table::eraseSymbol(const std::string& name) {
 }
 
 void Table::printTable() const {
-    for (const auto& [name, symbol] : _table) {
-        std::cout << name << ", " << symbol->getToken() << std::endl;
+    for (const auto& pair : _table) {
+        std::cout << pair.first << ", " << pair.second->getToken() << std::endl;
     }
 }
 

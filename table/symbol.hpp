@@ -2,7 +2,13 @@
 #define _SYMBOL_HPP_
 
 #include <string>
+#include <cctype> // Añadido para std::tolower
 #include "symbolInterface.hpp"
+
+// Declaración adelantada
+namespace lp {
+    std::string toLower(const std::string& s);
+}
 
 namespace lp {
 
@@ -23,21 +29,19 @@ public:
     virtual ~Symbol() = default;
     
     // Observadores
-    const std::string& getName() const { return _name; }
-    int getToken() const { return _token; }
+    const std::string& getName() const override { return _name; }
+    int getToken() const override { return _token; }
     
     // Modificadores
-    void setName(const std::string& name) { _name = name; }
-    void setToken(int token) { _token = token; }
+    void setName(const std::string& name) override { _name = name; }
+    void setToken(int token) override { _token = token; }
     
     // Operadores relacionales
     bool operator==(const Symbol& other) const {
-        // Comparación insensible a mayúsculas/minúsculas
         return toLower(_name) == toLower(other._name);
     }
     
     bool operator<(const Symbol& other) const {
-        // Orden lexicográfico insensible a mayúsculas/minúsculas
         return toLower(_name) < toLower(other._name);
     }
 };

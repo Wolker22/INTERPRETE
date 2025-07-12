@@ -48,8 +48,8 @@ void yyerror(const char *s);
   std::list<lp::ExpNode *> *parameters;
   std::list<lp::Statement *> *stmts;
   lp::Statement *st;
-  struct lp::Case *switchcase;
-  std::list<struct lp::Case *> *switchcases;
+  lp::Case *switchcase;
+  std::list<lp::Case *> *switchcases;
   lp::AST *prog;
 }
 
@@ -165,7 +165,7 @@ stmt
     | FOR VARIABLE FROM exp TO exp stepOpt DO stmtlist END_FOR
       {
           if (table.getSymbol($2) == NULL) {
-              execerror("Variable del bucle 'for' no declarada previamente", $2);
+              lp::execerror("Variable del bucle 'for' no declarada previamente", $2);
           }
           $$ = new lp::ForStmt($2, $4, $6, $7, new lp::BlockStmt($9));
       }
@@ -198,7 +198,7 @@ asgn
       }
     | CONSTANT ASSIGNMENT exp
       {
-          execerror("No se puede modificar una constante", $1);
+          lp::execerror("No se puede modificar una constante", $1);
           $$ = NULL;
       }
     ;
@@ -225,12 +225,12 @@ read
       }
     | READ LPAREN CONSTANT RPAREN
       {
-          execerror("No se puede leer en una constante", $3);
+          lp::execerror("No se puede leer en una constante", $3);
           $$ = NULL;
       }
     | READ_STRING LPAREN CONSTANT RPAREN
       {
-          execerror("No se puede leer en una constante", $3);
+          lp::execerror("No se puede leer en una constante", $3);
           $$ = NULL;
       }
     ;
@@ -246,7 +246,7 @@ exp
       }
     | STRINGLITERAL
       {
-          $$ = new lp::StringNode($1);
+          $$ = new lp::StringNode($3);
       }
     | VARIABLE
       {
@@ -262,7 +262,7 @@ exp
       }
     | BUILTIN LPAREN exp RPAREN
       {
-          $$ = new lp::BuiltinFunctionNode_1($1, $3);
+          $$ = new lp::BuiltinFunctionNode1($1, $3);
       }
     | PLUS exp %prec UNARY
       {
@@ -368,7 +368,7 @@ switchcases
       }
     | switchcase
       {
-          $$ = new std::list<struct lp::Case *>();
+          $$ = new std::list<lp::Case *>();
           $$->push_back($1);
       }
     ;
@@ -376,11 +376,11 @@ switchcases
 switchcase
     : CASE exp COLON stmtlist
       {
-          $$ = new struct lp::Case($2, new lp::BlockStmt($4));
+          $$ = new lp::Case($2, new lp::BlockStmt($4));
       }
     | DEFAULT COLON stmtlist
       {
-          $$ = new struct lp::Case(NULL, new lp::BlockStmt($3));
+          $$ = new lp::Case(nullptr, new lp::BlockStmt($3));
       }
     ;
 

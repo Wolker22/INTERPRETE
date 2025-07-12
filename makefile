@@ -7,9 +7,9 @@ CPP = g++
 # -c: the output is an object file, the linking stage is not done.
 # -g: debug
 # -Wall: all warnings
-# -ansi: standard language
+# -ansi: standard language (note: -ansi conflicts with C++11, use -std=c++11 instead)
 # -02: optimization level
-CFLAGS = -c -g  -Wall -ansi -O2
+CFLAGS = -c -g -Wall -std=c++11 -O2  # CHANGED: Replaced -ansi with -std=c++11
 
 # Directive for flex's library
 LFLAGS = -lfl
@@ -62,20 +62,20 @@ parser/interpreter.tab.h:
 parser-dir:
 	@echo "Accessing directory parser" 
 	@echo
-	@make -C parser/
+	@make -C parser/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
 	@echo
 
 error-dir:
 	@echo "Accessing directory error" 
 	@echo
-	@make -C error/ 
+	@make -C error/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
 	@echo
 
 # New in example 7
 table-dir:
 	@echo "Accessing directory table" 
 	@echo
-	@make -C table/ 
+	@make -C table/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
 	@echo
 
 
@@ -83,7 +83,7 @@ table-dir:
 ast-dir:
 	@echo "Accessing directory ast" 
 	@echo
-	@make -C ast/ 
+	@make -C ast/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
 	@echo
 
 
@@ -116,5 +116,3 @@ clean:
 	@echo
 	@make -C ast/ clean
 	@echo
-
-

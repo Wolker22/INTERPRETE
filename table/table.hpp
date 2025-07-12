@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 #include <memory>
+#include <stdexcept> // Añadido para std::runtime_error
 #include "symbol.hpp"
 
 namespace lp {

@@ -2,6 +2,7 @@
 #define _SYMBOLINTERFACE_HPP_
 
 #include <string>
+#include <stdexcept> // Añadido para std::runtime_error
 
 namespace lp {
 

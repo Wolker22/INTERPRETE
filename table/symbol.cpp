@@ -1,8 +1,8 @@
 #include "symbol.hpp"
+#include <cctype> // Añadido para std::tolower
 
 namespace lp {
 
-// Función auxiliar para convertir a minúsculas
 std::string toLower(const std::string& s) {
     std::string result = s;
     for (char& c : result) {
