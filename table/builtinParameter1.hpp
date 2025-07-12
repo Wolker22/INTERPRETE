@@ -1,77 +1,151 @@
+/*!	
+	\file    builtinParameter1.hpp
+	\brief   Declaration of BuiltinParameter1 class
+	\author  
+	\date    2017-12-7
+	\version 1.0
+*/
+
 #ifndef _BUILTINPARAMETER1_HPP_
 #define _BUILTINPARAMETER1_HPP_
 
 #include <string>
-#include <functional>
-#include <memory>
+#include <iostream>
+
 #include "builtin.hpp"
-#include "../ast/ast.hpp"
 
-namespace lp {
+/*!	
+	\namespace lp
+	\brief Name space for the subject Language Processors
+*/
+namespace lp{
 
-class BuiltinParameter1 : public Builtin {
-public:
-    using NumericFunction = std::function<double(double)>;
-    using LogicalFunction = std::function<bool(double)>;
-    using StringFunction = std::function<std::string(double)>;
-    using GenericFunction = std::function<ExpNode*(ExpNode*)>;
-    
-    enum FunctionType { NUMERIC, LOGICAL, STRING, GENERIC };
 
-private:
-    FunctionType _funcType;
-    std::unique_ptr<void, void(*)(void*)> _function;
+/*! New type definition: TypePointerDoubleFunction_1 */
+typedef double (*TypePointerDoubleFunction_1)(double x);
 
-    template<typename T>
-    static void function_deleter(void* ptr) {
-        delete static_cast<T*>(ptr);
-    }
 
-public:
-    BuiltinParameter1(const std::string& name, int token, NumericFunction func)
-        : Builtin(name, token, 1), _funcType(NUMERIC),
-          _function(new NumericFunction(std::move(func)), function_deleter<NumericFunction>) {}
 
-    BuiltinParameter1(const std::string& name, int token, LogicalFunction func)
-        : Builtin(name, token, 1), _funcType(LOGICAL),
-          _function(new LogicalFunction(std::move(func)), function_deleter<LogicalFunction>) {}
+/*!	
+  \class BuiltinParameter1
+  \brief Definition of atributes and methods of BuiltinParameter1 class
+  \note  BuiltinParameter1 Class publicly inherits from Constant class
+*/
+class BuiltinParameter1:public lp::Builtin
+{
+/*!		
+\name Private atributes of BuiltinParameter1 class
+*/
+	private:
+        lp::TypePointerDoubleFunction_1 _function; //!< \brief function of the BuiltinParameter1 
 
-    BuiltinParameter1(const std::string& name, int token, StringFunction func)
-        : Builtin(name, token, 1), _funcType(STRING),
-          _function(new StringFunction(std::move(func)), function_deleter<StringFunction>) {}
+/*!		
+\name Public methods of BuiltinParameter1 class
+*/
+	public:
 
-    BuiltinParameter1(const std::string& name, int token, GenericFunction func)
-        : Builtin(name, token, 1), _funcType(GENERIC),
-          _function(new GenericFunction(std::move(func)), function_deleter<GenericFunction>) {}
+/*!	
+	\name Constructors
+*/
+		
+/*!		
+	\brief Constructor 
+	\note  Inline function that uses Constant's constructor as members initializer
+	\param name: name of the BuiltinParameter1
+	\param token: token of the BuiltinParameter1
+	\param nParameters: número de parámetros of the BuiltinParameter1
+	\param function: numeric function of the BuiltinParameter1
+	\pre   None
+	\post  A new BuiltinParameter1 is created with the functions of the parameters
+	\sa    setFunction
+*/
+	inline BuiltinParameter1(std::string name, 
+							  int token, 
+							  int nParameters,
+						      lp::TypePointerDoubleFunction_1 function): 
+							  Builtin(name,token,nParameters)
+	{
+		this->setFunction(function);
+	}
+		
+/*!		
+	\brief Copy constructor
+	\note  Inline function
+	\param f: object of BuiltinParameter1 class
+	\pre   None
+	\post  A new BuiltinParameter1 is created with the functions of an existent BuiltinParameter1
+	\sa    setName, setToken,  setNParameters,  setFunction
+*/
+	BuiltinParameter1(const BuiltinParameter1 & f)
+	{
+		// Inherited methods
+		this->setName(f.getName());
 
-    ExpNode* evaluate(ExpNode* arg) const {
-        switch (_funcType) {
-            case NUMERIC: {
-                auto func = static_cast<NumericFunction*>(_function.get());
-                double argValue = arg->evaluateNumber();
-                return new lp::NumberNode((*func)(argValue));
-            }
-            case LOGICAL: {
-                auto func = static_cast<LogicalFunction*>(_function.get());
-                double argValue = arg->evaluateNumber();
-                return new lp::BoolNode((*func)(argValue));
-            }
-            case STRING: {
-                auto func = static_cast<StringFunction*>(_function.get());
-                double argValue = arg->evaluateNumber();
-                return new lp::StringNode((*func)(argValue));
-            }
-            case GENERIC: {
-                auto func = static_cast<GenericFunction*>(_function.get());
-                return (*func)(arg);
-            }
-            default: return nullptr;
-        }
-    }
-    
-    // ... (resto de la implementación)
+		this->setToken(f.getToken());
+
+		this->setNParameters(f.getNParameters());
+		
+		// Own method
+		this->setFunction(f.getFunction());
+	}
+
+
+/*!	
+	\name Observer
+*/
+	
+/*!	
+	\brief  Public method that returns the function of the BuiltinParameter1
+	\note   Función inline
+	\pre    None
+	\post   None
+    \return Function of the BuiltinParameter1
+	\sa		getFunction
+*/
+	lp::TypePointerDoubleFunction_1 getFunction() const
+	{
+		return this->_function;
+	}
+
+
+
+/*!	
+	\name Modifier
+*/
+		
+/*!	
+	\brief   This functions modifies the function of the BuiltinParameter1
+	\note    Inline function
+	\param   function: new function of the BuiltinParameter1
+	\pre     None
+	\post    The function of the BuiltinParameter1 is equal to the parameter 
+	\return  void
+	\sa 	 setFunction
+*/
+	inline void setFunction(const lp::TypePointerDoubleFunction_1 & function)
+	{
+	    this->_function = function;
+	}
+
+
+/*!	
+	\name Operators
+*/
+	
+/*!		
+	\brief  Assignment Operator
+	\param  f: objectoof BuiltinParameter1 class
+	\post   The atributes of this object are equal to the atributes of the parameter
+	\return Reference to this object
+*/
+	BuiltinParameter1 &operator=(const BuiltinParameter1 &f);
+	
+	
+// End of BuiltinParameter1 class
 };
 
-} // namespace lp
+// End of name space lp
+}
 
+// End of _BUILTINPARAMETER1_HPP_
 #endif

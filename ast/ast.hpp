@@ -760,7 +760,7 @@ namespace lp
 			\param R: pointer to ExpNode
 			\post  A new ModuloNode is created
 		*/
-		ModuloNode(ExpNode *, ExpNode *R) : NumericOperatorNode(L, R) {}
+		ModuloNode(ExpNode L*, ExpNode *R) : NumericOperatorNode(L, R) {}
 
 		/*!
 			\brief   Print the AST for ModuloNode
@@ -1617,8 +1617,7 @@ namespace lp
 			\param expression: pointer to ExpNode
 			\post  A new PrintStringStmt is created
 		*/
-		PrintStringStmt(ExpNode *expression) : _(expression) {}
-
+		PrintStringStmt(ExpNode *expression) : _expression(expression) {}
 		/*!
 			\brief   Print the AST for PrintStringStmt
 			\return  void
