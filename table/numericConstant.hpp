@@ -10,6 +10,7 @@ private:
     double _value;
 
 public:
+    using Constant::operator=;
     // Constructor simplificado
     explicit NumericConstant(const std::string& name = "", 
                             double value = 0.0,

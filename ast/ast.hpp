@@ -1617,7 +1617,7 @@ namespace lp
 			\param expression: pointer to ExpNode
 			\post  A new PrintStringStmt is created
 		*/
-		PrintStringStmt(ExpNode *expression) : _expression(expression) {}
+		PrintStringStmt(ExpNode *expression) : _exp(expression) {}
 		/*!
 			\brief   Print the AST for PrintStringStmt
 			\return  void

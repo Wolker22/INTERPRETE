@@ -1176,7 +1176,7 @@ void lp::ForStmt::evaluate()
 void lp::SwitchStmt::printAST()
 {
     std::cout << "SwitchStmt:" << std::endl;
-    this->_expression->printAST();
+    this->_exp->printAST();
     for (auto &caseItem : *this->_cases)
     {
         if (caseItem->value) {
@@ -1191,7 +1191,7 @@ void lp::SwitchStmt::printAST()
 void lp::SwitchStmt::evaluate()
 {
     bool matched = false;
-    int exprType = this->_expression->getType();
+    int exprType = this->_exp->getType();
 
     for (auto &caseItem : *this->_cases)
     {
@@ -1209,14 +1209,14 @@ void lp::SwitchStmt::evaluate()
         {
         case NUMBER:
             condition = lp::approximatelyEqual(
-                _expression->evaluateNumber(),
+                _exp->evaluateNumber(),
                 caseItem->value->evaluateNumber());
             break;
         case BOOL:
-            condition = _expression->evaluateBool() == caseItem->value->evaluateBool();
+            condition = _exp->evaluateBool() == caseItem->value->evaluateBool();
             break;
         case STRING:
-            condition = _expression->evaluateString() == caseItem->value->evaluateString();
+            condition = _exp->evaluateString() == caseItem->value->evaluateString();
             break;
         default:
             warning("Runtime error: unsupported type in switch", "Switch");
