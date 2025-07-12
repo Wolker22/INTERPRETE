@@ -24,9 +24,9 @@ OBJECTS= table.o symbol.o variable.o numericVariable.o \
 		constant.o numericConstant.o \
 		keyword.o \
 		builtin.o builtinParameter1.o mathFunction.o \
-                builtinParameter0.o builtinParameter2.o \
-                logicalVariable.o logicalConstant.o \
-                stringVariable.o stringConstant.o builtinString1Parameter.o
+		builtinParameter0.o builtinParameter2.o \
+		logicalVariable.o logicalConstant.o \
+		alphanumericConstant.o alphanumericVariable.o 
 
 # Predefined macros 
 #
@@ -62,6 +62,11 @@ logicalVariable.o: logicalVariable.cpp logicalVariable.hpp variable.hpp symbol.h
 	@$(CPP) $(CFLAGS) $<
 #######################################################
 
+# NUEVO
+alphanumericVariable.o: alphanumericVariable.cpp alphanumericVariable.hpp variable.hpp symbol.hpp symbolInterface.hpp 
+	@echo "Compiling " $<
+	@$(CPP) $(CFLAGS) $<
+
 #######################################################
 # NEW in example 11
 constant.o: constant.cpp constant.hpp symbol.hpp symbolInterface.hpp 
@@ -79,7 +84,10 @@ logicalConstant.o: logicalConstant.cpp logicalConstant.hpp constant.hpp symbol.h
 	@echo "Compiling " $<
 	@$(CPP) $(CFLAGS) $<
 #######################################################
-
+# NUEVO
+alphanumericConstant.o: alphanumericConstant.cpp alphanumericConstant.hpp constant.hpp symbol.hpp symbolInterface.hpp 
+	@echo "Compiling " $<
+	@$(CPP) $(CFLAGS) $<
 
 # NEW in example 12
 keyword.o: keyword.cpp keyword.hpp symbol.hpp symbolInterface.hpp 
@@ -111,18 +119,6 @@ builtinParameter2.o: builtinParameter2.cpp builtinParameter2.hpp builtin.hpp sym
 	@echo "Compiling " $<
 	@$(CPP) $(CFLAGS) $<
 ################################################################
-stringVariable.o: stringVariable.cpp stringVariable.hpp variable.hpp symbol.hpp symbolInterface.hpp
-	@echo "Compiling " $<
-	@$(CPP) $(CFLAGS) $<
-
-stringConstant.o: stringConstant.cpp stringConstant.hpp constant.hpp symbol.hpp symbolInterface.hpp
-	@echo "Compiling " $<
-	@$(CPP) $(CFLAGS) $<
-
-builtinString1Parameter.o: builtinString1Parameter.cpp builtinString1Parameter.hpp builtin.hpp symbol.hpp symbolInterface.hpp
-	@echo "Compiling " $<
-	@$(CPP) $(CFLAGS) $<
-
 
 
 
