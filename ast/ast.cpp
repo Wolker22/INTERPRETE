@@ -18,9 +18,6 @@
 #include "../table/builtinParameter0.hpp"
 #include "../table/builtinParameter1.hpp"
 #include "../table/builtinParameter2.hpp"
-#include "../table/stringVariable.hpp"
-#include "../table/stringConstant.hpp"
-#include "../table/builtinString1Parameter.hpp"
 #include "../parser/interpreter.tab.h"
 
 namespace lp
