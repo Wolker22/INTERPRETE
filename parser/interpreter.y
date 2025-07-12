@@ -1,3 +1,8 @@
+/*! 
+  \file interpreter.y
+  \brief Grammar file - Versión corregida y completa
+*/
+
 %{
 #include <iostream>
 #include <string>
@@ -6,20 +11,32 @@
 #include <signal.h>
 #include <list>
 
+/* Error recovery functions */
 #include "../error/error.hpp"
+
+/* Macros for the screen */
 #include "../includes/macros.hpp"
+
+/* AST class */
 #include "../ast/ast.hpp"
+
+/* Table of symbol */
 #include "../table/table.hpp"
 #include "../table/numericVariable.hpp"
 #include "../table/logicalVariable.hpp"
+#include "../table/alphanumericVariable.hpp"
 #include "../table/numericConstant.hpp"
 #include "../table/logicalConstant.hpp"
+#include "../table/alphanumericConstant.hpp"
 #include "../table/builtinParameter0.hpp"
 #include "../table/builtinParameter1.hpp"
 #include "../table/builtinParameter2.hpp"
 #include "../table/init.hpp"
 
-extern "C" int yylex(int* lineNumber);
+/* Scanner function */
+int yylex();
+
+/* External variables */
 extern int lineNumber;
 extern bool interactiveMode;
 extern int control;
@@ -28,12 +45,20 @@ extern jmp_buf begin;
 extern lp::Table table;
 extern lp::AST *root;
 
+/* Error function */
 void yyerror(int& control, const char *s);
+
+/* CORRECCIÓN: Cambiar firma para usar referencia */
+extern "C" int yylex(int& lineNumber);
 %}
 
-%parse-param { int &control }
-%lex-param { int &lineNumber }
+/* In case of a syntactic error, more information is shown */
+%define parse.error verbose
 
+/* Initial grammar symbol */
+%start program
+
+/* Data type YYSTYPE */
 %union {
     double number;
     char* string;
@@ -47,17 +72,27 @@ void yyerror(int& control, const char *s);
     lp::AST* prog;
 }
 
-%token SEMICOLON COMMA
+/* Type of the non-terminal symbols */
+%type <expNode> exp cond 
+%type <parameters> listOfExp restOfListOfExp
+%type <stmts> stmtlist
+%type <st> stmt asgn asgn_plus asgn_minus print read read_string increment decrement if while repeat for switch
+%type <prog> program
+%type <caseptr> case_stmt
+%type <caselist> case_list
+
+/* Defined tokens */
+%token SEMICOLON
 %token PRINT READ READ_STRING
 %token IF THEN ELSE END_IF
 %token WHILE DO END_WHILE
-%token CLEAR_SCREEN PLACE
+%token CLEAR_SCREEN PLACE  // CORRECCIÓN: Tokens actualizados
 %token REPEAT UNTIL FOR END_FOR FROM STEP TO
 %token SWITCH CASE DEFAULT END_SWITCH
-%token COLON
+%token COLON COMMA QUESTION
+
 %token PLUSPLUS MINUSMINUS
 %token ASSIGNACION ASSIGNACIONPLUS ASSIGNACIONMINUS
-%token QUESTION
 
 %token PLUS MINUS MULTIPLICATION DIVISION MODULO POWER
 %token DIVISION_ENTERA
@@ -71,6 +106,7 @@ void yyerror(int& control, const char *s);
 %token <string> STRING
 %token <string> VARIABLE CONSTANT BUILTIN
 
+/* Precedence rules */
 %nonassoc THEN
 %nonassoc ELSE
 
@@ -87,17 +123,6 @@ void yyerror(int& control, const char *s);
 %right POWER
 %left UNARY
 %right QUESTION
-
-%type <expNode> exp cond
-%type <parameters> listOfExp restOfListOfExp
-%type <stmts> stmtlist
-%type <st> stmt asgn asgn_plus asgn_minus print read read_string increment decrement if while repeat for switch
-%type <prog> program
-%type <caseptr> case_stmt
-%type <caselist> case_list
-%type <string> for_variable  
-
-%start program
 
 %%
 
@@ -148,11 +173,11 @@ stmt : SEMICOLON
 | repeat
 | for
 | switch
-| CLEAR_SCREEN SEMICOLON
+| CLEAR_SCREEN SEMICOLON  // CORRECCIÓN: Token actualizado
 {
     $$ = new lp::ClearScreenStmt();
 }
-| PLACE LPAREN exp COMMA exp RPAREN SEMICOLON
+| PLACE LPAREN exp COMMA exp RPAREN SEMICOLON  // CORRECCIÓN: Token actualizado
 {
     $$ = new lp::PlaceStmt($3, $5);
 }
@@ -190,22 +215,24 @@ repeat : REPEAT controlSymbol stmtlist UNTIL cond
 }
 ;
 
-for_variable : VARIABLE { $$ = $1; }
-             | CONSTANT {
-                 lp::execerror("No se puede modificar constante en FOR", $1);
-                 $$ = $1;  // Continuar con el análisis
-               }
-             ;
-
-for : FOR controlSymbol for_variable FROM exp TO exp DO stmtlist END_FOR
+// CORRECCIÓN: ForStmt con paso opcional
+for : FOR controlSymbol VARIABLE FROM exp TO exp DO stmtlist END_FOR
 {
-    $$ = new lp::ForStmt($3, $5, $7, new lp::BlockStmt($9));
+    $$ = new lp::ForStmt($3, $5, $7, nullptr, new lp::BlockStmt($9));
     control--;
 }
-| FOR controlSymbol for_variable FROM exp TO exp STEP exp DO stmtlist END_FOR
+| FOR controlSymbol VARIABLE FROM exp TO exp STEP exp DO stmtlist END_FOR
 {
     $$ = new lp::ForStmt($3, $5, $7, $9, new lp::BlockStmt($11));
     control--;
+}
+| FOR controlSymbol CONSTANT FROM exp TO exp DO stmtlist END_FOR
+{
+    lp::execerror("No se puede modificar constante en FOR", $3);
+}
+| FOR controlSymbol CONSTANT FROM exp TO exp STEP exp DO stmtlist END_FOR
+{
+    lp::execerror("No se puede modificar constante en FOR", $3);
 }
 ;
 
@@ -313,6 +340,7 @@ decrement : VARIABLE MINUSMINUS
 }
 ;
 
+// CORRECCIÓN: Reglas para nuevos nodos AST
 exp : NUMBER
 {
     $$ = new lp::NumberNode($1);
@@ -321,7 +349,7 @@ exp : NUMBER
 {
     $$ = new lp::StringNode($1);
 }
-| BOOL
+| BOOL  // CORRECCIÓN: BoolLiteralNode
 {
     $$ = new lp::BoolLiteralNode($1);
 }
@@ -358,7 +386,7 @@ exp : NUMBER
 | exp MINUS exp { $$ = new lp::MinusNode($1, $3); }
 | exp MULTIPLICATION exp { $$ = new lp::MultiplicationNode($1, $3); }
 | exp DIVISION exp { $$ = new lp::DivisionNode($1, $3); }
-| exp DIVISION_ENTERA exp { $$ = new lp::IntegerDivisionNode($1, $3); }
+| exp DIVISION_ENTERA exp { $$ = new lp::IntDivNode($1, $3); }  // CORRECCIÓN: IntDivNode
 | exp MODULO exp { $$ = new lp::ModuloNode($1, $3); }
 | exp POWER exp { $$ = new lp::PowerNode($1, $3); }
 | exp CONCATENACION exp { $$ = new lp::ConcatenationNode($1, $3); }
@@ -375,8 +403,8 @@ exp : NUMBER
 | MINUS exp %prec UNARY { $$ = new lp::UnaryMinusNode($2); }
 | cond QUESTION exp COLON exp %prec QUESTION { $$ = new lp::AlternativeNode($1, $3, $5); }
 | LPAREN exp RPAREN { $$ = $2; }
-| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::PostIncrementNode($1); }
-| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::PostDecrementNode($1); }
+| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::PostIncrementNode($1); }  // CORRECCIÓN: PostIncrementNode
+| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::PostDecrementNode($1); }  // CORRECCIÓN: PostDecrementNode
 ;
 
 listOfExp : 
@@ -403,6 +431,7 @@ restOfListOfExp :
 
 %%
 
+/* Error handling function */
 void yyerror(int& control, const char* s) {
     std::cerr << progname << ":" << lineNumber << ": Error: " << s << std::endl;
 }
