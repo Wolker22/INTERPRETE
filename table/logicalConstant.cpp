@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include "logicalConstant.hpp"
 
 namespace lp {

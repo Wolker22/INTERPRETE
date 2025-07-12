@@ -38,6 +38,7 @@ class Builtin:public lp::Symbol
 \name Public methods of Builtin class
 */
 	public:
+	using Symbol::operator=;
 
 /*!	
 	\name Constructors

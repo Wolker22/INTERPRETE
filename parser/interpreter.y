@@ -247,12 +247,12 @@ exp
       }
     | BOOL
       {
-          // Crear una variable temporal para el valor booleano
+          // Usamos LogicalConstant en lugar de LogicalVariable
           static int counter = 0;
-          std::string name = "__bool_temp_" + std::to_string(counter++);
-          lp::LogicalVariable* var = new lp::LogicalVariable(name, VARIABLE, BOOL, $1);
-          table.installSymbol(var);
-          $$ = new lp::VariableNode(name);
+          std::string name = "__bool_const_" + std::to_string(counter++);
+          lp::LogicalConstant* con = new lp::LogicalConstant(name, CONSTANT, BOOL, $1);
+          table.installSymbol(con);
+          $$ = new lp::ConstantNode(name);
       } 
     | STRINGLITERAL
       {

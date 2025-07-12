@@ -10,7 +10,6 @@ private:
     bool _value;
 
 public:
-
     using Constant::operator=;
 
     // Constructor simplificado
@@ -31,6 +30,23 @@ public:
     
     // Modificador
     void setValue(bool value) { _value = value; }
+    
+    // Implementación de funciones virtuales puras
+    double getNumericValue() const override {
+        return _value ? 1.0 : 0.0;
+    }
+    
+    std::string getStringValue() const override {
+        return _value ? "true" : "false";
+    }
+    
+    void setValue(double value) override {
+        throw std::runtime_error("Cannot modify constant value");
+    }
+    
+    void setValue(const std::string& value) override {
+        throw std::runtime_error("Cannot modify constant value");
+    }
     
     // Funciones de E/S
     void read() override;

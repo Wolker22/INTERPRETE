@@ -29,6 +29,30 @@ public:
     // Modificador
     void setValue(bool value) { _value = value; }
     
+    // Implementación de funciones virtuales puras
+    double getNumericValue() const override {
+        return _value ? 1.0 : 0.0;
+    }
+    
+    std::string getStringValue() const override {
+        return _value ? "true" : "false";
+    }
+    
+    void setValue(double value) override {
+        _value = (value != 0.0);
+    }
+    
+    void setValue(const std::string& value) override {
+        if (value == "true" || value == "1") {
+            _value = true;
+        } else if (value == "false" || value == "0") {
+            _value = false;
+        } else {
+            // Manejar error si es necesario
+            _value = false;
+        }
+    }
+    
     // Funciones de E/S
     void read() override;
     void write() const override;
