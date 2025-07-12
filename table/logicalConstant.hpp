@@ -10,6 +10,9 @@ private:
     bool _value;
 
 public:
+
+    using Constant::operator=;
+
     // Constructor simplificado
     explicit LogicalConstant(const std::string& name = "", 
                             bool value = true,

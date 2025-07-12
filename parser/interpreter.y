@@ -40,6 +40,10 @@ void yyerror(const char *s);
 %define parse.error verbose
 %start program
 
+// Precedencia para resolver dangling else y conflictos de operadores
+%nonassoc THEN
+%nonassoc ELSE
+
 %union {
   double number;
   char * string;
@@ -77,6 +81,7 @@ void yyerror(const char *s);
 %token <string> CONSTANT
 %token <string> BUILTIN
 
+// Precedencia de operadores
 %right ASSIGNMENT
 %left OR
 %left AND
@@ -85,9 +90,9 @@ void yyerror(const char *s);
 %left CONCAT
 %left PLUS MINUS
 %left MULTIPLICATION DIVISION MODULO
+%right POWER
 %left LPAREN RPAREN
 %nonassoc UNARY
-%right POWER
 
 %type <expNode> exp cond stepOpt
 %type <switchcases> switchcases
@@ -242,11 +247,16 @@ exp
       }
     | BOOL
       {
-          $$ = new lp::BoolNode($1); // Agrega lp::
+          // Crear una variable temporal para el valor booleano
+          static int counter = 0;
+          std::string name = "__bool_temp_" + std::to_string(counter++);
+          lp::LogicalVariable* var = new lp::LogicalVariable(name, VARIABLE, BOOL, $1);
+          table.installSymbol(var);
+          $$ = new lp::VariableNode(name);
       } 
     | STRINGLITERAL
       {
-          $$ = new lp::StringNode($1);  // CORRECCIÓN APLICADA: $1 en lugar de $3
+          $$ = new lp::StringNode($1);
       }
     | VARIABLE
       {
@@ -262,7 +272,8 @@ exp
       }
     | BUILTIN LPAREN exp RPAREN
       {
-          $$ = new lp::BuiltinFunctionNode1($1, $3); // Agrega lp::
+          // Usar el nombre correcto de la clase
+          $$ = new lp::BuiltinFunctionNode_1($1, $3);
       }
     | PLUS exp %prec UNARY
       {
