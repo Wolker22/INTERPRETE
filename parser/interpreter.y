@@ -1,10 +1,9 @@
 %{
 #include <iostream>
 #include <string>
-#include <math.h>
+#include <cmath>
 #include <setjmp.h>
 #include <signal.h>
-#include <cstring>
 #include <list>
 
 #include "../error/error.hpp"
@@ -32,370 +31,376 @@ extern lp::AST *root;
 void yyerror(const char *s);
 %}
 
-%code requires {
-#include "../ast/ast.hpp"
-#include <list>
-}
-
-%define parse.error verbose
-%start program
-
-// Precedencia para resolver dangling else y conflictos de operadores
-%nonassoc THEN
-%nonassoc ELSE
+%parse-param { int &control }
+%lex-param { int &lineNumber }
 
 %union {
-  double number;
-  char * string;
-  bool logic;
-  lp::ExpNode *expNode;
-  std::list<lp::ExpNode *> *parameters;
-  std::list<lp::Statement *> *stmts;
-  lp::Statement *st;
-  lp::Case *switchcase;
-  std::list<lp::Case *> *switchcases;
-  lp::AST *prog;
+    double number;
+    char* string;
+    bool logic;
+    lp::ExpNode* expNode;
+    std::list<lp::ExpNode*>* parameters;
+    std::list<lp::Statement*>* stmts;
+    lp::Statement* st;
+    lp::Case* caseptr;
+    std::list<lp::Case*>* caselist;
+    lp::AST* prog;
 }
 
-%token <number> NUMBER
-%token <logic> BOOL
-%token <string> STRINGLITERAL 
-
+%token SEMICOLON
 %token PRINT READ READ_STRING
 %token IF THEN ELSE END_IF
 %token WHILE DO END_WHILE
 %token CLEAR_SCREEN PLACE
 %token REPEAT UNTIL FOR END_FOR FROM STEP TO
-%token SWITCH CASE DEFAULT END_SWITCH
-%token COLON
-
-%token SEMICOLON COMMA ASSIGNMENT
+%token SWITCH CASE DEFAULT END_SWITCH COLON
 %token PLUS MINUS MULTIPLICATION DIVISION MODULO POWER
-%token INTDIV
-%token CONCAT
+%token DIVISION_ENTERA
+%token CONCATENACION
 %token LPAREN RPAREN
 %token GREATER_OR_EQUAL LESS_OR_EQUAL GREATER_THAN LESS_THAN EQUAL NOT_EQUAL
 %token OR AND NOT
+%token PLUSPLUS MINUSMINUS
+%token ASSIGNACION ASSIGNACIONPLUS ASSIGNACIONMINUS
+%token QUESTION
 
-%token <string> VARIABLE
-%token <string> CONSTANT
-%token <string> BUILTIN
+%token <number> NUMBER
+%token <logic> BOOL
+%token <string> STRING
+%token <string> VARIABLE CONSTANT BUILTIN
 
-// Precedencia de operadores
-%right ASSIGNMENT
+%nonassoc THEN
+%nonassoc ELSE
+
+%right ASSIGNACION
+%right ASSIGNACIONPLUS
+%right ASSIGNACIONMINUS
 %left OR
 %left AND
 %right NOT
 %nonassoc GREATER_OR_EQUAL LESS_OR_EQUAL GREATER_THAN LESS_THAN EQUAL NOT_EQUAL
-%left CONCAT
+%left CONCATENACION
 %left PLUS MINUS
-%left MULTIPLICATION DIVISION MODULO
+%left MULTIPLICATION DIVISION DIVISION_ENTERA MODULO
 %right POWER
-%left LPAREN RPAREN
-%nonassoc UNARY
+%left UNARY
+%right QUESTION
 
-%type <expNode> exp cond stepOpt
-%type <switchcases> switchcases
-%type <switchcase> switchcase
+%type <expNode> exp cond
+%type <parameters> listOfExp restOfListOfExp
 %type <stmts> stmtlist
-%type <st> stmt asgn print read
+%type <st> stmt asgn asgn_plus asgn_minus print read read_string increment decrement if while repeat for switch
 %type <prog> program
+%type <caseptr> case_stmt
+%type <caselist> case_list
+
+%start program
 
 %%
 
+program : stmtlist
+{
+    $$ = new lp::AST($1);
+    root = $$;
+}
+;
 
-program
-    : stmtlist
-      {
-          $$ = new lp::AST($1);
-          root = $$;
-      }
-    ;
+stmtlist : 
+{
+    $$ = new std::list<lp::Statement*>();
+}
+| stmtlist stmt
+{
+    $$ = $1;
+    $$->push_back($2);
+    
+    if (interactiveMode && control == 0) {
+        for(auto stmt : *$$) {
+            stmt->evaluate();
+        }
+        $$->clear();
+    }
+}
+| stmtlist error SEMICOLON
+{
+    yyerrok;
+    $$ = $1;
+}
+;
 
-stmtlist
-    : /* vacío */
-      {
-          $$ = new std::list<lp::Statement *>();
-      }
-    | stmtlist stmt
-      {
-          $$ = $1;
-          if($2 != NULL)
-            $$->push_back($2);
+stmt : SEMICOLON
+{
+    $$ = new lp::EmptyStmt();
+}
+| asgn SEMICOLON
+| asgn_plus SEMICOLON
+| asgn_minus SEMICOLON
+| print SEMICOLON
+| read SEMICOLON
+| read_string SEMICOLON
+| increment SEMICOLON
+| decrement SEMICOLON
+| if
+| while
+| repeat
+| for
+| switch
+| CLEAR_SCREEN SEMICOLON
+{
+    $$ = new lp::ClearScreenStmt();
+}
+| PLACE LPAREN exp COMMA exp RPAREN SEMICOLON
+{
+    $$ = new lp::PlaceStmt($3, $5);
+}
+;
 
-          if (interactiveMode && control == 0) {
-              std::list<lp::Statement *>::iterator it;
-              for (it = $$->begin(); it != $$->end(); it++) {
-                  (*it)->evaluate();
-              }
-              $$->clear();
-          }
-      }
-    | stmtlist error SEMICOLON
-      {
-          yyerrok;
-          $$ = $1;
-      }
-    ;
+controlSymbol : /* empty */
+{
+    control++;
+}
+;
 
-stmt
-    : SEMICOLON
-      {
-          $$ = new lp::EmptyStmt();
-      }
-    | asgn SEMICOLON
-      {
-          $$ = $1;
-      }
-    | print SEMICOLON
-      {
-          $$ = $1;
-      }
-    | read SEMICOLON
-      {
-          $$ = $1;
-      }
-    | CLEAR_SCREEN SEMICOLON
-      {
-          $$ = new lp::ClearScreenStmt();
-      }
-    | PLACE LPAREN exp COMMA exp RPAREN SEMICOLON
-      {
-          $$ = new lp::PlaceStmt($3,$5);
-      }
-    | REPEAT stmtlist UNTIL cond
-      {
-          $$ = new lp::RepeatStmt(new lp::BlockStmt($2), $4);
-      }
-    | FOR VARIABLE FROM exp TO exp stepOpt DO stmtlist END_FOR
-      {
-          if (table.getSymbol($2) == NULL) {
-              lp::execerror("Variable del bucle 'for' no declarada previamente", $2);
-          }
-          $$ = new lp::ForStmt($2, $4, $6, $7, new lp::BlockStmt($9));
-      }
-    | SWITCH LPAREN exp RPAREN switchcases END_SWITCH
-      {
-          $$ = new lp::SwitchStmt($3, $5);
-      }
-    | SWITCH LPAREN exp RPAREN switchcases DEFAULT COLON stmtlist END_SWITCH
-      {
-          $$ = new lp::SwitchStmt($3, $5, new lp::BlockStmt($8));
-      }
-    | WHILE cond DO stmtlist END_WHILE
-      {
-          $$ = new lp::WhileStmt($2, new lp::BlockStmt($4));
-      }
-    | IF cond THEN stmtlist END_IF
-      {
-          $$ = new lp::IfStmt($2, new lp::BlockStmt($4));
-      }
-    | IF cond THEN stmtlist ELSE stmtlist END_IF
-      {
-          $$ = new lp::IfStmt($2, new lp::BlockStmt($4), new lp::BlockStmt($6));
-      }
-    ;
+if : IF controlSymbol cond THEN stmtlist END_IF
+{
+    $$ = new lp::IfStmt($3, new lp::AST($5));
+    control--;
+}
+| IF controlSymbol cond THEN stmtlist ELSE stmtlist END_IF
+{
+    $$ = new lp::IfStmt($3, new lp::AST($5), new lp::AST($7));
+    control--;
+}
+;
 
-asgn
-    : VARIABLE ASSIGNMENT exp
-      {
-          $$ = new lp::AssignmentStmt($1, $3);
-      }
-    | CONSTANT ASSIGNMENT exp
-      {
-          lp::execerror("No se puede modificar una constante", $1);
-          $$ = NULL;
-      }
-    ;
+while : WHILE controlSymbol cond DO stmtlist END_WHILE
+{
+    $$ = new lp::WhileStmt($3, new lp::AST($5));
+    control--;
+}
+;
 
-print
-    : PRINT LPAREN exp RPAREN
-      {
-          $$ = new lp::PrintStmt($3);
-      }
-    | PRINT LPAREN STRINGLITERAL RPAREN
-      {
-          $$ = new lp::PrintStringStmt(new lp::StringNode($3));
-      }
-    ;
+repeat : REPEAT controlSymbol stmtlist UNTIL cond
+{
+    $$ = new lp::RepeatStmt(new lp::AST($3), $5);
+    control--;
+}
+;
 
-read
-    : READ LPAREN VARIABLE RPAREN
-      {
-          $$ = new lp::ReadStmt($3);
-      }
-    | READ_STRING LPAREN VARIABLE RPAREN
-      {
-          $$ = new lp::ReadStringStmt($3);
-      }
-    | READ LPAREN CONSTANT RPAREN
-      {
-          lp::execerror("No se puede leer en una constante", $3);
-          $$ = NULL;
-      }
-    | READ_STRING LPAREN CONSTANT RPAREN
-      {
-          lp::execerror("No se puede leer en una constante", $3);
-          $$ = NULL;
-      }
-    ;
+for : FOR controlSymbol VARIABLE FROM exp TO exp DO stmtlist END_FOR
+{
+    $$ = new lp::ForStmt($3, $5, $7, new lp::AST($9));
+    control--;
+}
+| FOR controlSymbol VARIABLE FROM exp TO exp STEP exp DO stmtlist END_FOR
+{
+    $$ = new lp::ForStmt($3, $5, $7, $9, new lp::AST($11));
+    control--;
+}
+| FOR CONSTANT FROM exp TO exp DO stmtlist END_FOR
+{
+    lp::execerror("No se puede modificar constante en FOR", $3);
+}
+| FOR CONSTANT FROM exp TO exp STEP exp DO stmtlist END_FOR
+{
+    lp::execerror("No se puede modificar constante en FOR", $3);
+}
+;
 
-exp
-    : NUMBER
-      {
-          $$ = new lp::NumberNode($1);
-      }
-    | BOOL
-      {
-          static int counter = 0;
-          std::string name = "__bool_const_" + std::to_string(counter++);
-          lp::LogicalConstant* con = new lp::LogicalConstant(name, $1);
-          table.installSymbol(con);
-          $$ = new lp::ConstantNode(name);
-      }
-    | STRINGLITERAL
-      {
-          $$ = new lp::StringNode($1);
-      }
-    | VARIABLE
-      {
-          $$ = new lp::VariableNode($1);
-      }
-    | CONSTANT
-      {
-          $$ = new lp::ConstantNode($1);
-      }
-    | exp CONCAT exp
-      {
-          $$ = new lp::ConcatenationNode($1, $3);
-      }
-    | BUILTIN LPAREN exp RPAREN
-      {
-          // Usar el nombre correcto de la clase
-          $$ = new lp::BuiltinFunctionNode_1($1, $3);
-      }
-    | PLUS exp %prec UNARY
-      {
-          $$ = new lp::UnaryPlusNode($2);
-      }
-    | MINUS exp %prec UNARY
-      {
-          $$ = new lp::UnaryMinusNode($2);
-      }
-    | exp PLUS exp
-      {
-          $$ = new lp::PlusNode($1, $3);
-      }
-    | exp MINUS exp
-      {
-          $$ = new lp::MinusNode($1, $3);
-      }
-    | exp MULTIPLICATION exp
-      {
-          $$ = new lp::MultiplicationNode($1, $3);
-      }
-    | exp DIVISION exp
-      {
-          $$ = new lp::DivisionNode($1, $3);
-      }
-    | exp MODULO exp
-      {
-          $$ = new lp::ModuloNode($1, $3);
-      }
-    | exp POWER exp
-      {
-          $$ = new lp::PowerNode($1, $3);
-      }
-    | LPAREN exp RPAREN
-      {
-          $$ = $2;
-      }
-    | exp GREATER_THAN exp
-      {
-          $$ = new lp::GreaterThanNode($1, $3);
-      }
-    | exp GREATER_OR_EQUAL exp
-      {
-          $$ = new lp::GreaterOrEqualNode($1, $3);
-      }
-    | exp LESS_THAN exp
-      {
-          $$ = new lp::LessThanNode($1, $3);
-      }
-    | exp LESS_OR_EQUAL exp
-      {
-          $$ = new lp::LessOrEqualNode($1, $3);
-      }
-    | exp EQUAL exp
-      {
-          $$ = new lp::EqualNode($1, $3);
-      }
-    | exp NOT_EQUAL exp
-      {
-          $$ = new lp::NotEqualNode($1, $3);
-      }
-    | exp AND exp
-      {
-          $$ = new lp::AndNode($1, $3);
-      }
-    | exp OR exp
-      {
-          $$ = new lp::OrNode($1, $3);
-      }
-    | NOT exp
-      {
-          $$ = new lp::NotNode($2);
-      }
-    | exp INTDIV exp
-      {
-          $$ = new lp::IntDivNode($1, $3);
-      }
-    ;
+switch : SWITCH controlSymbol LPAREN exp RPAREN case_list END_SWITCH
+{
+    $$ = new lp::SwitchStmt($4, $6);
+    control--;
+}
+| SWITCH controlSymbol LPAREN exp RPAREN case_list DEFAULT COLON stmtlist END_SWITCH
+{
+    $$ = new lp::SwitchStmt($4, $6, new lp::AST($9));
+    control--;
+}
+;
 
-cond
-    : LPAREN exp RPAREN
-      {
-          $$ = $2;
-      }
-    ;
+case_list : case_list case_stmt
+{
+    $1->push_back($2);
+    $$ = $1;
+}
+| case_stmt
+{
+    $$ = new std::list<lp::Case*>();
+    $$->push_back($1);
+}
+;
 
-stepOpt
-    : /* vacío */
-      {
-          $$ = new lp::NumberNode(1);
-      }
-    | STEP exp
-      {
-          $$ = $2;
-      }
-    ;
+case_stmt : CASE exp COLON stmtlist
+{
+    $$ = new lp::Case($2, new lp::AST($4));
+}
+;
 
-switchcases
-    : switchcases switchcase
-      {
-          $$ = $1;
-          $$->push_back($2);
-      }
-    | switchcase
-      {
-          $$ = new std::list<lp::Case *>();
-          $$->push_back($1);
-      }
-    ;
+cond : LPAREN exp RPAREN
+{
+    $$ = $2;
+}
+;
 
-switchcase
-    : CASE exp COLON stmtlist
-      {
-          $$ = new lp::Case($2, new lp::BlockStmt($4));
-      }
-    | DEFAULT COLON stmtlist
-      {
-          $$ = new lp::Case(nullptr, new lp::BlockStmt($3));
-      }
-    ;
+asgn : VARIABLE ASSIGNACION exp
+{
+    $$ = new lp::AssignmentStmt($1, $3);
+}
+| CONSTANT ASSIGNACION exp
+{
+    lp::execerror("No se puede modificar constante", $1);
+}
+;
+
+asgn_plus : VARIABLE ASSIGNACIONPLUS exp
+{
+    $$ = new lp::AssignmentPlusStmt($1, $3);
+}
+| CONSTANT ASSIGNACIONPLUS exp
+{
+    lp::execerror("No se puede modificar constante", $1);
+}
+;
+
+asgn_minus : VARIABLE ASSIGNACIONMINUS exp
+{
+    $$ = new lp::AssignmentMinusStmt($1, $3);
+}
+| CONSTANT ASSIGNACIONMINUS exp
+{
+    lp::execerror("No se puede modificar constante", $1);
+}
+;
+
+print : PRINT LPAREN exp RPAREN
+{
+    $$ = new lp::PrintStmt($3);
+}
+;
+
+read : READ LPAREN VARIABLE RPAREN
+{
+    $$ = new lp::ReadStmt($3);
+}
+| READ LPAREN CONSTANT RPAREN
+{
+    lp::execerror("No se puede leer en constante", $3);
+}
+;
+
+read_string : READ_STRING LPAREN VARIABLE RPAREN
+{
+    $$ = new lp::ReadStringStmt($3);
+}
+| READ_STRING LPAREN CONSTANT RPAREN
+{
+    lp::execerror("No se puede leer en constante", $3);
+}
+;
+
+increment : VARIABLE PLUSPLUS
+{
+    $$ = new lp::IncrementStmt($1);
+}
+;
+
+decrement : VARIABLE MINUSMINUS
+{
+    $$ = new lp::DecrementStmt($1);
+}
+;
+
+exp : NUMBER
+{
+    $$ = new lp::NumberNode($1);
+}
+| STRING
+{
+    $$ = new lp::StringNode($1);
+}
+| BOOL
+{
+    $$ = new lp::BoolNode($1);
+}
+| VARIABLE
+{
+    $$ = new lp::VariableNode($1);
+}
+| CONSTANT
+{
+    $$ = new lp::ConstantNode($1);
+}
+| BUILTIN LPAREN listOfExp RPAREN
+{
+    lp::Builtin* f = (lp::Builtin*)table.getSymbol($1);
+    if (f->getNParameters() == (int)$3->size()) {
+        switch($3->size()) {
+            case 0: $$ = new lp::BuiltinFunctionNode_0($1); break;
+            case 1: $$ = new lp::BuiltinFunctionNode_1($1, $3->front()); break;
+            case 2: {
+                auto it = $3->begin();
+                lp::ExpNode* p1 = *it++;
+                lp::ExpNode* p2 = *it;
+                $$ = new lp::BuiltinFunctionNode_2($1, p1, p2);
+                break;
+            }
+            default: 
+                lp::execerror("Demasiados parámetros", $1);
+        }
+    } else {
+        lp::execerror("Número incorrecto de parámetros", $1);
+    }
+}
+| exp PLUS exp { $$ = new lp::PlusNode($1, $3); }
+| exp MINUS exp { $$ = new lp::MinusNode($1, $3); }
+| exp MULTIPLICATION exp { $$ = new lp::MultiplicationNode($1, $3); }
+| exp DIVISION exp { $$ = new lp::DivisionNode($1, $3); }
+| exp DIVISION_ENTERA exp { $$ = new lp::WholeDivisionNode($1, $3); }
+| exp MODULO exp { $$ = new lp::ModuloNode($1, $3); }
+| exp POWER exp { $$ = new lp::PowerNode($1, $3); }
+| exp CONCATENACION exp { $$ = new lp::ConcatenationNode($1, $3); }
+| exp GREATER_THAN exp { $$ = new lp::GreaterThanNode($1, $3); }
+| exp GREATER_OR_EQUAL exp { $$ = new lp::GreaterOrEqualNode($1, $3); }
+| exp LESS_THAN exp { $$ = new lp::LessThanNode($1, $3); }
+| exp LESS_OR_EQUAL exp { $$ = new lp::LessOrEqualNode($1, $3); }
+| exp EQUAL exp { $$ = new lp::EqualNode($1, $3); }
+| exp NOT_EQUAL exp { $$ = new lp::NotEqualNode($1, $3); }
+| exp AND exp { $$ = new lp::AndNode($1, $3); }
+| exp OR exp { $$ = new lp::OrNode($1, $3); }
+| NOT exp { $$ = new lp::NotNode($2); }
+| PLUS exp %prec UNARY { $$ = new lp::UnaryPlusNode($2); }
+| MINUS exp %prec UNARY { $$ = new lp::UnaryMinusNode($2); }
+| cond QUESTION exp COLON exp %prec QUESTION { $$ = new lp::AlternativeNode($1, $3, $5); }
+| LPAREN exp RPAREN { $$ = $2; }
+| VARIABLE PLUSPLUS %prec UNARY { $$ = new lp::IncrementExpNode($1); }
+| VARIABLE MINUSMINUS %prec UNARY { $$ = new lp::DecrementExpNode($1); }
+;
+
+listOfExp : 
+{
+    $$ = new std::list<lp::ExpNode*>();
+}
+| exp restOfListOfExp
+{
+    $2->push_front($1);
+    $$ = $2;
+}
+;
+
+restOfListOfExp : 
+{
+    $$ = new std::list<lp::ExpNode*>();
+}
+| COMMA exp restOfListOfExp
+{
+    $3->push_front($2);
+    $$ = $3;
+}
+;
 
 %%
 
-void yyerror(const char *s) {
-    std::cerr << progname << ":" << lineNumber << ": error: " << s << std::endl;
+void yyerror(const char* s) {
+    std::cerr << progname << ":" << lineNumber << ": Error: " << s << std::endl;
 }
