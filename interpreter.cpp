@@ -13,7 +13,9 @@
 	+ New statements: if, while, block
 */
 
+#include <setjmp.h>
 
+jmp_buf begin; // Esta línea **debe** estar en un solo archivo fuente
 
 // New in example 2
 #include <stdio.h>
@@ -51,7 +53,7 @@ std::string progname; //!<  Program name
 // NEW in example 6 
 
 // Use for recovery of runtime errors 
-#include <setjmp.h>
+
 #include <signal.h>
 
 // Error recovery functions 
