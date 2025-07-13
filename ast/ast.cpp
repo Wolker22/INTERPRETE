@@ -485,31 +485,44 @@ double lp::PowerNode::evaluateNumber()
 // AlternativeNode Implementation
 ////////////////////////////////////////////////////////////////////////////////
 
-void lp::AlternativeNode::printAST()
-{
-    std::cout << "AlternativeNode: ?" << std::endl;
-    this->_cond->printAST();
-    this->_left->printAST();
-    this->_right->printAST();
+// Type checking
+int lp::AlternativeNode::getType() {
+    if (_cond->getType() != BOOL_T) {
+        warning("Runtime warning: condition in alternative expression must be boolean",
+                "Using false as default");
+    }
+
+    int leftType = _left->getType();
+    int rightType = _right->getType();
+
+    if (leftType == rightType) {
+        return leftType;
+    } else {
+        warning("Both branches of alternative expression must have the same type",
+                "Using the left branch type");
+        return leftType;
+    }
 }
 
-double lp::AlternativeNode::evaluateNumber()
-{
-    if (this->getType() != NUMBER_TYPE)
-    {
-        warning("Runtime error: expressions not numeric", "Alternative");
-        return 0.0;
-    }
+// AST printing
+void lp::AlternativeNode::printAST() {
+    std::cout << "AlternativeNode: " << std::endl;
+    std::cout << "\tCondition: ";
+    _cond->printAST();
+    std::cout << "\tThen: ";
+    _left->printAST();
+    std::cout << "\tElse: ";
+    _right->printAST();
+}
 
-    if (this->_cond->getType() != BOOL_TYPE)
-    {
-        warning("Runtime error: condition not boolean", "Alternative");
-        return 0.0;
+// Evaluation
+double lp::AlternativeNode::evaluate() {
+    double condition = _cond->evaluate();
+    if (condition != 0) {  // true if non-zero
+        return _left->evaluate();
+    } else {
+        return _right->evaluate();
     }
-
-    return this->_cond->evaluateBool()
-               ? this->_left->evaluateNumber()
-               : this->_right->evaluateNumber();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

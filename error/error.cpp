@@ -30,9 +30,8 @@ void warning(std::string errorMessage1, std::string errorMessage2)
     std::cerr << "\t" << errorMessage2 << std::endl;
 }
 
-void yyerror(std::string errorMessage)
-{
-  warning("Parser error", errorMessage);
+void yyerror(std::string msg) {
+    std::cerr << "Line " << lineNumber << ": " << msg << std::endl;
 }
 
 void execerror(std::string errorMessage1, std::string errorMessage2)
@@ -41,9 +40,9 @@ void execerror(std::string errorMessage1, std::string errorMessage2)
   longjmp(begin, 0); // Volver a un estado viable
 }
 
-void fpecatch(int signum)     
-{
-  execerror("Run time", "floating point error");
+void fpecatch(int signum) {
+    std::cerr << "Runtime error: Floating point exception" << std::endl;
+    longjmp(begin, 1);
 }
 
 double errcheck(double d, std::string s)
