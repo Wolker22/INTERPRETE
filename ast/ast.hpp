@@ -1752,40 +1752,6 @@ namespace lp
 	///////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*!
-	  \class   BlockStmt
-	  \brief   Definition of atributes and methods of BlockStmt class
-	  \note    BlockStmt Class publicly inherits from Statement class
-	*/
-	class BlockStmt : public Statement
-	{
-	private:
-		std::list<Statement *> *_stmts; //!< List of statements
-
-	public:
-		/*!
-			\brief Constructor of BlockStmt
-			\param stmtList: list of Statement pointers
-			\post  A new BlockStmt is created
-		*/
-		BlockStmt(std::list<Statement *> *stmtList) : _stmts(stmtList) {}
-
-		/*!
-			\brief   Print the AST for BlockStmt
-			\return  void
-		*/
-		void printAST();
-
-		/*!
-			\brief   Evaluate the BlockStmt
-			\return  void
-		*/
-		void evaluate();
-	};
-
-	///////////////////////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////////////////////
-
-	/*!
 	  \class   ClearScreenStmt
 	  \brief   Definition of atributes and methods of ClearScreenStmt class
 	  \note    ClearScreenStmt Class publicly inherits from Statement class

@@ -3,28 +3,19 @@
   \brief Code of error recovery functions 
 */
 
-// cerr, endl
 #include <iostream>
-
-// std::string
 #include <string>
-
-// longjmp
 #include <setjmp.h>
-
-// errno, EDOM, ERANGE
 #include <cerrno>
 
 #include "error.hpp"
-
-// Macros for the screen
 #include "../includes/macros.hpp"
 
-// Variables globales externas
 extern int lineNumber; //!< Referencia al contador de líneas
 extern std::string progname; //!< Referencia al nombre del programa
 extern jmp_buf begin; //!< Usado para recuperación de errores
 
+namespace lp {
 
 void warning(std::string errorMessage1, std::string errorMessage2)
 {
@@ -39,12 +30,10 @@ void warning(std::string errorMessage1, std::string errorMessage2)
     std::cerr << "\t" << errorMessage2 << std::endl;
 }
 
-
 void yyerror(std::string errorMessage)
 {
   warning("Parser error", errorMessage);
 }
-
 
 void execerror(std::string errorMessage1, std::string errorMessage2)
 {
@@ -52,14 +41,11 @@ void execerror(std::string errorMessage1, std::string errorMessage2)
   longjmp(begin, 0); // Volver a un estado viable
 }
 
-
 void fpecatch(int signum)     
 {
   execerror("Run time", "floating point error");
 }
 
-
-// Comprobación de errores matemáticos
 double errcheck(double d, std::string s)
 {
   if (errno == EDOM)
@@ -78,3 +64,5 @@ double errcheck(double d, std::string s)
 
   return d;
 }
+
+} // namespace lp
