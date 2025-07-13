@@ -37,7 +37,6 @@ class LogicalConstant:public lp::Constant
 \name Public methods of LogicalConstant class
 */
 	public:
-	using Constant::operator=;
 
 /*!	
 	\name Constructors

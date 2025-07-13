@@ -37,7 +37,6 @@ class NumericVariable:public lp::Variable
 \name Public methods of NumericVariable class
 */
 	public:
-	using Variable::operator=;
 
 /*!	
 	\name Constructors

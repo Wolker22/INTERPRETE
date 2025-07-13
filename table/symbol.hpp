@@ -4,6 +4,7 @@
 	\author 
 	\date    2017-12-1
 	\version 1.0
+
 */
 
 #ifndef _SYMBOL_HPP_
@@ -19,6 +20,7 @@
 */
 namespace lp{
 
+
 /*!
   \class      Symbol
   \brief      Definition of the class Symbol
@@ -32,12 +34,12 @@ class Symbol:public lp::SymbolInterface
 	protected:
 		std::string _name;    //!< \brief Name of the Symbol
 		int      	_token;   //!< \brief Token of the Symbol
-        int         _type;    //!< \brief Type of the Symbol
 
 /*!	
 \name Public methods of Symbol class
 */
 	public:
+
 
 /*!	
 	\name Constructors
@@ -48,16 +50,15 @@ class Symbol:public lp::SymbolInterface
 	\note  Inline function
 	\param name: name of the Symbol
 	\param token: token of the Symbol
-	\param type: type of the Symbol
 	\pre   None
 	\post  A new Symbol is created with the values of the parameters
-	\sa   setName, setToken, setType
+	\sa   setName, setValue
 */
-	inline Symbol(std::string name="", int token = 0, int type = -1)
+	inline Symbol(std::string name="", int token = 0)
 	{
 		this->setName(name);
+
 		this->setToken(token);
-        this->setType(type);
 	}
 		
 /*!		
@@ -66,13 +67,13 @@ class Symbol:public lp::SymbolInterface
 	\param s: object of Symbol class
 	\pre   None
 	\post  A new Symbol is created with the values of an existent Symbol
-	\sa    setName, setToken, setType
+	\sa    setName, setValue
 */
 	inline Symbol(const Symbol & s)
 	{
 		this->setName(s.getName());
+
 		this->setToken(s.getToken());
-        this->setType(s.getType());
 	}
 
 
@@ -86,7 +87,7 @@ class Symbol:public lp::SymbolInterface
 	\pre    None
 	\post   None
     \return The name of the Symbol
-	\sa		getToken, getType
+	\sa		getToken
 */
 	inline const std::string & getName() const
 	{
@@ -105,20 +106,7 @@ class Symbol:public lp::SymbolInterface
 	inline int getToken() const
 	{
 		return this->_token;
-	}
-
-/*!	
-	\brief   Public method that returns the type of the Symbol
-	\note    Inline function
-	\pre     None
-	\post    None
-	\return  The type of the Symbol
-	\sa		 getName, getToken
-*/
-	inline int getType() const
-	{
-		return this->_type;
-	}
+	}	
 
 	
 /*!
@@ -132,7 +120,7 @@ class Symbol:public lp::SymbolInterface
 	\pre     None
 	\post    The name of the Symbol is equal to the parameter 
 	\return  void
-	\sa 	 setToken, setType
+	\sa 	 setToken
 */
 	inline void setName(const std::string & name)
 	{
@@ -147,25 +135,11 @@ class Symbol:public lp::SymbolInterface
 	\pre     None
 	\post    The token of the Symbol is equal to the parameter 
 	\return  void
-	\sa 	 setName, setType
+	\sa 	 setName
 */
 	inline void setToken(int token) 
 	{
 	    this->_token = token;
-	}
-
-/*!	
-	\brief   This functions modifies the type of the Symbol
-	\note    Inline function
-	\param   type: new type of the Symbol
-	\pre     None
-	\post    The type of the Symbol is equal to the parameter 
-	\return  void
-	\sa 	 setName, setToken
-*/
-	inline void setType(int type) 
-	{
-	    this->_type = type;
 	}
 
 /*!	

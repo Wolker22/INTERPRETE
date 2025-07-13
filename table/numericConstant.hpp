@@ -37,7 +37,6 @@ class NumericConstant:public lp::Constant
 \name Public methods of NumericConstant class
 */
 	public:
-	using Constant::operator=;
 
 /*!	
 	\name Constructors

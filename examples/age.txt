@@ -1,0 +1,10 @@
+
+read(edad);
+switch (edad)
+  case 18:
+    print('Mayor de edad justo'); # 
+  case 65:
+    print('Edad de jubilación');
+  default:
+    print('Edad común');
+end_switch

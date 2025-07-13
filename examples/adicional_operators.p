@@ -1,0 +1,20 @@
+# Comprueba el funcionamiento de operadores adicionales.
+print('Inserta un número\n');
+read(x);
+x++;
+print('\nSi le sumas 1 a lo que acabas de poner da –> ');
+print(x);
+x+:=(x*3);
+print('\nSi ahora le sumas 3 veces su valor, da –> ');
+print(x);
+x--;
+print('\nSi le restas 1 a da –> ');
+print(x);
+x-:=x;
+print('\nY si le restas su valor, da –> ');
+print(x);
+print('\nAdemás, vamos a comprobar el operador alternativa.\n');
+print('Inserta un número\n');
+read(valor);
+a:=(valor>0)? valor+20: valor-20;
+print(a);

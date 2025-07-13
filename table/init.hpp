@@ -92,8 +92,8 @@ static struct {
 						{"case", CASE}, // EJERCICIO 1
 						{"default", DEFAULT}, // EJERCICIO 1
 						{"end_switch", END_SWITCH}, // EJERCICIO 1
-						{"clear_screen", CLEAR_SCREEN}, // EJERCICIO 1
-						{"place", PLACE}, // NUEVO: LOS HE TENIDO QUE LLAMAR CON UNA X AL FINAL PORQUE SI NO ENTRA EN CONFLICTO CON SU MACRO
+						{"clear_screen", CLEAR_SCREEN_X}, // EJERCICIO 1
+						{"place", PLACE_X}, // NUEVO: LOS HE TENIDO QUE LLAMAR CON UNA X AL FINAL PORQUE SI NO ENTRA EN CONFLICTO CON SU MACRO
 						{"or", OR}, // EJERCICIO 1
 						{"and", AND}, // EJERCICIO 1
 						{"not", NOT}, // EJERCICIO 1

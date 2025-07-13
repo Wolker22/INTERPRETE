@@ -16,9 +16,9 @@
 
 #include <stdio.h>
 
-#define PLACE_CURSOR(x,y)   printf("\033[%d;%dH",x,y) //!< Place cursor
+#define PLACE(x,y)   printf("\033[%d;%dH",x,y) //!< Place
 
-#define CLEAR_SCREEN_SEQ        "\33[2J" //!< Clear the screen
+#define CLEAR_SCREEN        "\33[2J" //!< Clear the screen
 
 #define CLEAR_REST_OF_LINE "\33[K"  //!< Clear until the end of line
 

@@ -7,9 +7,9 @@ CPP = g++
 # -c: the output is an object file, the linking stage is not done.
 # -g: debug
 # -Wall: all warnings
-# -ansi: standard language (note: -ansi conflicts with C++11, use -std=c++11 instead)
+# -ansi: standard language
 # -02: optimization level
-CFLAGS = -c -g -Wall -std=c++11 -O2  # CHANGED: Replaced -ansi with -std=c++11
+CFLAGS = -c -g  -Wall -ansi -O2
 
 # Directive for flex's library
 LFLAGS = -lfl
@@ -28,9 +28,9 @@ OBJECTS-AST = ast/*.o  # New in example 16
 # MODIFIED in example 10: ./table/init.hpp
 # MODIFIED in example 16: ./ast/ast.hpp
 INCLUDES = ./parser/interpreter.tab.h ./error/error.hpp \
-                        ./table/table.hpp \
-                        ./table/init.hpp \
-                        ./ast/ast.hpp
+			./table/table.hpp \
+			./table/init.hpp \
+			./ast/ast.hpp
 
 #######################################################
 # Predefined macros 
@@ -55,27 +55,24 @@ $(NAME).o: $(NAME).cpp parser-dir ast-dir $(INCLUDES)
 	@$(CPP) $(CFLAGS) $<
 	@echo
 
-parser/interpreter.tab.h:
-	@$(MAKE) -C parser/ interpreter.tab.h
-
 # 
 parser-dir:
 	@echo "Accessing directory parser" 
 	@echo
-	@make -C parser/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
+	@make -C parser/
 	@echo
 
 error-dir:
 	@echo "Accessing directory error" 
 	@echo
-	@make -C error/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
+	@make -C error/ 
 	@echo
 
 # New in example 7
 table-dir:
 	@echo "Accessing directory table" 
 	@echo
-	@make -C table/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
+	@make -C table/ 
 	@echo
 
 
@@ -83,7 +80,7 @@ table-dir:
 ast-dir:
 	@echo "Accessing directory ast" 
 	@echo
-	@make -C ast/ CFLAGS="$(CFLAGS)"  # ADDED: Pass CFLAGS to submake
+	@make -C ast/ 
 	@echo
 
 
@@ -116,3 +113,5 @@ clean:
 	@echo
 	@make -C ast/ clean
 	@echo
+
+

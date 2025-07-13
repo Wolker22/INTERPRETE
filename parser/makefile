@@ -60,7 +60,7 @@ all: $(OBJECTS)
 # Subreglas
 
 # Lexical analyzer
-	# -Wno-unused-function, -Wno-sign-compare: these error messages are not displayed
+# -Wno-unused-function, -Wno-sign-compare: these error messages are not displayed
 lex.yy.o:  lex.yy.c $(NAME).tab.h
 	$(CPP) $(CFLAGS)  -Wno-unused-function  -Wno-sign-compare $<
 

@@ -37,7 +37,6 @@ class LogicalVariable:public lp::Variable
 \name Public methods of LogicalVariable class
 */
 	public:
-	using Variable::operator=;
 
 /*!	
 	\name Constructors

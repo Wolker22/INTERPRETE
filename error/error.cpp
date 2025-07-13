@@ -1,23 +1,36 @@
-/*!
+/*! 
   \file error.cpp
   \brief Code of error recovery functions 
 */
 
+
+// cerr, endl
 #include <iostream>
+
 #include <string>
+
+/*  longjmp */
 #include <setjmp.h>
-#include <cerrno>
+
+// ERANGE, EDOM
+#include <errno.h>
 
 #include "error.hpp"
+
+// Macros for the screen
 #include "../includes/macros.hpp"
 
-extern int lineNumber; //!< Referencia al contador de líneas
-extern std::string progname; //!< Referencia al nombre del programa
-extern jmp_buf begin; //!< Usado para recuperación de errores
+extern int lineNumber; //!< // Reference to line counter
 
-namespace lp {
+extern std::string progname; //!<  Reference to program name
 
-void warning(std::string errorMessage1, std::string errorMessage2)
+extern jmp_buf begin; //!< Used for error recovery 
+
+// NEW
+extern int errno; //!<  ReferenceReference to the global variable that controls errors in the mathematical code
+
+
+void warning(std::string errorMessage1,std::string errorMessage2)
 {
   std::cerr << IGREEN; 
   std::cerr << " Program: " << progname << std::endl;
@@ -26,42 +39,51 @@ void warning(std::string errorMessage1, std::string errorMessage2)
             << " --> " << errorMessage1 << std::endl;
   std::cerr << RESET; 
 
-  if (!errorMessage2.empty())
-    std::cerr << "\t" << errorMessage2 << std::endl;
+
+  if (errorMessage2.compare("")!=0)
+		 std::cerr << "\t" << errorMessage2 << std::endl;
 }
 
-void yyerror(std::string msg) {
-    std::cerr << "Line " << lineNumber << ": " << msg << std::endl;
-}
-
-void execerror(std::string errorMessage1, std::string errorMessage2)
+void yyerror(std::string errorMessage)
 {
-  warning(errorMessage1, errorMessage2); 
-  longjmp(begin, 0); // Volver a un estado viable
+	warning("Parser error",errorMessage);
 }
 
-void fpecatch(int signum) {
-    std::cerr << "Runtime error: Floating point exception" << std::endl;
-    longjmp(begin, 1);
+
+void execerror(std::string errorMessage1,std::string errorMessage2)
+{
+ warning(errorMessage1,errorMessage2); 
+
+ longjmp(begin,0); /* return to a viable state */
 }
 
+void fpecatch(int signum)     
+{
+ execerror("Run time","error de punto flotante");
+}
+
+
+
+// NEW in example 13
 double errcheck(double d, std::string s)
 {
-  if (errno == EDOM)
-  {
-    errno = 0;
-    std::string msg("Runtime error --> argument out of domain");
-    std::cout << msg << std::endl;
-    execerror(s, msg);
-  }
-  else if (errno == ERANGE)
-  {
-    std::string msg("Runtime error --> result out of range");
-    errno = 0;
-    execerror(s, msg);
-  }
+  if (errno==EDOM)
+    {
+     errno=0;
+     std::string msg("Runtime error --> argument fuera de dominio");
+ 
+     std::cout << msg << std::endl;
+     execerror(s,msg);
+    }
+   else if (errno==ERANGE)
+           {
+		 	std::string msg("Runtime error --> resultado fuera de rango");
+            errno=0;
+            execerror(s,msg);
+           }
 
-  return d;
+ return d;
 }
 
-} // namespace lp
+
+
